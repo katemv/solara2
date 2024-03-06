@@ -4,7 +4,7 @@ import Icon from "../Icon/Icon.component";
 import { ButtonStyleProps } from "./Button.component";
 
 export const StyledButton = styled.button<ButtonStyleProps>(
-    ({ theme, fullWidth, disabled, loading }) => css`
+    ({ theme, fullWidth, disabled, loading, type }) => css`
         height: 50px;
         background: ${theme.colors.purple80};
         width: ${fullWidth ? "100%" : "auto"};
@@ -24,20 +24,29 @@ export const StyledButton = styled.button<ButtonStyleProps>(
             cursor: pointer;
         }
 
-        ${disabled &&
-        `
-        background: ${theme.colors.grey60};
-    `}
+        ${disabled && "background: ${theme.colors.grey60};"}
 
         ${loading &&
         `
-        background: ${theme.colors.purple80};
-        
-        &:hover, &:active {
             background: ${theme.colors.purple80};
-            cursor: default;
-        }
-    `}
+            
+            &:hover, &:active {
+                background: ${theme.colors.purple80};
+                cursor: default;
+            }
+        `}
+        
+        ${type === "ghost" &&
+        `
+            background: transparent;
+            border: 1px solid ${theme.colors.black60};
+            
+            &:hover,
+            &:active {
+                background: transparent;
+                border-color: ${theme.colors.purple80};
+            }
+        `}
     `
 );
 

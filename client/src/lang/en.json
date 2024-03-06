@@ -5,14 +5,30 @@
             "login": "Log in",
             "welcome_back": "Welcome back!",
             "login_message": "Log in with your data that you entered during your registration.",
-            "email_placeholder": "Email address",
-            "password_placeholder": "Password",
+
             "forgot_password": "Forgot password",
             "no_account": "Don't have an account?",
             "signup": "Sign up"
+        },
+        "signup": {
+            "signup": "Let's get started!",
+            "signup_message": "Please enter your valid data in order to create an account.",
+            "existing_account": "Do you have an account?",
+            "login": "Log in"
+        },
+        "verify": {
+            "verification_code": "Verification code",
+            "verification_code_subtitle": "We have sent the code verification to"
         }
     },
     "messages": {
-        "loading": "Loading..."
+        "loading": "Loading...",
+        "continue": "Continue",
+        "resend": "Resend",
+        "confirm": "Confirm"
+    },
+    "forms": {
+        "email_placeholder": "Email address",
+        "password_placeholder": "Password"
     }
 }

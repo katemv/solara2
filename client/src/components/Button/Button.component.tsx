@@ -12,6 +12,7 @@ export interface ButtonStyleProps extends HTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
     loading?: boolean;
     loadingLabel?: string;
+    type?: "default" | "ghost";
 }
 
 const Button: FC<ButtonProps> = ({
@@ -20,12 +21,14 @@ const Button: FC<ButtonProps> = ({
     disabled,
     loading,
     loadingLabel = "messages.loading",
+    type = "default",
 }) => {
     return (
         <StyledButton
             fullWidth={fullWidth}
             disabled={disabled || loading}
             loading={loading}
+            type={type}
         >
             {loading && <SpinIcon type="progress_activity" />}
             <Text as="span" intlKey={loading ? loadingLabel : label} bold />

@@ -3,8 +3,8 @@ import { css, styled } from "styled-components";
 import { SpacingKeys } from "../../providers/theme/types/types";
 
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
-    justify?: "start" | "end" | "center";
-    align?: "start" | "end" | "center";
+    justify?: "start" | "end" | "center" | "space-between";
+    align?: "start" | "end" | "center" | "space-between";
     direction?: "row" | "column";
     wrap?: boolean;
     gap?: SpacingKeys;

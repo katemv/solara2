@@ -5,7 +5,7 @@ import { StyledInput } from "./styles";
 
 export interface InputProps {
     fullWidth?: boolean;
-    placeholderIntlKey: string;
+    placeholderIntlKey?: string;
     value: string;
     type?: string;
     onChange: (value: string) => void;
@@ -23,7 +23,9 @@ const Input: FC<InputProps> = ({
     return (
         <StyledInput
             fullWidth={fullWidth}
-            placeholder={formatMessage({ id: placeholderIntlKey })}
+            placeholder={
+                placeholderIntlKey && formatMessage({ id: placeholderIntlKey })
+            }
             value={value}
             onChange={(e) => onChange(e.target.value)}
             type={type}

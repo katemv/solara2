@@ -8,12 +8,9 @@ export const StyledText = styled.div<TextStyleProps>(
         font-variation-settings: "wght"
             ${theme.typography[appearance].fontWeight};
         line-height: ${theme.typography[appearance].lineHeight};
-        font-variation-settings: "wght" ${bold ? "600" : "500"};
         color: ${theme.colors[color]};
         text-align: ${textAlign};
-        ${appearance === "logo" &&
-        `
-        font-family: "Bebas Neue", sans-serif;
-    `}
+        ${appearance === "logo" && "font-family: 'Bebas Neue', sans-serif;"}
+        ${bold && "font-variation-settings: 'wght' 600;"}
     `
 );

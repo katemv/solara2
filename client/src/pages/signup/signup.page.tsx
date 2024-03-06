@@ -9,7 +9,7 @@ import Input from "../../components/Input/Input.component";
 import Text from "../../components/Text/Text.component";
 import Logo from "../../components/Logo/Logo.component";
 
-const SignupPage = () => {
+const LoginPage = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -17,6 +17,7 @@ const SignupPage = () => {
         <Container align="center" justify="center">
             <Card direction="column" gap="spacing3">
                 <Logo />
+
                 <Flex
                     direction="column"
                     gap="spacing3"
@@ -26,13 +27,13 @@ const SignupPage = () => {
                 >
                     <Text
                         as="h1"
-                        intlKey="pages.login.welcome_back"
+                        intlKey="pages.signup.signup"
                         appearance="headline2"
                         textAlign="left"
                     />
                     <Text
                         as="p"
-                        intlKey="pages.login.login_message"
+                        intlKey="pages.signup.signup_message"
                         color="black60"
                         textAlign="left"
                     />
@@ -61,27 +62,20 @@ const SignupPage = () => {
                                 type="password"
                             />
                         </Flex>
-                        <Link to="/shop">
-                            <Text
-                                as="span"
-                                intlKey="pages.login.forgot_password"
-                                color="purple100"
-                            />
-                        </Link>
                     </Flex>
-                    <Button label="pages.login.login" fullWidth />
+                    <Button label="messages.continue" fullWidth />
                 </form>
 
                 <Flex align="center" justify="center" gap="spacing2">
                     <Text
                         as="p"
-                        intlKey="pages.login.no_account"
+                        intlKey="pages.signup.existing_account"
                         color="black60"
                     />
-                    <Link to="/signup">
+                    <Link to="/shop">
                         <Text
                             as="span"
-                            intlKey="pages.login.signup"
+                            intlKey="pages.signup.login"
                             color="purple100"
                         />
                     </Link>
@@ -91,4 +85,4 @@ const SignupPage = () => {
     );
 };
 
-export default SignupPage;
+export default LoginPage;
