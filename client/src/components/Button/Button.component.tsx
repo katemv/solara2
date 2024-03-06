@@ -1,0 +1,36 @@
+import { FC, HTMLAttributes } from "react";
+
+import Text from "../Text/Text.component";
+import { SpinIcon, StyledButton } from "./styles";
+
+interface ButtonProps extends ButtonStyleProps {
+    label: string;
+}
+
+export interface ButtonStyleProps extends HTMLAttributes<HTMLButtonElement> {
+    fullWidth?: boolean;
+    disabled?: boolean;
+    loading?: boolean;
+    loadingLabel?: string;
+}
+
+const Button: FC<ButtonProps> = ({
+    label,
+    fullWidth,
+    disabled,
+    loading,
+    loadingLabel = "messages.loading",
+}) => {
+    return (
+        <StyledButton
+            fullWidth={fullWidth}
+            disabled={disabled || loading}
+            loading={loading}
+        >
+            {loading && <SpinIcon type="progress_activity" />}
+            <Text as="span" intlKey={loading ? loadingLabel : label} bold />
+        </StyledButton>
+    );
+};
+
+export default Button;

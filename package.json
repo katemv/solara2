@@ -1,0 +1,15 @@
+{
+    "name": "solara-server",
+    "version": "1.0.0",
+    "description": "Your one-stop destination for all things space-related.",
+    "main": "index.js",
+    "scripts": {
+        "precommit": "npm test"
+    },
+    "engines": {
+        "node": ">=16.0.0",
+        "npm": ">=6.0.0"
+    },
+    "author": "mvkatt",
+    "license": "ISC"
+}
