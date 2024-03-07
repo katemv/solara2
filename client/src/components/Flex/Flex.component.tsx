@@ -10,6 +10,7 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
     gap?: SpacingKeys;
     marginBottom?: SpacingKeys;
     fullWidth?: boolean;
+    fullHeight?: boolean;
 }
 
 export const Flex = styled.div<FlexProps>`
@@ -21,6 +22,7 @@ export const Flex = styled.div<FlexProps>`
         gap,
         marginBottom,
         fullWidth,
+        fullHeight,
         theme,
     }) => css`
         display: flex;
@@ -30,6 +32,7 @@ export const Flex = styled.div<FlexProps>`
         flex-wrap: ${wrap ? "wrap" : "nowrap"};
         margin-bottom: ${marginBottom ? theme.spacings[marginBottom] : "0"};
         width: ${fullWidth ? "100%" : "auto"};
+        height: ${fullHeight ? "100%" : "auto"};
         ${gap && `gap: ${theme.spacings[gap]};`}
     `}
 `;

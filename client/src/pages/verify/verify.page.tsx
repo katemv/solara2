@@ -14,7 +14,7 @@ const VerifyPage = () => {
     return (
         <Container align="center" justify="center">
             <Card direction="column" gap="spacing3" justify="space-between">
-                <Logo />
+                <Logo marginBottom="spacing6" />
                 <Flex direction="column" gap="spacing3" marginBottom="spacing6">
                     <Text
                         as="h1"

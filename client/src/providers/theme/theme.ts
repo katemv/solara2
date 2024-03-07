@@ -9,6 +9,7 @@ const customTheme: DefaultTheme = {
     spacings,
     shadows,
     typography,
+    maxContentWidth: "1600px",
 };
 
 export default customTheme;

@@ -35,7 +35,7 @@ const LoginPage = () => {
     return (
         <Container align="center" justify="center">
             <Card direction="column" gap="spacing3">
-                <Logo />
+                <Logo marginBottom="spacing6" />
 
                 <Flex
                     direction="column"

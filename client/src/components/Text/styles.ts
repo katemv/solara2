@@ -12,5 +12,6 @@ export const StyledText = styled.div<TextStyleProps>(
         text-align: ${textAlign};
         ${appearance === "logo" && "font-family: 'Bebas Neue', sans-serif;"}
         ${bold && "font-variation-settings: 'wght' 600;"}
+        text-wrap: balance;
     `
 );

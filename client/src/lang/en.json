@@ -19,6 +19,20 @@
         "verify": {
             "verification_code": "Verification code",
             "verification_code_subtitle": "We have sent the code verification to"
+        },
+        "shop": {
+            "banner": "Gear Up for an Interstellar Shopping Journey with Solara",
+            "banner_description": "Explore exotic products across multiple universes. From tech to fashion, artifacts to food - we've got it all in one place. Dive into the universe of unique products, and make your shopping experience out of this world!"
+        }
+    },
+    "components": {
+        "nav": {
+            "shop": "Shop",
+            "cart": "Cart",
+            "orders": "Orders",
+            "profile": "Profile",
+            "dashboard": "Go to dashboard",
+            "login": "Log in"
         }
     },
     "messages": {

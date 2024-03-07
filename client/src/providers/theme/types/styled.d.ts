@@ -13,5 +13,6 @@ declare module "styled-components" {
         spacings: Record<SpacingKeys, string>;
         shadows: Record<ShadowKeys, string>;
         typography: Record<TypographyKeys, TypographyValues>;
+        maxContentWidth: string;
     }
 }
