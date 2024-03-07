@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 import ROUTES from "../../providers/navigation/routes";
 import MenuItem from "./MenuItem/MenuItem.component";
@@ -6,10 +6,17 @@ import Button from "../Button/Button.component";
 import { useAuth } from "../../hooks/useAuth";
 import Logo from "../Logo/Logo.component";
 import { Header, HeaderContainer, Menu, Nav } from "./styles";
+import { useEffect, useState } from "react";
 
 const Layout = () => {
     const { isAuthorized } = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
+    const [currentRoute, setCurrentRoute] = useState<string>(ROUTES.SHOP);
+
+    useEffect(() => {
+        setCurrentRoute(location.pathname);
+    }, [location.pathname]);
 
     return (
         <>
@@ -24,31 +31,55 @@ const Layout = () => {
                     <Nav>
                         {isAuthorized ? (
                             <>
-                                <Menu>
+                                {currentRoute === ROUTES.ADMIN ? (
+                                    <Button
+                                        label="components.nav.back_to_shop"
+                                        onClick={() => navigate(ROUTES.SHOP)}
+                                        type="ghost"
+                                    />
+                                ) : (
                                     <>
-                                        <MenuItem
-                                            to={ROUTES.SHOP}
-                                            intlKey="components.nav.shop"
-                                        />
-                                        <MenuItem
-                                            to={ROUTES.SHOP}
-                                            intlKey="components.nav.cart"
-                                        />
-                                        <MenuItem
-                                            to={ROUTES.SHOP}
-                                            intlKey="components.nav.orders"
-                                        />
-                                        <MenuItem
-                                            to={ROUTES.SHOP}
-                                            intlKey="components.nav.profile"
+                                        <Menu>
+                                            <MenuItem
+                                                to={ROUTES.SHOP}
+                                                intlKey="components.nav.shop"
+                                                isActive={
+                                                    currentRoute === ROUTES.SHOP
+                                                }
+                                            />
+                                            <MenuItem
+                                                to={ROUTES.CART}
+                                                intlKey="components.nav.cart"
+                                                isActive={
+                                                    currentRoute === ROUTES.CART
+                                                }
+                                            />
+                                            <MenuItem
+                                                to={ROUTES.ORDERS}
+                                                intlKey="components.nav.orders"
+                                                isActive={
+                                                    currentRoute ===
+                                                    ROUTES.ORDERS
+                                                }
+                                            />
+                                            <MenuItem
+                                                to={ROUTES.PROFILE}
+                                                intlKey="components.nav.profile"
+                                                isActive={
+                                                    currentRoute ===
+                                                    ROUTES.PROFILE
+                                                }
+                                            />
+                                        </Menu>
+                                        <Button
+                                            label="components.nav.admin"
+                                            onClick={() =>
+                                                navigate(ROUTES.ADMIN)
+                                            }
+                                            type="ghost"
                                         />
                                     </>
-                                </Menu>
-                                <Button
-                                    label="components.nav.dashboard"
-                                    // onClick={() => {}}
-                                    type="ghost"
-                                />
+                                )}
                             </>
                         ) : (
                             <Button

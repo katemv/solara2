@@ -42,6 +42,12 @@ const AuthProvider: FC<Props> = ({ children }) => {
             setUser(null);
             setIsAuthorized(false);
             setStorageData("token", null);
+        } else {
+            setIsAuthorized(true);
+            setUser({
+                token,
+                id: "", // todo update
+            });
         }
     }, []);
 

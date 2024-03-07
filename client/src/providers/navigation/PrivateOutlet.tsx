@@ -15,3 +15,5 @@ const PrivateOutlet: FC = () => {
 
     return isAuthorized ? <Outlet /> : <Navigate to={ROUTES.LOGIN} />;
 };
+
+export default PrivateOutlet;

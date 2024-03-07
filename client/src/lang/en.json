@@ -31,7 +31,8 @@
             "cart": "Cart",
             "orders": "Orders",
             "profile": "Profile",
-            "dashboard": "Go to dashboard",
+            "admin": "Go to admin",
+            "back_to_shop": "Back to shop",
             "login": "Log in"
         }
     },

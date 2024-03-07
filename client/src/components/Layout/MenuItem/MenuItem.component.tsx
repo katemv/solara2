@@ -5,14 +5,15 @@ import ROUTES from "../../../providers/navigation/routes";
 import Text from "../../Text/Text.component";
 import { StyledMenuItem } from "./styles";
 
-interface MenuItemProps {
+export interface MenuItemProps {
     to: ROUTES;
     intlKey: string;
+    isActive: boolean;
 }
 
-const MenuItem: FC<MenuItemProps> = ({ to, intlKey }) => {
+const MenuItem: FC<MenuItemProps> = ({ to, intlKey, isActive }) => {
     return (
-        <StyledMenuItem>
+        <StyledMenuItem isActive={isActive}>
             <Link to={to}>
                 <Text as="span" intlKey={intlKey} />
             </Link>
