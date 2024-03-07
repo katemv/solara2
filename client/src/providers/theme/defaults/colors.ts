@@ -10,6 +10,9 @@ export const colors: DefaultTheme["colors"] = {
     purple80: "#7861FF",
     grey60: "#D4D3D8",
     dark: "#16161E",
+    dark90: "#24242d",
+    blue100: "#31B0D8",
+    blue80: "#5BC0DF",
     backgroundGradient:
         "linear-gradient(to right top, #3f16d6, #7442e0, #9a69eb, #bb90f5, #d9b7ff)",
 };

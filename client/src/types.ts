@@ -1,8 +1,15 @@
 export type Nullable<T> = T | null;
 
-export interface User {
+export interface IUser {
     id: string;
     token: string;
+}
+
+export interface IProduct {
+    id: string;
+    name: string;
+    brand: string;
+    price: number;
 }
 
 export interface LoginResponse {

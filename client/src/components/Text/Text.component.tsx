@@ -1,30 +1,43 @@
 import { FC, HTMLAttributes, JSX } from "react";
 import { useIntl } from "react-intl";
 
-import { ColorsKeys, TypographyKeys } from "../../providers/theme/types/types";
+import {
+    ColorsKeys,
+    SpacingKeys,
+    TypographyKeys,
+} from "../../providers/theme/types/types";
 import { StyledText } from "./styles";
 
 type BaseTextProps = Partial<TextStyleProps> & HTMLAttributes<HTMLDivElement>;
 
 export interface TextProps extends BaseTextProps {
     as: keyof JSX.IntrinsicElements;
-    intlKey: string;
+    intlKey?: string;
+    plainText?: string;
+    customStyles?: Record<string, any>;
 }
 
 export interface TextStyleProps {
     appearance: TypographyKeys;
     color: ColorsKeys;
-    bold: boolean;
     textAlign: "left" | "right" | "center";
+    fontWeight: number;
+    textTransform: "uppercase" | "none";
+    marginBottom: SpacingKeys | 0;
+    style: Record<string, any>;
 }
 
 const Text: FC<TextProps> = ({
     as,
     intlKey,
+    plainText = "",
+    fontWeight = 0,
     appearance = "paragraph",
     color = "white",
-    bold = false,
     textAlign = "center",
+    textTransform = "none",
+    marginBottom = 0,
+    customStyles = {},
 }) => {
     const { formatMessage } = useIntl();
 
@@ -33,10 +46,13 @@ const Text: FC<TextProps> = ({
             as={as}
             appearance={appearance}
             color={color}
-            bold={bold}
             textAlign={textAlign}
+            fontWeight={fontWeight}
+            textTransform={textTransform}
+            marginBottom={marginBottom}
+            style={customStyles}
         >
-            {formatMessage({ id: intlKey })}
+            {intlKey ? formatMessage({ id: intlKey }) : plainText}
         </StyledText>
     );
 };

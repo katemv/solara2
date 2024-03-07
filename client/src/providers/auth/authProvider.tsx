@@ -9,15 +9,15 @@ import {
 } from "react";
 
 import { getStorageData, setStorageData } from "../../utils/localStorage";
-import { Nullable, User } from "../../types";
+import { Nullable, IUser } from "../../types";
 
 interface Props {
     children: ReactElement;
 }
 
 interface IAuthContext {
-    user: Nullable<User>;
-    setUser: Dispatch<SetStateAction<Nullable<User>>>;
+    user: Nullable<IUser>;
+    setUser: Dispatch<SetStateAction<Nullable<IUser>>>;
     isAuthorized: boolean;
     setIsAuthorized: Dispatch<SetStateAction<boolean>>;
 }
@@ -32,7 +32,7 @@ export const AuthContext = createContext<IAuthContext>({
 });
 
 const AuthProvider: FC<Props> = ({ children }) => {
-    const [user, setUser] = useState<Nullable<User>>(null);
+    const [user, setUser] = useState<Nullable<IUser>>(null);
     const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
 
     useEffect(() => {
