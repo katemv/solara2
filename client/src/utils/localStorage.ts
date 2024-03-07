@@ -1,3 +1,5 @@
+import { Nullable } from "../types";
+
 export type LocalStorageProps = keyof LocalStorageType;
 
 export interface LocalStorageType {
@@ -6,7 +8,7 @@ export interface LocalStorageType {
 
 export const setStorageData = <F extends LocalStorageProps>(
     key: F,
-    value: LocalStorageType[F]
+    value: Nullable<LocalStorageType[F]>
 ): void => {
     if (value === null) {
         localStorage.removeItem(key);

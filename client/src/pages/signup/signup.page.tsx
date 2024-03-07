@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 import { Container } from "../../components/Auth/Container.component";
@@ -8,10 +8,29 @@ import { Card } from "../../components/Auth/Card.component";
 import Input from "../../components/Input/Input.component";
 import Text from "../../components/Text/Text.component";
 import Logo from "../../components/Logo/Logo.component";
+import { useRequest } from "../../hooks/useRequest";
+import { SIGNUP_ROUTE, LOGIN_ROUTE } from "../../api/constants";
+import { LoginResponse } from "../../types";
 
 const LoginPage = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("test12345@test.com");
+    const [password, setPassword] = useState("123456");
+    const navigate = useNavigate();
+
+    const { request: signupRequest, isLoading } = useRequest<LoginResponse>({
+        path: SIGNUP_ROUTE,
+        body: {
+            name: email,
+            email,
+            password,
+        },
+        onSuccess: () => {
+            navigate(LOGIN_ROUTE, { replace: true });
+        },
+        onError: () => {
+            // todo handle errors
+        },
+    });
 
     return (
         <Container align="center" justify="center">
@@ -39,32 +58,31 @@ const LoginPage = () => {
                     />
                 </Flex>
 
-                <form>
+                <Flex direction="column" gap="spacing3" marginBottom="spacing9">
                     <Flex
                         direction="column"
                         gap="spacing3"
-                        marginBottom="spacing9"
+                        marginBottom="spacing4"
                     >
-                        <Flex
-                            direction="column"
-                            gap="spacing3"
-                            marginBottom="spacing4"
-                        >
-                            <Input
-                                placeholderIntlKey="forms.email_placeholder"
-                                value={email}
-                                onChange={setEmail}
-                            />
-                            <Input
-                                placeholderIntlKey="forms.password_placeholder"
-                                value={password}
-                                onChange={setPassword}
-                                type="password"
-                            />
-                        </Flex>
+                        <Input
+                            placeholderIntlKey="forms.email_placeholder"
+                            value={email}
+                            onChange={setEmail}
+                        />
+                        <Input
+                            placeholderIntlKey="forms.password_placeholder"
+                            value={password}
+                            onChange={setPassword}
+                            type="password"
+                        />
                     </Flex>
-                    <Button label="messages.continue" fullWidth />
-                </form>
+                </Flex>
+                <Button
+                    label="messages.continue"
+                    fullWidth
+                    onClick={signupRequest}
+                    loading={isLoading}
+                />
 
                 <Flex align="center" justify="center" gap="spacing2">
                     <Text

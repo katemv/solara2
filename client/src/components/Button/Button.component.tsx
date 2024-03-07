@@ -22,6 +22,7 @@ const Button: FC<ButtonProps> = ({
     loading,
     loadingLabel = "messages.loading",
     type = "default",
+    onClick,
 }) => {
     return (
         <StyledButton
@@ -29,6 +30,7 @@ const Button: FC<ButtonProps> = ({
             disabled={disabled || loading}
             loading={loading}
             type={type}
+            onClick={onClick}
         >
             {loading && <SpinIcon type="progress_activity" />}
             <Text as="span" intlKey={loading ? loadingLabel : label} bold />

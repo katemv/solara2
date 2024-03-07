@@ -4,4 +4,6 @@ dotenv.config();
 
 module.exports = {
     mongoDBUri: process.env.API_URL,
-}
+    sendgridApiKey: process.env.SEND_GRID_API_KEY,
+    JWTSecret: process.env.JWT_SECRET,
+};

@@ -1,28 +1,54 @@
-import { ReactElement, FC, createContext, useState } from "react";
+import {
+    ReactElement,
+    FC,
+    createContext,
+    useState,
+    Dispatch,
+    SetStateAction,
+    useEffect,
+} from "react";
+
+import { getStorageData, setStorageData } from "../../utils/localStorage";
+import { Nullable, User } from "../../types";
 
 interface Props {
     children: ReactElement;
 }
 
-export const AuthContext = createContext({
+interface IAuthContext {
+    user: Nullable<User>;
+    setUser: Dispatch<SetStateAction<Nullable<User>>>;
+    isAuthorized: boolean;
+    setIsAuthorized: Dispatch<SetStateAction<boolean>>;
+}
+
+export const AuthContext = createContext<IAuthContext>({
     user: null,
     isAuthorized: false,
+    // eslint-disable-next-line
+    setUser: () => {},
+    // eslint-disable-next-line
+    setIsAuthorized: () => {},
 });
 
 const AuthProvider: FC<Props> = ({ children }) => {
-    const [user, setUser] = useState(null);
-    const isAuthorized = false;
+    const [user, setUser] = useState<Nullable<User>>(null);
+    const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
 
-    // const { isPending, error, data } = useQuery({
-    //     queryKey: ["login"],
-    //     queryFn: () =>
-    //         fetch('http://localhost:8080').then((res) =>
-    //             res.json(),
-    //         ),
-    // });
+    useEffect(() => {
+        const token = getStorageData("token");
+
+        if (!token) {
+            setUser(null);
+            setIsAuthorized(false);
+            setStorageData("token", null);
+        }
+    }, []);
 
     return (
-        <AuthContext.Provider value={{ user, isAuthorized }}>
+        <AuthContext.Provider
+            value={{ user, setUser, isAuthorized, setIsAuthorized }}
+        >
             {children}
         </AuthContext.Provider>
     );
