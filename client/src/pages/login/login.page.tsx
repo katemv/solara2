@@ -72,11 +72,7 @@ const SignupPage = () => {
                 </Flex>
 
                 <Flex direction="column" gap="spacing3" marginBottom="spacing9">
-                    <Flex
-                        direction="column"
-                        gap="spacing3"
-                        marginBottom="spacing4"
-                    >
+                    <Flex direction="column" gap="spacing3" marginBottom="spacing4">
                         <Input
                             placeholderIntlKey="forms.email_placeholder"
                             value={email}
@@ -90,11 +86,7 @@ const SignupPage = () => {
                         />
                     </Flex>
                     <Link to="/shop">
-                        <Text
-                            as="span"
-                            intlKey="pages.login.forgot_password"
-                            color="purple100"
-                        />
+                        <Text as="span" intlKey="pages.login.forgot_password" color="purple100" />
                     </Link>
                 </Flex>
                 <Button
@@ -105,17 +97,9 @@ const SignupPage = () => {
                 />
 
                 <Flex align="center" justify="center" gap="spacing2">
-                    <Text
-                        as="p"
-                        intlKey="pages.login.no_account"
-                        color="black60"
-                    />
+                    <Text as="p" intlKey="pages.login.no_account" color="black60" />
                     <Link to="/signup">
-                        <Text
-                            as="span"
-                            intlKey="pages.login.signup"
-                            color="purple100"
-                        />
+                        <Text as="span" intlKey="pages.login.signup" color="purple100" />
                     </Link>
                 </Flex>
             </Card>

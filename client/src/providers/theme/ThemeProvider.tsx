@@ -7,9 +7,7 @@ interface ProviderProps {
     children: React.ReactElement | null;
 }
 
-const CustomThemeProvider: FC<ProviderProps> = ({
-    children,
-}: ProviderProps) => {
+const CustomThemeProvider: FC<ProviderProps> = ({ children }: ProviderProps) => {
     return (
         <ThemeProvider theme={theme}>
             <GlobalStyle />

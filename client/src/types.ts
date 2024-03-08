@@ -16,3 +16,13 @@ export interface LoginResponse {
     token: string;
     userId: string;
 }
+
+export enum Categories {
+    ALL_PRODUCTS = "categories.all_products",
+    TECH = "categories.tech",
+    FASHION = "categories.fashion",
+    ARTIFACTS = "categories.artifacts",
+    SPACE_EXPLORATION = "categories.space_exploration",
+    COSMETICS = "categories.cosmetics",
+    FOOD_AND_DRINK = "categories.food_and_drink",
+}

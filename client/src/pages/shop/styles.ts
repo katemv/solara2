@@ -8,5 +8,9 @@ export const Grid = styled.div(
         grid-gap: ${theme.spacings.spacing5};
         grid-template-columns: repeat(auto-fit, 300px);
         justify-content: center;
+
+        & [data-full-width="true"] {
+            grid-column: 1 / -1;
+        }
     `
 );

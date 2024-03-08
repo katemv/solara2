@@ -11,21 +11,13 @@ export interface InputProps {
     onChange: (value: string) => void;
 }
 
-const Input: FC<InputProps> = ({
-    fullWidth,
-    placeholderIntlKey,
-    value,
-    onChange,
-    type,
-}) => {
+const Input: FC<InputProps> = ({ fullWidth, placeholderIntlKey, value, onChange, type }) => {
     const { formatMessage } = useIntl();
 
     return (
         <StyledInput
             fullWidth={fullWidth}
-            placeholder={
-                placeholderIntlKey && formatMessage({ id: placeholderIntlKey })
-            }
+            placeholder={placeholderIntlKey && formatMessage({ id: placeholderIntlKey })}
             value={value}
             onChange={(e) => onChange(e.target.value)}
             type={type}

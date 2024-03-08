@@ -1,16 +1,20 @@
 import { css, styled } from "styled-components";
 import { Flex } from "../../Flex/Flex.component";
+import { ProductProps } from "./Product.component";
 
-export const StyledProduct = styled(Flex)(
-    ({ theme }) => css`
+export const StyledProduct = styled(Flex)<Omit<ProductProps, "product">>(
+    ({ theme, horizontal }) => css`
         background: ${theme.colors.dark90};
         padding: ${theme.spacings.spacing3};
-        padding-bottom: ${theme.spacings.spacing4};
+        padding-bottom: ${horizontal //eslint-disable-next-line
+            ? theme.spacings.spacing3 //eslint-disable-next-line
+            : theme.spacings.spacing4};
         border-radius: 10px;
         width: 300px;
-        flex-direction: column;
-        gap: ${theme.spacings.spacing1};
+        flex-direction: ${horizontal ? "row" : "column"};
+        gap: ${horizontal ? theme.spacings.spacing3 : theme.spacings.spacing1};
         cursor: pointer;
+        box-shadow: ${theme.shadows.elevation1};
         transition: box-shadow 0.2s ease-in-out;
 
         &:hover {
@@ -19,12 +23,12 @@ export const StyledProduct = styled(Flex)(
     `
 );
 
-export const ImageContainer = styled.div(
-    ({ theme }) => css`
+export const ImageContainer = styled.div<Omit<ProductProps, "product">>(
+    ({ theme, horizontal }) => css`
         border-radius: 10px;
-        width: 100%;
-        height: 250px;
-        margin-bottom: ${theme.spacings.spacing3};
+        width: ${horizontal ? "120px" : "100%"};
+        height: ${horizontal ? "120px" : "250px"};
+        margin-bottom: ${horizontal ? 0 : theme.spacings.spacing3};
         position: relative;
         overflow: hidden;
     `

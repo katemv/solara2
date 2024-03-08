@@ -21,12 +21,7 @@ const Layout = () => {
     return (
         <>
             <Header>
-                <HeaderContainer
-                    fullWidth
-                    fullHeight
-                    justify="space-between"
-                    align="center"
-                >
+                <HeaderContainer fullWidth fullHeight justify="space-between" align="center">
                     <Logo />
                     <Nav>
                         {isAuthorized ? (
@@ -43,39 +38,27 @@ const Layout = () => {
                                             <MenuItem
                                                 to={ROUTES.SHOP}
                                                 intlKey="components.nav.shop"
-                                                isActive={
-                                                    currentRoute === ROUTES.SHOP
-                                                }
+                                                isActive={currentRoute === ROUTES.SHOP}
                                             />
                                             <MenuItem
                                                 to={ROUTES.CART}
                                                 intlKey="components.nav.cart"
-                                                isActive={
-                                                    currentRoute === ROUTES.CART
-                                                }
+                                                isActive={currentRoute === ROUTES.CART}
                                             />
                                             <MenuItem
                                                 to={ROUTES.ORDERS}
                                                 intlKey="components.nav.orders"
-                                                isActive={
-                                                    currentRoute ===
-                                                    ROUTES.ORDERS
-                                                }
+                                                isActive={currentRoute === ROUTES.ORDERS}
                                             />
                                             <MenuItem
                                                 to={ROUTES.PROFILE}
                                                 intlKey="components.nav.profile"
-                                                isActive={
-                                                    currentRoute ===
-                                                    ROUTES.PROFILE
-                                                }
+                                                isActive={currentRoute === ROUTES.PROFILE}
                                             />
                                         </Menu>
                                         <Button
                                             label="components.nav.admin"
-                                            onClick={() =>
-                                                navigate(ROUTES.ADMIN)
-                                            }
+                                            onClick={() => navigate(ROUTES.ADMIN)}
                                             type="ghost"
                                         />
                                     </>

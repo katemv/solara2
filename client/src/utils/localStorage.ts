@@ -19,9 +19,7 @@ export const setStorageData = <F extends LocalStorageProps>(
     }
 };
 
-export const getStorageData = <F extends LocalStorageProps>(
-    key: F
-): string | null => {
+export const getStorageData = <F extends LocalStorageProps>(key: F): string | null => {
     const value = localStorage.getItem(key);
     return value != null ? value : null;
 };

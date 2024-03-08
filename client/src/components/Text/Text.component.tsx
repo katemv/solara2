@@ -1,11 +1,7 @@
 import { FC, HTMLAttributes, JSX } from "react";
 import { useIntl } from "react-intl";
 
-import {
-    ColorsKeys,
-    SpacingKeys,
-    TypographyKeys,
-} from "../../providers/theme/types/types";
+import { ColorsKeys, SpacingKeys, TypographyKeys } from "../../providers/theme/types/types";
 import { StyledText } from "./styles";
 
 type BaseTextProps = Partial<TextStyleProps> & HTMLAttributes<HTMLDivElement>;

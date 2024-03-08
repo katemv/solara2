@@ -1,11 +1,5 @@
 import "styled-components";
-import {
-    ColorsKeys,
-    ShadowKeys,
-    SpacingKeys,
-    TypographyKeys,
-    TypographyValues,
-} from "./types";
+import { ColorsKeys, ShadowKeys, SpacingKeys, TypographyKeys, TypographyValues } from "./types";
 
 declare module "styled-components" {
     export interface DefaultTheme {

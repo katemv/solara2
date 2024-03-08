@@ -52,9 +52,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider
-            value={{ user, setUser, isAuthorized, setIsAuthorized }}
-        >
+        <AuthContext.Provider value={{ user, setUser, isAuthorized, setIsAuthorized }}>
             {children}
         </AuthContext.Provider>
     );

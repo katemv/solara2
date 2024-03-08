@@ -8,11 +8,7 @@ import { flatten } from "flat";
 
 const RootProvider = () => {
     return (
-        <IntlProvider
-            messages={flatten(messages)}
-            locale="en"
-            defaultLocale="en"
-        >
+        <IntlProvider messages={flatten(messages)} locale="en" defaultLocale="en">
             <ThemeProvider>
                 <Router>
                     <AuthProvider>

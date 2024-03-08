@@ -3,8 +3,8 @@ import { css, styled } from "styled-components";
 import { SpacingKeys } from "../../providers/theme/types/types";
 
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
-    justify?: "start" | "end" | "center" | "space-between";
-    align?: "start" | "end" | "center" | "space-between";
+    justify?: "start" | "end" | "center" | "space-between" | "space-around";
+    align?: "start" | "end" | "center" | "space-between" | "space-around";
     direction?: "row" | "column";
     wrap?: boolean;
     gap?: SpacingKeys;
@@ -14,17 +14,7 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Flex = styled.div<FlexProps>`
-    ${({
-        justify,
-        align,
-        direction,
-        wrap,
-        gap,
-        marginBottom,
-        fullWidth,
-        fullHeight,
-        theme,
-    }) => css`
+    ${({ justify, align, direction, wrap, gap, marginBottom, fullWidth, fullHeight, theme }) => css`
         display: flex;
         justify-content: ${justify};
         align-items: ${align};

@@ -8,11 +8,7 @@ interface IconProps {
 }
 
 const Icon: FC<IconProps> = ({ type, className = "" }) => {
-    return (
-        <StyledIcon className={`material-symbols-outlined ${className}`}>
-            {type}
-        </StyledIcon>
-    );
+    return <StyledIcon className={`material-symbols-outlined ${className}`}>{type}</StyledIcon>;
 };
 
 export default Icon;

@@ -39,7 +39,7 @@ export const StyledButton = styled.button<ButtonStyleProps>(
         ${type === "ghost" &&
         `
             background: transparent;
-            border: 1px solid ${theme.colors.black60};
+            border: 2px solid ${theme.colors.black90};
             
             &:hover,
             &:active {

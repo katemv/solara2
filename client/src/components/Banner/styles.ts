@@ -2,14 +2,7 @@ import { css, styled } from "styled-components";
 import { Flex } from "../Flex/Flex.component";
 
 const blueGradient = css`
-    background-image: linear-gradient(
-        to right top,
-        #6d327c,
-        #485da6,
-        #00a1ba,
-        #00bf98,
-        #36c486
-    );
+    background-image: linear-gradient(to right top, #6d327c, #485da6, #00a1ba, #00bf98, #36c486);
 `;
 
 const pinkGradient = css`

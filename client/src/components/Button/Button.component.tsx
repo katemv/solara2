@@ -33,11 +33,7 @@ const Button: FC<ButtonProps> = ({
             onClick={onClick}
         >
             {loading && <SpinIcon type="progress_activity" />}
-            <Text
-                as="span"
-                intlKey={loading ? loadingLabel : label}
-                fontWeight={600}
-            />
+            <Text as="span" intlKey={loading ? loadingLabel : label} fontWeight={600} />
         </StyledButton>
     );
 };
