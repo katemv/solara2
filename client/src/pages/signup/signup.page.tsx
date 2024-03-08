@@ -1,13 +1,13 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
-import { Container } from "../../components/Auth/Container.component";
-import Button from "../../components/Button/Button.component";
-import { Flex } from "../../components/Flex/Flex.component";
-import { Card } from "../../components/Auth/Card.component";
-import Input from "../../components/Input/Input.component";
-import Text from "../../components/Text/Text.component";
-import Logo from "../../components/Logo/Logo.component";
+import { Container } from "../../components/Organisms/Auth/Container.component";
+import Button from "../../components/Atoms/Button/Button.component";
+import { Flex } from "../../components/Atoms/Flex/Flex.component";
+import { Card } from "../../components/Organisms/Auth/Card.component";
+import Input from "../../components/Atoms/Input/Input.component";
+import Text from "../../components/Atoms/Text/Text.component";
+import Logo from "../../components/Molecules/Logo/Logo.component";
 import { useRequest } from "../../hooks/useRequest";
 import { SIGNUP_ROUTE, LOGIN_ROUTE } from "../../api/constants";
 import { LoginResponse } from "../../types";

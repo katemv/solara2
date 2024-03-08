@@ -1,13 +1,14 @@
 import { useState } from "react";
-import PageContainer from "../../components/PageContainer/PageContainer.component";
-import Product from "../../components/Products/Product/Product.component";
-import Banner from "../../components/Banner/Banner.component";
-import { Flex } from "../../components/Flex/Flex.component";
-import Text from "../../components/Text/Text.component";
-import Tab from "../../components/Tab/Tab.component";
-import { Categories, IProduct } from "../../types";
+import PageContainer from "../../components/Molecules/PageContainer/PageContainer.component";
+import Product from "../../components/Organisms/Products/ProductItem/ProductItem.component";
+import Banner from "../../components/Organisms/Banner/Banner.component";
+import { Flex } from "../../components/Atoms/Flex/Flex.component";
+import Text from "../../components/Atoms/Text/Text.component";
+import Tab from "../../components/Molecules/Tab/Tab.component";
+import { Categories, IProduct, Nullable } from "../../types";
 import { CATEGORIES } from "../../utils/constants";
-import { Grid } from "./styles";
+import { fullWidth, Grid } from "./styles";
+import ProductDetailsModal from "../../components/Organisms/Products/ProductDetailsModal/ProductDetailsModal.component";
 
 const mock: IProduct = {
     id: "1",
@@ -18,6 +19,8 @@ const mock: IProduct = {
 
 const ShopPage = () => {
     const [currentCategory, setCurrentCategory] = useState<Categories>(Categories.ALL_PRODUCTS);
+    const [currentProduct, setCurrentProduct] = useState<Nullable<IProduct>>(null);
+
     return (
         <>
             <Banner heading="pages.shop.banner" subheading="pages.shop.banner_description" />
@@ -28,19 +31,24 @@ const ShopPage = () => {
                         intlKey="pages.shop.popular_products"
                         appearance="headline3"
                         textAlign="left"
-                        customStyles={{ gridColumn: "1 / -1" }}
+                        customStyles={fullWidth}
                     />
-                    {new Array(3).fill(0).map((product, index) => (
-                        <Product key={index} product={mock} horizontal />
+                    {new Array(3).fill(0).map((_, index) => (
+                        <Product
+                            key={index}
+                            product={mock}
+                            horizontal
+                            onClick={() => setCurrentProduct(mock)}
+                        />
                     ))}
                     <Text
                         as="h2"
                         intlKey="pages.shop.categories"
                         appearance="headline3"
                         textAlign="left"
-                        customStyles={{ gridColumn: "1 / -1" }}
+                        customStyles={fullWidth}
                     />
-                    <Flex gap="spacing2" marginBottom="spacing4" wrap data-full-width>
+                    <Flex gap="spacing2" marginBottom="spacing4" $wrap data-full-width>
                         <Tab
                             isActive={currentCategory === Categories.ALL_PRODUCTS}
                             onClick={() => setCurrentCategory(Categories.ALL_PRODUCTS)}
@@ -55,11 +63,40 @@ const ShopPage = () => {
                             />
                         ))}
                     </Flex>
+                    <Text
+                        as="h2"
+                        intlKey={currentCategory}
+                        appearance="headline2"
+                        textAlign="left"
+                        customStyles={fullWidth}
+                    />
+                    <Text
+                        as="p"
+                        intlKey={`${currentCategory}_description`}
+                        appearance="paragraph"
+                        textAlign="left"
+                        fontWeight={300}
+                        color="grey60"
+                        customStyles={{ ...fullWidth, width: "80%" }}
+                        marginBottom="spacing4"
+                    />
                     {new Array(10).fill(0).map((_, index) => (
-                        <Product key={index} product={mock} />
+                        <Product
+                            key={index}
+                            product={mock}
+                            onClick={() => setCurrentProduct(mock)}
+                        />
                     ))}
                 </Grid>
             </PageContainer>
+
+            <ProductDetailsModal
+                visible={!!currentProduct}
+                product={currentProduct}
+                onClose={() => {
+                    setCurrentProduct(null);
+                }}
+            />
         </>
     );
 };

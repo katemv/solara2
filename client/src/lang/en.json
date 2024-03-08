@@ -42,7 +42,8 @@
         "loading": "Loading...",
         "continue": "Continue",
         "resend": "Resend",
-        "confirm": "Confirm"
+        "confirm": "Confirm",
+        "buy_now": "Buy now"
     },
     "forms": {
         "email_placeholder": "Email address",
@@ -50,11 +51,18 @@
     },
     "categories": {
         "tech": "Tech",
+        "tech_description": "Welcome to a space where you don't need a telescope or a spaceship to experience the future. Solara's Tech category is custom-designed to stimulate and satiate your thirst for innovation. Our curation of the most futuristic products doesn't just meet the standards of tomorrow; it sets them.",
         "fashion": "Fashion",
+        "fashion_description": "Venture into a universe of style where interstellar allure meets unprecedented design quality. Here, our forward-thinking approach transcends ordinary sartorial norms, propelling fashion enthusiasts into realms where cosmic inspiration sets the pace.",
         "artifacts": "Artifacts",
+        "artifacts_description": "Embark on a time-travelling journey to discover treasures lost in the sands of cosmic time. Bend reality and history as you indulge in a collection of artifacts, each bearing a tale of long-lost civilizations and space-faring races. With every relic, you don't just hold a product but a piece of an epic cosmic saga in your hands.",
         "space_exploration": "Space exploration",
+        "space_exploration_description": "Experience the thrill of distant star systems and uncharted territories of space with an array of exploration gear. Each product, a result of ardent celestial research and innovative design, promises to fuel your curiosity and provide a safe and fulfilling exploration experience that goes beyond the confines of our blue planet.",
         "cosmetics": "Cosmetics",
+        "cosmetics_description": "Immerse in the discovery of beauty products that capture the aesthetic of countless burning stars. Our galactic glam collection gives you the sparkle of distant galaxies, the shimmer of meteor showers, and the otherworldly hues that will ignite the cosmic entity within you.",
         "food_and_drink": "Food and drink",
-        "all_products": "All products"
+        "food_and_drink_description": "Bring the universe's gastronomy to your table with a selection of delicious, exotic foods harvested from across the cosmos. Each bite is a taste of wonder, blending unexplored flavors with familiar accents, crafted to give every meal a touch of the extraordinary.",
+        "all_products": "All products",
+        "all_products_description": "Embrace a universal shopping experience that transcends conventional bounds. Here you'll find an overflowing cosmos of products - from the technologically advanced, to the fashionably forward; from cryptic cosmic artifacts to indispensables of space exploration; and from celestial skincare to extraordinary alien cuisines. "
     }
 }

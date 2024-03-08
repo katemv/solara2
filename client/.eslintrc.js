@@ -28,7 +28,7 @@ module.exports = {
     rules: {
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",
-        indent: ["error", 4],
+        indent: "off",
         "linebreak-style": ["error", "unix"],
         quotes: ["error", "double"],
         semi: ["error", "always"],

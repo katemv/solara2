@@ -1,4 +1,4 @@
-import Banner from "../../components/Banner/Banner.component";
+import Banner from "../../components/Organisms/Banner/Banner.component";
 
 const DashboardPage = () => {
     return (

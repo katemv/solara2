@@ -1,5 +1,9 @@
 import { css, styled } from "styled-components";
 
+export const fullWidth = {
+    gridColumn: "1 / -1",
+};
+
 export const Grid = styled.div(
     ({ theme }) => css`
         max-width: ${theme.maxContentWidth};

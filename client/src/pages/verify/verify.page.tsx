@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-import { Container } from "../../components/Auth/Container.component";
-import Button from "../../components/Button/Button.component";
-import { Card } from "../../components/Auth/Card.component";
-import { Flex } from "../../components/Flex/Flex.component";
-import Input from "../../components/Input/Input.component";
-import Logo from "../../components/Logo/Logo.component";
-import Text from "../../components/Text/Text.component";
+import { Container } from "../../components/Organisms/Auth/Container.component";
+import Button from "../../components/Atoms/Button/Button.component";
+import { Card } from "../../components/Organisms/Auth/Card.component";
+import { Flex } from "../../components/Atoms/Flex/Flex.component";
+import Input from "../../components/Atoms/Input/Input.component";
+import Logo from "../../components/Molecules/Logo/Logo.component";
+import Text from "../../components/Atoms/Text/Text.component";
 
 const VerifyPage = () => {
     const [verificationCode, setVerificationCode] = useState("");

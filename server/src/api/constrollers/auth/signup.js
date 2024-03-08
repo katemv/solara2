@@ -7,7 +7,6 @@ const signup = (req, res, next) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        console.log("errors", errors);
         const error = new Error("Validation failed");
         error.statusCode = 422;
         error.data = errors.array();
