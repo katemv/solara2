@@ -1,5 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { Container } from "../../components/Organisms/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
@@ -9,17 +11,31 @@ import Input from "../../components/Atoms/Input/Input.component";
 import { setStorageData } from "../../utils/localStorage";
 import Text from "../../components/Atoms/Text/Text.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";
-import { useRequest } from "../../hooks/useRequest";
+import { useServer } from "../../hooks/useServer";
 import { LOGIN_ROUTE } from "../../api/constants";
 import { useAuth } from "../../hooks/useAuth";
-import { LoginResponse } from "../../types";
 
-const SignupPage = () => {
+const loginSchema = yup.object().shape({
+    email: yup.string().required(),
+    password: yup.string().required(),
+}).required();
+
+interface LoginRequest {
+    email: string;
+    password: string;
+}
+
+interface LoginResponse {
+    token: string;
+    userId: string;
+}
+
+const LoginPage = () => {
     const { setUser, setIsAuthorized } = useAuth();
     const navigate = useNavigate();
-
-    const [email, setEmail] = useState("test12345@test.com");
-    const [password, setPassword] = useState("123456");
+    const { control, handleSubmit } = useForm<LoginRequest>({
+        resolver: yupResolver(loginSchema),
+    });
 
     const logout = () => {
         setUser(null);
@@ -27,9 +43,8 @@ const SignupPage = () => {
         setStorageData("token", null);
     };
 
-    const { request: loginRequest, isLoading } = useRequest<LoginResponse>({
+    const { request: loginRequest, isLoading } = useServer<LoginRequest, LoginResponse>({
         path: LOGIN_ROUTE,
-        body: { email, password },
         onSuccess: (data) => {
             const { token, userId } = data;
 
@@ -71,30 +86,35 @@ const SignupPage = () => {
                     />
                 </Flex>
 
-                <Flex direction="column" gap="spacing3" marginBottom="spacing9">
-                    <Flex direction="column" gap="spacing3" marginBottom="spacing4">
-                        <Input
-                            placeholderIntlKey="forms.email_placeholder"
-                            value={email}
-                            onChange={setEmail}
-                        />
-                        <Input
-                            placeholderIntlKey="forms.password_placeholder"
-                            value={password}
-                            onChange={setPassword}
-                            type="password"
-                        />
+                <form
+                    onSubmit={handleSubmit(loginRequest)}
+                >
+                    <Flex direction="column" gap="spacing3" marginBottom="spacing9">
+                        <Flex direction="column" gap="spacing3" marginBottom="spacing4">
+                            <Input
+                                control={control}
+                                placeholderIntlKey="forms.email_placeholder"
+                                name="email"
+                            />
+                            <Input
+                                control={control}
+                                placeholderIntlKey="forms.password_placeholder"
+                                name="password"
+                                type="password"
+                            />
+                        </Flex>
+                        <Link to="/shop">
+                            <Text as="span" intlKey="pages.login.forgot_password" color="purple100" />
+                        </Link>
                     </Flex>
-                    <Link to="/shop">
-                        <Text as="span" intlKey="pages.login.forgot_password" color="purple100" />
-                    </Link>
-                </Flex>
-                <Button
-                    label="pages.login.login"
-                    fullWidth
-                    onClick={loginRequest}
-                    loading={isLoading}
-                />
+                    <Button
+                        label="pages.login.login"
+                        loading={isLoading}
+                        type="submit"
+                        fullWidth
+                    />
+                </form>
+
 
                 <Flex align="center" justify="center" gap="spacing2">
                     <Text as="p" intlKey="pages.login.no_account" color="black60" />
@@ -107,4 +127,4 @@ const SignupPage = () => {
     );
 };
 
-export default SignupPage;
+export default LoginPage;
