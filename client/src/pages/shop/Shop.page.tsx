@@ -23,7 +23,7 @@ const ShopPage = () => {
 
     return (
         <>
-            <Banner heading="pages.shop.banner" subheading="pages.shop.banner_description" />
+            <Banner headingIntlKey="pages.shop.banner" subheadingIntlKey="pages.shop.banner_description" />
             <PageContainer>
                 <Grid>
                     <Text

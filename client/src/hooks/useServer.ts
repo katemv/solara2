@@ -1,38 +1,44 @@
+import { HttpStatusCode } from "axios";
 import { useState } from "react";
+
 import axiosInstance from "../api/axiosInstance";
 import { Nullable } from "../types";
 
-interface IRequest<Res> {
+
+interface IServer<Res> {
     path: string;
-    body: Record<string, string>;
     onSuccess: (data: Res) => void;
     onError: () => void;
 }
 
-interface IRequestReturnType<Res> {
+interface IRequestReturnType<Req, Res> {
     isLoading: boolean;
     errors: string[];
     data: Nullable<Res>;
-    request: () => Promise<void>;
+    request: (body: Req) => Promise<void>;
 }
 
-export function useRequest<Res>({
+interface IError {
+    message: string;
+    status: number;
+}
+
+export function useServer<Req, Res, Err = IError>({
     path,
-    body,
     onSuccess,
     onError,
-}: IRequest<Res>): IRequestReturnType<Res> {
+}: IServer<Res>): IRequestReturnType<Req, Res> {
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
     const [data, setData] = useState<Nullable<Res>>(null);
 
-    const request = async () => {
+    const request = async (body: Req) => {
         try {
             setIsLoading(true);
             const response = await axiosInstance.post(path, body);
             setIsLoading(false);
 
-            if (response.status !== 200) {
+            if (response.status !== HttpStatusCode.Ok) {
                 onError();
             }
             setData(response.data);

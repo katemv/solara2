@@ -8,22 +8,36 @@ import { Card } from "../../components/Organisms/Auth/Card.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import Text from "../../components/Atoms/Text/Text.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";
-import { useRequest } from "../../hooks/useRequest";
 import { SIGNUP_ROUTE, LOGIN_ROUTE } from "../../api/constants";
-import { LoginResponse } from "../../types";
+import { useServer } from "../../hooks/useServer";
 
-const LoginPage = () => {
-    const [email, setEmail] = useState("test12345@test.com");
-    const [password, setPassword] = useState("123456");
+import {useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+export interface SignupRequest {
+    email: string;
+    password: string;
+}
+
+export interface SignupResponse {
+    token: string;
+    userId: string;
+}
+
+const signupSchema = yup.object().shape({
+    email: yup.string().required(),
+    password: yup.string().required(),
+}).required();
+
+const SignupPage = () => {
     const navigate = useNavigate();
+    const { control, handleSubmit } = useForm<SignupRequest>({
+        resolver: yupResolver(signupSchema),
+    });
 
-    const { request: signupRequest, isLoading } = useRequest<LoginResponse>({
+    const { request: signupRequest, isLoading } = useServer<SignupRequest, SignupResponse>({
         path: SIGNUP_ROUTE,
-        body: {
-            name: email,
-            email,
-            password,
-        },
         onSuccess: () => {
             navigate(LOGIN_ROUTE, { replace: true });
         },
@@ -58,27 +72,34 @@ const LoginPage = () => {
                     />
                 </Flex>
 
-                <Flex direction="column" gap="spacing3" marginBottom="spacing9">
-                    <Flex direction="column" gap="spacing3" marginBottom="spacing4">
-                        <Input
-                            placeholderIntlKey="forms.email_placeholder"
-                            value={email}
-                            onChange={setEmail}
-                        />
-                        <Input
-                            placeholderIntlKey="forms.password_placeholder"
-                            value={password}
-                            onChange={setPassword}
-                            type="password"
-                        />
+                <form
+                    onSubmit={(form) => {
+                        // todo handle req
+                        // signupRequest(form)
+                    }}
+                >
+                    <Flex direction="column" gap="spacing3" marginBottom="spacing9">
+                        <Flex direction="column" gap="spacing3" marginBottom="spacing4">
+                            <Input
+                                placeholderIntlKey="forms.email_placeholder"
+                                control={control}
+                                name="email"
+                            />
+                            <Input
+                                placeholderIntlKey="forms.password_placeholder"
+                                control={control}
+                                name="password"
+                                type="password"
+                            />
+                        </Flex>
                     </Flex>
-                </Flex>
-                <Button
-                    label="messages.continue"
-                    fullWidth
-                    onClick={signupRequest}
-                    loading={isLoading}
-                />
+                    <Button
+                        label="messages.continue"
+                        loading={isLoading}
+                        type="submit"
+                        fullWidth
+                    />
+                </form>
 
                 <Flex align="center" justify="center" gap="spacing2">
                     <Text as="p" intlKey="pages.signup.existing_account" color="black60" />
@@ -91,4 +112,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default SignupPage;

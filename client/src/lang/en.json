@@ -25,6 +25,9 @@
             "banner_description": "Explore exotic products across multiple universes. From tech to fashion, artifacts to food - we've got it all in one place. Dive into the universe of unique products, and make your shopping experience out of this world!",
             "categories": "Categories",
             "popular_products": "Popular products"
+        },
+        "admin": {
+            "add_product": "Add product"
         }
     },
     "components": {
@@ -47,7 +50,8 @@
     },
     "forms": {
         "email_placeholder": "Email address",
-        "password_placeholder": "Password"
+        "password_placeholder": "Password",
+        "title": "Title"
     },
     "categories": {
         "tech": "Tech",

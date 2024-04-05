@@ -2,16 +2,17 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import React from "react";
 
 import Layout from "../../components/Organisms/Layout/Layout.component";
-import SignupPage from "../../pages/signup/signup.page";
-import VerifyPage from "../../pages/verify/verify.page";
-import LoginPage from "../../pages/login/login.page";
-import ShopPage from "../../pages/shop/shop.page";
-import ROUTES from "./routes";
+import AddProductPage from "../../pages/add-product/AddProduct.page";
+import DashboardPage from "../../pages/dashboard/Dashboard.page";
 import ProfilePage from "../../pages/profile/Profile.page";
+import SignupPage from "../../pages/signup/Signup.page";
+import VerifyPage from "../../pages/verify/Verify.page";
 import OrdersPage from "../../pages/orders/Orders.page";
+import LoginPage from "../../pages/login/Login.page";
+import ShopPage from "../../pages/shop/Shop.page";
 import CartPage from "../../pages/cart/Cart.page";
 import PrivateOutlet from "./PrivateOutlet";
-import DashboardPage from "../../pages/dashboard/Dashboard.page";
+import ROUTES from "./routes";
 
 const RootPage = () => (
     <Routes>
@@ -25,6 +26,7 @@ const RootPage = () => (
             <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
             <Route element={<PrivateOutlet />}>
                 <Route path={ROUTES.ADMIN} element={<DashboardPage />} />
+                <Route path={ROUTES.ADD_PRODUCT} element={<AddProductPage />} />
             </Route>
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.SHOP} replace />} />

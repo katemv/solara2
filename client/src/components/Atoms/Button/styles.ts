@@ -4,7 +4,7 @@ import Icon from "../Icon/Icon.component";
 import { ButtonStyleProps } from "./Button.component";
 
 export const StyledButton = styled.button<ButtonStyleProps>(
-    ({ theme, fullWidth, disabled, loading, type }) => css`
+    ({ theme, fullWidth, disabled, loading, appearance }) => css`
         height: 50px;
         background: ${theme.colors.purple80};
         width: ${fullWidth ? "100%" : "auto"};
@@ -36,7 +36,7 @@ export const StyledButton = styled.button<ButtonStyleProps>(
             }
         `}
         
-        ${type === "ghost" &&
+        ${appearance === "ghost" &&
         `
             background: transparent;
             border: 2px solid ${theme.colors.black90};

@@ -28,14 +28,9 @@ const VerifyPage = () => {
                         color="black60"
                         textAlign="left"
                     />
-                    <Input
-                        value={verificationCode}
-                        onChange={setVerificationCode}
-                        placeholderIntlKey="pages.verify.verification_code"
-                    />
                 </Flex>
                 <Flex gap="spacing3">
-                    <Button label="messages.resend" fullWidth type="ghost" />
+                    <Button label="messages.resend" fullWidth appearance="ghost" />
                     <Button label="messages.confirm" fullWidth />
                 </Flex>
             </Card>

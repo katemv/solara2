@@ -5,11 +5,11 @@ import Text from "../../Atoms/Text/Text.component";
 import { BannerOverlay, BannerOverlayWrap, StyledBanner, Container } from "./styles";
 
 interface BannerProps {
-    heading: string;
-    subheading: string;
+    headingIntlKey: string;
+    subheadingIntlKey: string;
 }
 
-const Banner: FC<BannerProps> = ({ heading, subheading }) => {
+const Banner: FC<BannerProps> = ({ headingIntlKey, subheadingIntlKey }) => {
     return (
         <Container justify="center" align="center" direction="column">
             <Flex>
@@ -18,8 +18,8 @@ const Banner: FC<BannerProps> = ({ heading, subheading }) => {
             </Flex>
             <BannerOverlayWrap>
                 <BannerOverlay justify="center" align="start" direction="column" gap="spacing5">
-                    <Text as="h1" intlKey={heading} appearance="headline1" textAlign="left" />
-                    <Text as="p" intlKey={subheading} appearance="paragraph" textAlign="left" />
+                    <Text as="h1" intlKey={headingIntlKey} appearance="headline1" textAlign="left" />
+                    <Text as="p" intlKey={subheadingIntlKey} appearance="paragraph" textAlign="left" />
                 </BannerOverlay>
             </BannerOverlayWrap>
         </Container>

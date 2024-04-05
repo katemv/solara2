@@ -12,11 +12,6 @@ export interface IProduct {
     price: number;
 }
 
-export interface LoginResponse {
-    token: string;
-    userId: string;
-}
-
 export enum Categories {
     ALL_PRODUCTS = "categories.all_products",
     TECH = "categories.tech",
