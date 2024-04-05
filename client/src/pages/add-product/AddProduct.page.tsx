@@ -1,11 +1,10 @@
-import Banner from "../../components/Organisms/Banner/Banner.component";
-import PageContainer from "../../components/Molecules/PageContainer/PageContainer.component";
-import Button from "../../components/Atoms/Button/Button.component";
-import ROUTES from "../../providers/navigation/routes";
-import Input from "../../components/Atoms/Input/Input.component";
-import {useForm} from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import * as yup from "yup";
+
+import PageContainer from "../../components/Molecules/PageContainer/PageContainer.component";
+import Banner from "../../components/Organisms/Banner/Banner.component";
+import Input from "../../components/Atoms/Input/Input.component";
 
 const schema = yup.object().shape({
     title: yup.string().required(),

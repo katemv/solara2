@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 import { Container } from "../../components/Organisms/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
@@ -32,7 +31,7 @@ const signupSchema = yup.object().shape({
 
 const SignupPage = () => {
     const navigate = useNavigate();
-    const { control, handleSubmit } = useForm<SignupRequest>({
+    const { control } = useForm<SignupRequest>({
         resolver: yupResolver(signupSchema),
     });
 
@@ -73,7 +72,7 @@ const SignupPage = () => {
                 </Flex>
 
                 <form
-                    onSubmit={(form) => {
+                    onSubmit={() => {
                         // todo handle req
                         // signupRequest(form)
                     }}
