@@ -3,7 +3,7 @@ import { FC } from "react";
 import Modal, { ModalProps } from "../../../Molecules/Modal/Modal.component";
 import { convertPrice } from "../../../../utils/convertPrice";
 import Button from "../../../Atoms/Button/Button.component";
-import { Flex } from "../../../Atoms/Flex/Flex.component";
+import Flex from "../../../Atoms/Flex/Flex.component";
 import image1 from "../../../../assets/images/astro.png";
 import { IProduct, Nullable } from "../../../../types";
 import Text from "../../../Atoms/Text/Text.component";

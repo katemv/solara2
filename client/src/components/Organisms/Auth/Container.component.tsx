@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { Flex } from "../../Atoms/Flex/Flex.component";
+import Flex from "../../Atoms/Flex/Flex.component";
 
 export const Container = styled(Flex)(
     ({ theme }) => `

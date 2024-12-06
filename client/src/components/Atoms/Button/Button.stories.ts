@@ -23,36 +23,22 @@ const meta = {
             options: ["submit", "button"],
         },
     },
-    args: { onClick: fn() },
+    args: {
+        onClick: fn(),
+        fullWidth: false,
+        disabled: false,
+        loading: false,
+        loadingLabel: "Work in progress..",
+        appearance: "primary",
+        type: "button"
+    },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const ButtonStory: Story = {
     args: {
-        label: "Primary",
-    },
-};
-
-export const Secondary: Story = {
-    args: {
-        label: "Secondary",
-        appearance: "secondary",
-    },
-};
-
-export const Loading: Story = {
-    args: {
-        label: "Loading",
-        loadingLabel: "Work in progress...",
-        loading: true,
-    },
-};
-
-export const Disabled: Story = {
-    args: {
-        label: "Disabled",
-        disabled: true,
+        label: "Button",
     },
 };

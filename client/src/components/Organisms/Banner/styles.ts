@@ -1,5 +1,5 @@
 import { css, styled } from "styled-components";
-import { Flex } from "../../Atoms/Flex/Flex.component";
+import Flex from "../../Atoms/Flex/Flex.component";
 
 const blueGradient = css`
     background-image: linear-gradient(to right top, #6d327c, #485da6, #00a1ba, #00bf98, #36c486);
@@ -22,7 +22,7 @@ interface BannerProps {
 }
 
 export const StyledBanner = styled.div<BannerProps>(
-    ({ theme, color }) => css`
+    ({ color }) => css`
         @keyframes flickerPink {
             0% {
                 opacity: 1;

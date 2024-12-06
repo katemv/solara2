@@ -13,7 +13,7 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
     fullHeight?: boolean;
 }
 
-export const Flex = styled.div<FlexProps>`
+const Flex = styled.div<FlexProps>`
     ${({
         justify,
         align,
@@ -36,3 +36,5 @@ export const Flex = styled.div<FlexProps>`
         ${gap && `gap: ${theme.spacings[gap]};`}
     `}
 `;
+
+export default Flex;

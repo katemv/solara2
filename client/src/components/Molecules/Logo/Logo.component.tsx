@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Flex, FlexProps } from "../../Atoms/Flex/Flex.component";
+import Flex, { FlexProps } from "../../Atoms/Flex/Flex.component";
 import Text from "../../Atoms/Text/Text.component";
 import { LogoImage } from "./styles";
 

@@ -11,7 +11,7 @@ import image4 from "../../../../assets/images/flower_asto_2.png";
 import image5 from "../../../../assets/images/planet.png";
 
 import { ImageContainer, StyledProduct, Image } from "./styles";
-import { Flex } from "../../../Atoms/Flex/Flex.component";
+import Flex from "../../../Atoms/Flex/Flex.component";
 
 const images = [image1, image2, image3, image4, image5];
 

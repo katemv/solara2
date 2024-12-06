@@ -1,5 +1,5 @@
 import { css, styled } from "styled-components";
-import { Flex } from "../../Atoms/Flex/Flex.component";
+import Flex from "../../Atoms/Flex/Flex.component";
 
 export const Card = styled(Flex)(
     ({ theme }) => css`

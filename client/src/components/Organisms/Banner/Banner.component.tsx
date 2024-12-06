@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Flex } from "../../Atoms/Flex/Flex.component";
+import Flex from "../../Atoms/Flex/Flex.component";
 import Text from "../../Atoms/Text/Text.component";
 import { BannerOverlay, BannerOverlayWrap, StyledBanner, Container } from "./styles";
 

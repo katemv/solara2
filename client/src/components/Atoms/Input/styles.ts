@@ -1,13 +1,25 @@
 import { css, styled } from "styled-components";
+import Flex from "../Flex/Flex.component";
+import Icon from "../Icon/Icon.component";
 
-import { InputProps } from "./Input.component";
-
-export const StyledInput = styled.input<Omit<InputProps, "placeholderIntlKey" | "onChange">>(
-    ({ theme, fullWidth }) => css`
-        height: 50px;
-        width: ${fullWidth ? "100%" : "auto"};
+export const StyledInput = styled.input<{ iconType?: string }>(
+    ({ theme, iconType }) => css`
+        color: ${theme.colors.white};
+        background: ${theme.colors.black90};
         border-radius: 10px;
-        padding: 0 20px;
+        padding: ${iconType ? `0 ${theme.spacings.spacing4} 0 ${theme.spacings.spacing7}` : `0 ${theme.spacings.spacing4}`};
+        width: 100%;
+        height: 100%;
         background: ${theme.colors.black90};
     `
 );
+
+export const Container = styled(Flex)`
+    height: 50px;
+    position: relative;
+`;
+
+export const StyledIcon = styled(Icon)(({ theme }) => css`
+    position: absolute;
+    left: ${theme.spacings.spacing3};
+`);

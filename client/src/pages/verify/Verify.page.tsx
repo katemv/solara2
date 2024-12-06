@@ -1,7 +1,7 @@
 import { Container } from "../../components/Organisms/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
 import { Card } from "../../components/Organisms/Auth/Card.component";
-import { Flex } from "../../components/Atoms/Flex/Flex.component";
+import Flex from "../../components/Atoms/Flex/Flex.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";
 import Text from "../../components/Atoms/Text/Text.component";
 

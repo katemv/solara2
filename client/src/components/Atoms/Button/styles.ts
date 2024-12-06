@@ -27,7 +27,7 @@ export const StyledButton = styled.button<ButtonStyleProps>(
 
         ${loading && `
             background: ${theme.colors.purple80};
-            
+
             &:hover, &:active {
                 background: ${theme.colors.purple80};
                 cursor: default;
@@ -35,36 +35,32 @@ export const StyledButton = styled.button<ButtonStyleProps>(
         `}
 
         ${disabled && `
-                background: ${theme.colors.grey60};
+                background: ${theme.colors.black90};
 
                 &:hover, &:active {
-                        background: ${theme.colors.grey60};
-                        cursor: default;
+                    background: ${theme.colors.black90};
+                    cursor: default;
             }
         `}
 
         ${appearance === "secondary" && `
             background: transparent;
-            border: 2px solid ${theme.colors.grey60};
+            border: 2px solid ${theme.colors.black90};
             transition: border-color 0.2s ease-in-out;
-
-            & span {
-                color: ${theme.colors.black90};
-                font-variation-settings: 'wght' 700;
-            }
 
             &:hover,
             &:active {
                 background: transparent;
-                border-color: ${theme.colors.purple80};
+                border-color: ${theme.colors.black90};
             }
         `}
     `
 );
 
-export const SpinIcon = styled(Icon)`
+export const SpinIcon = styled(Icon)(({ theme }) => css`
     animation-name: spin;
     animation-duration: 500ms;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-`;
+    color: ${theme.colors.white};
+`);

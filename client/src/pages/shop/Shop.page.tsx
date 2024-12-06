@@ -2,7 +2,7 @@ import { useState } from "react";
 import PageContainer from "../../components/Molecules/PageContainer/PageContainer.component";
 import Product from "../../components/Organisms/Products/ProductItem/ProductItem.component";
 import Banner from "../../components/Organisms/Banner/Banner.component";
-import { Flex } from "../../components/Atoms/Flex/Flex.component";
+import Flex from "../../components/Atoms/Flex/Flex.component";
 import Text from "../../components/Atoms/Text/Text.component";
 import Tab from "../../components/Molecules/Tab/Tab.component";
 import { Categories, IProduct, Nullable } from "../../types";
