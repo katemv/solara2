@@ -11,7 +11,6 @@ export const GlobalStyle = createGlobalStyle`
         font-optical-sizing: auto;
         font-variation-settings: 'wght' 500;
         font-style: normal;
-        color: #FFFFFF;
     }
     
     html, body {
@@ -24,10 +23,6 @@ export const GlobalStyle = createGlobalStyle`
     
     a, a:hover, a:active {
         text-decoration: none;
-    }
-    
-    #root {
-        height: 100%;
     }
 
     @keyframes spin {

@@ -11,7 +11,6 @@ import OrdersPage from "../../pages/orders/Orders.page";
 import LoginPage from "../../pages/login/Login.page";
 import ShopPage from "../../pages/shop/Shop.page";
 import CartPage from "../../pages/cart/Cart.page";
-import PrivateOutlet from "./PrivateOutlet";
 import ROUTES from "./routes";
 
 const RootPage = () => (
@@ -24,10 +23,10 @@ const RootPage = () => (
             <Route path={ROUTES.ORDERS} element={<OrdersPage />} />
             <Route path={ROUTES.CART} element={<CartPage />} />
             <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
-            <Route element={<PrivateOutlet />}>
+            {/*<Route element={<PrivateOutlet />}>*/}
                 <Route path={ROUTES.ADMIN} element={<DashboardPage />} />
                 <Route path={ROUTES.ADD_PRODUCT} element={<AddProductPage />} />
-            </Route>
+            {/*</Route>*/}
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.SHOP} replace />} />
     </Routes>

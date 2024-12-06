@@ -30,7 +30,7 @@ const Layout = () => {
                                     <Button
                                         label="components.nav.back_to_shop"
                                         onClick={() => navigate(ROUTES.SHOP)}
-                                        appearance="ghost"
+                                        appearance="secondary"
                                     />
                                 ) : (
                                     <>
@@ -59,7 +59,7 @@ const Layout = () => {
                                         <Button
                                             label="components.nav.admin"
                                             onClick={() => navigate(ROUTES.ADMIN)}
-                                            appearance="ghost"
+                                            appearance="secondary"
                                         />
                                     </>
                                 )}
@@ -68,7 +68,7 @@ const Layout = () => {
                             <Button
                                 label="components.nav.login"
                                 onClick={() => navigate(ROUTES.LOGIN)}
-                                appearance="ghost"
+                                appearance="secondary"
                             />
                         )}
                     </Nav>

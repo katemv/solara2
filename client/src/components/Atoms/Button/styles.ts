@@ -6,7 +6,7 @@ import { ButtonStyleProps } from "./Button.component";
 export const StyledButton = styled.button<ButtonStyleProps>(
     ({ theme, fullWidth, disabled, loading, appearance }) => css`
         height: 50px;
-        background: ${theme.colors.purple80};
+        background-color: ${theme.colors.purple80};
         width: ${fullWidth ? "100%" : "auto"};
         border-radius: 10px;
         padding: 0 20px;
@@ -14,6 +14,7 @@ export const StyledButton = styled.button<ButtonStyleProps>(
         align-items: center;
         justify-content: center;
         gap: ${theme.spacings.spacing2};
+        transition: background-color 0.2s ease-in-out;
 
         &:hover,
         &:active {
@@ -24,10 +25,7 @@ export const StyledButton = styled.button<ButtonStyleProps>(
             cursor: pointer;
         }
 
-        ${disabled && "background: ${theme.colors.grey60};"}
-
-        ${loading &&
-        `
+        ${loading && `
             background: ${theme.colors.purple80};
             
             &:hover, &:active {
@@ -35,12 +33,26 @@ export const StyledButton = styled.button<ButtonStyleProps>(
                 cursor: default;
             }
         `}
-        
-        ${appearance === "ghost" &&
-        `
+
+        ${disabled && `
+                background: ${theme.colors.grey60};
+
+                &:hover, &:active {
+                        background: ${theme.colors.grey60};
+                        cursor: default;
+            }
+        `}
+
+        ${appearance === "secondary" && `
             background: transparent;
-            border: 2px solid ${theme.colors.black90};
-            
+            border: 2px solid ${theme.colors.grey60};
+            transition: border-color 0.2s ease-in-out;
+
+            & span {
+                color: ${theme.colors.black90};
+                font-variation-settings: 'wght' 700;
+            }
+
             &:hover,
             &:active {
                 background: transparent;

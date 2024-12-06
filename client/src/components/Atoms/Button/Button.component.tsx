@@ -12,7 +12,7 @@ export interface ButtonStyleProps extends HTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
     loading?: boolean;
     loadingLabel?: string;
-    appearance?: "default" | "ghost";
+    appearance?: "primary" | "secondary";
     type?: "button" | "submit";
 }
 
@@ -22,7 +22,7 @@ const Button: FC<ButtonProps> = ({
     disabled,
     loading,
     loadingLabel = "messages.loading",
-    appearance = "default",
+    appearance = "primary",
     onClick,
     type = "button"
 }) => {

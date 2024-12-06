@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { Container } from "../../components/Organisms/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
 import { Card } from "../../components/Organisms/Auth/Card.component";
@@ -8,8 +6,6 @@ import Logo from "../../components/Molecules/Logo/Logo.component";
 import Text from "../../components/Atoms/Text/Text.component";
 
 const VerifyPage = () => {
-    const [verificationCode, setVerificationCode] = useState("");
-
     return (
         <Container align="center" justify="center">
             <Card direction="column" gap="spacing3" justify="space-between">
@@ -29,7 +25,7 @@ const VerifyPage = () => {
                     />
                 </Flex>
                 <Flex gap="spacing3">
-                    <Button label="messages.resend" fullWidth appearance="ghost" />
+                    <Button label="messages.resend" fullWidth appearance="secondary" />
                     <Button label="messages.confirm" fullWidth />
                 </Flex>
             </Card>
