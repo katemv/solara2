@@ -25,6 +25,7 @@ export type ColorsKeys =
     | "blue100"
     | "blue80"
     | "backdrop"
+    | "danger"
     | "backgroundGradient";
 
 export type ShadowKeys =

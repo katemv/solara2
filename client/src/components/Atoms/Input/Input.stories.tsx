@@ -17,16 +17,21 @@ const meta = {
             control: "select",
             options: ["password", "default"],
         },
-        iconType: {
+        prefixIconType: {
             control: "select",
-            options: iconTypes,
+            options: [...iconTypes, undefined],
+        },
+        postfixIconType: {
+            control: "select",
+            options: [...iconTypes, undefined],
         },
     },
     args: {
         fullWidth: false,
         placeholderIntlKey: "forms.email_placeholder",
         name: "email",
-        iconType: "mail"
+        prefixIconType: "mail",
+        postfixIconType: "cancel",
     },
 } satisfies Meta<typeof Input>;
 

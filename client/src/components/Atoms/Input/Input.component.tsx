@@ -1,14 +1,16 @@
 import { FieldValues, useController, UseControllerProps } from "react-hook-form";
 import { useIntl } from "react-intl";
+import { useState } from "react";
 
-import { Container, StyledIcon, StyledInput } from "./styles";
-import { IconProps } from "../Icon/Icon.component";
+import { Container, PasswordButton, PostfixIcon, PrefixIcon, StyledInput } from "./styles";
+import Icon, { IconProps } from "../Icon/Icon.component";
 
 export interface InputProps {
     fullWidth?: boolean;
     placeholderIntlKey?: string;
     type?: string;
-    iconType?: IconProps["type"];
+    prefixIconType?: IconProps["type"];
+    postfixIconType?: IconProps["type"];
 }
 
 function Input <T extends FieldValues>({
@@ -17,8 +19,10 @@ function Input <T extends FieldValues>({
     control,
     type,
     name,
-    iconType
+    prefixIconType,
+    postfixIconType,
 }: InputProps & UseControllerProps<T>) {
+    const [visibility, setVisibility] = useState<boolean>(false);
     const { formatMessage } = useIntl();
     const {
         field: { onChange, onBlur, value, ref },
@@ -29,19 +33,41 @@ function Input <T extends FieldValues>({
         control,
     });
 
+    const getInputType = () => {
+        if (type === "password") {
+            return visibility ? "text" : "password";
+        }
+
+        return "text";
+    };
+
+    const hasError = (isTouched || isDirty) && invalid;
+
     return (
-        <Container fullWidth={fullWidth} align="center">
-            {iconType && <StyledIcon type={iconType} />}
+        <Container fullWidth={fullWidth} align="center" direction="row">
+            {prefixIconType && <PrefixIcon type={prefixIconType} error={hasError} />}
             <StyledInput
-                type={type}
-                iconType={iconType}
+                type={getInputType()}
+                prefixIconType={prefixIconType}
+                postfixIconType={postfixIconType}
                 placeholder={placeholderIntlKey && formatMessage({ id: placeholderIntlKey })}
                 onChange={onChange}
                 onBlur={onBlur}
                 value={value}
                 name={name}
+                error={hasError}
                 ref={ref}
             />
+            {type === "password" && (
+                <PasswordButton
+                    type="button"
+                    onClick={() => setVisibility(!visibility)}
+                    error={hasError}
+                >
+                    <Icon type={visibility ? "visibility_off" : "visibility"}  />
+                </PasswordButton>
+            )}
+            {type !== "password" && postfixIconType && <PostfixIcon type={postfixIconType} error={hasError} />}
         </Container>
     );
 }

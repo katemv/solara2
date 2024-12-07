@@ -95,12 +95,15 @@ const LoginPage = () => {
                                 control={control}
                                 placeholderIntlKey="forms.email_placeholder"
                                 name="email"
+                                prefixIconType="mail"
                             />
                             <Input
                                 control={control}
                                 placeholderIntlKey="forms.password_placeholder"
                                 name="password"
                                 type="password"
+                                prefixIconType="lock"
+                                postfixIconType="visibility_off"
                             />
                         </Flex>
                         <Link to="/shop">
