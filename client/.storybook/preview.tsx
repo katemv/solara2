@@ -20,9 +20,7 @@ const preview: Preview = {
         (Story) => (
             <IntlProvider>
                 <ThemeProvider>
-                    <div style={{ background: "#16161E", padding: "5rem", borderRadius: "10px" }}>
-                        <Story />
-                    </div>
+                    <Story />
                 </ThemeProvider>
             </IntlProvider>
         ),

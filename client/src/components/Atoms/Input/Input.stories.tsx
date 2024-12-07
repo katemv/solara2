@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
 
-import { iconTypes } from "../Icon/Icon.component";
+import { iconTypes } from "../Icon/config";
 import Input from "./Input.component";
 
 const meta = {
@@ -31,7 +31,7 @@ const meta = {
         placeholderIntlKey: "forms.email_placeholder",
         name: "email",
         prefixIconType: "mail",
-        postfixIconType: "cancel",
+        postfixIconType: "check",
     },
 } satisfies Meta<typeof Input>;
 

@@ -1,0 +1,15 @@
+import { IconGallery, IconItem } from "@storybook/blocks";
+
+import IconExample from "../../components/Atoms/Icon/Icon.component";
+import { iconTypes } from "../../components/Atoms/Icon/config";
+
+
+# Icons
+
+<IconGallery>
+    {iconTypes.map((icon) => (
+        <IconItem name={icon}>
+            <IconExample type={icon} />
+        </IconItem>
+    ))}
+</IconGallery>

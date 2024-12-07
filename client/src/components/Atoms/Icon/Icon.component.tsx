@@ -2,9 +2,7 @@ import { FC } from "react";
 
 import { StyledIcon } from "./styles";
 import { ColorsKeys } from "../../../providers/theme/types/types";
-
-export type IconKeys = "progress_activity" | "lock" | "mail" | "visibility" | "visibility_off" | "cancel";
-export const iconTypes: IconKeys[] = ["progress_activity", "lock", "mail", "visibility", "visibility_off", "cancel"];
+import { IconKeys } from "./config";
 
 export interface IconProps {
     type: IconKeys;

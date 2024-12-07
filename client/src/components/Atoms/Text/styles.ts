@@ -13,7 +13,7 @@ export const StyledText = styled.div<StyledTextProps>(
         font-size: ${theme.typography[appearance].fontSize};
         font-variation-settings: "wght" ${theme.typography[appearance].fontWeight};
         line-height: ${theme.typography[appearance].lineHeight};
-        color: ${theme.colors[color]};
+        color: ${theme?.colors?.[color] || "black"};
         text-transform: ${$textTransform};
         text-align: ${$textAlign};
         ${appearance === "logo" && "font-family: 'Bebas Neue', sans-serif;"}
