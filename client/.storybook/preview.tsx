@@ -14,6 +14,7 @@ const preview: Preview = {
         docs: {
             toc: true,
         },
+        layout: "centered",
     },
 
     decorators: [

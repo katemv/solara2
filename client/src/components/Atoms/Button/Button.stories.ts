@@ -6,9 +6,6 @@ import Button from "./Button.component";
 const meta = {
     title: "Atoms/Button",
     component: Button,
-    parameters: {
-        layout: "centered",
-    },
     argTypes: {
         fullWidth: { control: "boolean" },
         disabled: { control: "boolean" },
@@ -39,6 +36,6 @@ type Story = StoryObj<typeof meta>;
 
 export const ButtonStory: Story = {
     args: {
-        label: "Button",
+        label: "pages.login.signup",
     },
 };

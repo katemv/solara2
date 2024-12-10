@@ -1,19 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Icon from "./Icon.component";
-import { iconTypes } from "./config";
 import { colors } from "../../../providers/theme/defaults/colors";
+import Icon from "./Icon.component";
+import { Icons } from "../../../providers/theme/defaults/icons";
 
 const meta = {
     title: "Atoms/Icon",
     component: Icon,
-    parameters: {
-        layout: "centered",
-    },
     argTypes: {
         type: {
             control: "select",
-            options: iconTypes,
+            options: Icons,
         },
         color: {
             control: "select",

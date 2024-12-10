@@ -1,8 +1,7 @@
 import { FC } from "react";
 
 import { StyledIcon } from "./styles";
-import { ColorsKeys } from "../../../providers/theme/types/types";
-import { IconKeys } from "./config";
+import { ColorsKeys, IconKeys } from "../../../providers/theme/types/types";
 
 export interface IconProps {
     type: IconKeys;

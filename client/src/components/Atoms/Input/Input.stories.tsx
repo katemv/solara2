@@ -1,15 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useForm } from "react-hook-form";
 
-import { iconTypes } from "../Icon/config";
 import Input from "./Input.component";
+import { Icons } from "../../../providers/theme/defaults/icons";
 
 const meta = {
     title: "Atoms/Input",
     component: Input,
-    parameters: {
-        layout: "centered",
-    },
     argTypes: {
         fullWidth: { control: "boolean" },
         placeholderIntlKey: { control: "text" },
@@ -19,11 +16,11 @@ const meta = {
         },
         prefixIconType: {
             control: "select",
-            options: [...iconTypes, undefined],
+            options: [...Icons, undefined],
         },
         postfixIconType: {
             control: "select",
-            options: [...iconTypes, undefined],
+            options: [...Icons, undefined],
         },
     },
     args: {

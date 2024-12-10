@@ -7,7 +7,7 @@ import { StyledText } from "./styles";
 type BaseTextProps = Partial<TextStyleProps> & HTMLAttributes<HTMLDivElement>;
 
 export interface TextProps extends BaseTextProps {
-    as: keyof JSX.IntrinsicElements;
+    as?: keyof JSX.IntrinsicElements;
     intlKey?: string;
     plainText?: string;
     customStyles?: Record<string, any>;
@@ -18,13 +18,13 @@ export interface TextStyleProps {
     color: ColorsKeys;
     textAlign: "left" | "right" | "center";
     fontWeight: number;
-    textTransform: "uppercase" | "none";
+    textTransform: "uppercase" | "none" | "capitalize";
     marginBottom: SpacingKeys | 0;
     style: Record<string, any>;
 }
 
 const Text: FC<TextProps> = ({
-    as,
+    as = "p",
     intlKey,
     plainText = "",
     fontWeight = 0,

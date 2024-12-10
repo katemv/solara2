@@ -5,7 +5,7 @@ import { SpacingKeys } from "../../../providers/theme/types/types";
 
 type StyledTextProps = Omit<TextStyleProps, "textAlign" | "textTransform" | "marginBottom"> & {
     $textAlign?: "left" | "right" | "center";
-    $textTransform?: "uppercase" | "none";
+    $textTransform?: "uppercase" | "none" | "capitalize";
     $marginBottom?: SpacingKeys | 0;
 };
 export const StyledText = styled.div<StyledTextProps>(
