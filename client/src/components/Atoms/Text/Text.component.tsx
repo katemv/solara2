@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes, JSX } from "react";
+import { CSSProperties, FC, HTMLAttributes, JSX } from "react";
 import { useIntl } from "react-intl";
 
 import { ColorsKeys, SpacingKeys, TypographyKeys } from "../../../providers/theme/types/types";
@@ -10,7 +10,7 @@ export interface TextProps extends BaseTextProps {
     as?: keyof JSX.IntrinsicElements;
     intlKey?: string;
     plainText?: string;
-    customStyles?: Record<string, any>;
+    customStyles?: CSSProperties;
 }
 
 export interface TextStyleProps {
@@ -20,7 +20,7 @@ export interface TextStyleProps {
     fontWeight: number;
     textTransform: "uppercase" | "none" | "capitalize";
     marginBottom: SpacingKeys | 0;
-    style: Record<string, any>;
+    style: CSSProperties;
 }
 
 const Text: FC<TextProps> = ({
