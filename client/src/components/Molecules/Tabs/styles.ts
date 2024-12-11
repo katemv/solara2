@@ -10,6 +10,7 @@ export const StyledTab = styled(Flex)<{ $isActive: boolean }>(
         cursor: pointer;
         flex-shrink: 0;
         user-select: none;
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
         &:hover {
             border-color: ${theme.colors.purple80};

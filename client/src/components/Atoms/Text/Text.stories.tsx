@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn } from "@storybook/test";
 
 import { typography } from "../../../providers/theme/defaults/typography";
+import { spacings } from "../../../providers/theme/defaults/spacings";
 import { colors } from "../../../providers/theme/defaults/colors";
 import Flex from "../Flex/Flex.component";
 import Text from "./Text.component";
@@ -44,20 +45,20 @@ const meta = {
         },
         marginBottom: {
             control: "select",
-            options: ["spacing1", "spacing2", "spacing3"],
+            options: Object.keys(spacings),
         },
 
     },
     args: {
         onClick: fn(),
-        color: "dark90",
+        color: "dark80",
         plainText: SampleText,
         textAlign: "left",
     },
     render: (args) => (
         <Flex gap="spacing6" marginBottom="spacing6">
             <Text
-                color="dark90"
+                color="dark80"
                 appearance={args.appearance}
                 plainText={args.appearance} textTransform="capitalize"
                 textAlign="left"

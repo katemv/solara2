@@ -9,10 +9,10 @@ const meta = {
     title: "Molecules/Modal",
     component: Modal,
     argTypes: {
-        visible: {control: "boolean"},
-        maxWidth: {control: "number"},
-        maxHeight: {control: "number"},
-        minHeight: {control: "number"},
+        visible: { control: "boolean" },
+        maxWidth: { control: "number" },
+        maxHeight: { control: "number" },
+        minHeight: { control: "number" },
     },
     args: {
         visible: false,

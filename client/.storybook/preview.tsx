@@ -15,6 +15,12 @@ const preview: Preview = {
             toc: true,
         },
         layout: "centered",
+        backgrounds: {
+            values: [
+                { name: 'Dark', value: '#16161E' },
+            ],
+            default: 'Dark',
+        },
     },
 
     decorators: [

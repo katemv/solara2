@@ -25,11 +25,11 @@ const meta = {
         },
         gap: {
             control: "select",
-            options: ["spacing1", "spacing2", "spacing3", "spacing4", "spacing5", "spacing6", "spacing7", "spacing8", "spacing9"],
+            options: Object.keys(spacings),
         },
         marginBottom: {
             control: "select",
-            options: ["spacing1", "spacing2", "spacing3", "spacing4", "spacing5", "spacing6", "spacing7", "spacing8", "spacing9"],
+            options: Object.keys(spacings),
         },
         fullWidth: {
             control: "boolean",
@@ -56,7 +56,7 @@ type Story = StoryObj<typeof meta>;
 
 export const FlexStory: Story = {
     render: (args) => (
-        <div style={{ height: 300, minWidth: 300, backgroundColor: colors.purple5, padding: spacings.spacing6 }}>
+        <div style={{ height: 300, minWidth: 700 }}>
             <Flex {...args}>
                 <Flex style={{ height: "100px", width: "100px", backgroundColor: colors.purple100 }} />
                 <Flex style={{ height: "100px", width: "100px", backgroundColor: colors.purple80 }} />
