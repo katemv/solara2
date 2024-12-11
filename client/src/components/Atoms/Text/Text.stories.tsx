@@ -57,7 +57,7 @@ const meta = {
     render: (args) => (
         <Flex gap="spacing6" marginBottom="spacing6">
             <Text
-                color="dark80"
+                color="dark90"
                 appearance={args.appearance}
                 plainText={args.appearance} textTransform="capitalize"
                 textAlign="left"
