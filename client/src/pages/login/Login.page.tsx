@@ -81,7 +81,7 @@ const LoginPage = () => {
                     <Text
                         as="p"
                         intlKey="pages.login.login_message"
-                        color="black60"
+                        color="dark80"
                         textAlign="left"
                     />
                 </Flex>
@@ -120,7 +120,7 @@ const LoginPage = () => {
 
 
                 <Flex align="center" justify="center" gap="spacing2">
-                    <Text as="p" intlKey="pages.login.no_account" color="black60" />
+                    <Text as="p" intlKey="pages.login.no_account" color="dark80" />
                     <Link to="/signup">
                         <Text as="span" intlKey="pages.login.signup" color="purple100" />
                     </Link>

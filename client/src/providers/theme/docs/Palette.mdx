@@ -1,0 +1,68 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import {colors} from "../defaults/colors";
+
+<Meta title="Theme/Colors" />
+
+# Colors
+
+<ColorPalette>
+    <ColorItem
+        title="Purple"
+        subtitle=""
+        colors={{
+            purple100: colors.purple100,
+            purple80: colors.purple80,
+            purple60: colors.purple60,
+            purple40: colors.purple40,
+            purple20: colors.purple20,
+            purple10: colors.purple10,
+            purple5: colors.purple5,
+        }}
+    />
+    <ColorItem
+        title="Dark"
+        subtitle=""
+        colors={{
+            dark100: colors.dark100,
+            dark90: colors.dark90,
+            dark80: colors.dark80,
+            dark60: colors.dark60,
+            dark40: colors.dark40,
+            dark20: colors.dark20,
+            dark10: colors.dark10,
+            dark5: colors.dark5,
+        }}
+    />
+    <ColorItem
+        title="Blue"
+        subtitle=""
+        colors={{
+            blue100: colors.blue100,
+            blue80: colors.blue80,
+            blue60: colors.blue60,
+            blue40: colors.blue40,
+            blue20: colors.blue20,
+            blue10: colors.blue10,
+            blue5: colors.blue5,
+        }}
+    />
+    <ColorItem
+        title="System"
+        subtitle=""
+        colors={{
+            danger: colors.danger,
+            warning: colors.warning,
+            success: colors.success,
+        }}
+    />
+    <ColorItem
+        title="Background Gradient"
+        subtitle=""
+        colors={{ Gradient: colors.backgroundGradient}}
+    />
+    <ColorItem
+        title="Backdrop"
+        subtitle=""
+        colors={{ Backdrop: colors.backdrop}}
+    />
+</ColorPalette>

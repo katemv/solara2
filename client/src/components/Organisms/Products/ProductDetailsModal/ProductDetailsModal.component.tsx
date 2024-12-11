@@ -23,7 +23,7 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                         as="p"
                         plainText={product.brand}
                         appearance="headline6"
-                        color="grey60"
+                        color="dark20"
                         textTransform="uppercase"
                         fontWeight={300}
                         textAlign="left"
@@ -43,7 +43,7 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                         appearance="paragraph"
                         textAlign="left"
                         fontWeight={300}
-                        color="grey60"
+                        color="dark20"
                         marginBottom="spacing4"
                     />
                     <Text as="p" plainText={convertPrice(product.price)} textAlign="left" />

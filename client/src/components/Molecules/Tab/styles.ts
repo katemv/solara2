@@ -3,7 +3,7 @@ import Flex from "../../Atoms/Flex/Flex.component";
 
 export const StyledTab = styled(Flex)<{ $isActive: boolean }>(
     ({ theme, $isActive }) => css`
-        border: 2px solid ${theme.colors.black90};
+        border: 2px solid ${theme.colors.dark90};
         border-radius: 35px;
         height: 35px;
         padding: 0 15px;

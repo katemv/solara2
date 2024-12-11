@@ -15,11 +15,11 @@ interface IconProps {
 export const StyledInput = styled.input<StyledInputProps>(
     ({ theme, prefixIconType, postfixIconType, error }) => css`
         color: ${theme.colors.white};
-        background: ${theme.colors.black90};
+        background: ${theme.colors.dark90};
         border-radius: 10px;
         width: 100%;
         height: 100%;
-        background: ${theme.colors.black90};
+        background: ${theme.colors.dark90};
         padding: 0 ${theme.spacings.spacing4};
         
         ${prefixIconType && css`

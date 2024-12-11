@@ -35,23 +35,23 @@ export const StyledButton = styled.button<ButtonStyleProps>(
         `}
 
         ${disabled && `
-                background: ${theme.colors.black90};
+                background: ${theme.colors.dark90};
 
                 &:hover, &:active {
-                    background: ${theme.colors.black90};
+                    background: ${theme.colors.dark90};
                     cursor: default;
             }
         `}
 
         ${appearance === "secondary" && `
             background: transparent;
-            border: 2px solid ${theme.colors.black90};
+            border: 2px solid ${theme.colors.dark90};
             transition: border-color 0.2s ease-in-out;
 
             &:hover,
             &:active {
                 background: transparent;
-                border-color: ${theme.colors.black90};
+                border-color: ${theme.colors.dark90};
             }
         `}
     `

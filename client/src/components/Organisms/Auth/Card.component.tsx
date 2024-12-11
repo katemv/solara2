@@ -3,7 +3,7 @@ import Flex from "../../Atoms/Flex/Flex.component";
 
 export const Card = styled(Flex)(
     ({ theme }) => css`
-        background: ${theme.colors.dark};
+        background: ${theme.colors.dark100};
         padding: ${theme.spacings.spacing6} ${theme.spacings.spacing5};
         border-radius: 20px;
         box-shadow: ${theme.shadows.elevation0};

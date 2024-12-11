@@ -34,7 +34,7 @@ export const ModalContainer = styled.div<Omit<ModalProps, "onClose">>(
         z-index: 1000;
         ${maxWidth && `max-width: ${maxWidth}px;`}
         ${maxHeight && `max-height: ${maxHeight}px;`}
-        background: ${theme.colors.dark};
+        background: ${theme.colors.dark100};
         box-shadow: ${theme.shadows.elevation2};
         border-radius: 20px;
         padding: ${theme.spacings.spacing5};

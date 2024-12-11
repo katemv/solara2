@@ -20,7 +20,7 @@ const VerifyPage = () => {
                     <Text
                         as="p"
                         intlKey="pages.verify.verification_code_subtitle"
-                        color="black60"
+                        color="dark80"
                         textAlign="left"
                     />
                 </Flex>

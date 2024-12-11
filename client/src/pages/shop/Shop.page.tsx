@@ -76,7 +76,7 @@ const ShopPage = () => {
                         appearance="paragraph"
                         textAlign="left"
                         fontWeight={300}
-                        color="grey60"
+                        color="dark20"
                         customStyles={{ ...fullWidth, width: "80%" }}
                         marginBottom="spacing4"
                     />

@@ -66,7 +66,7 @@ const SignupPage = () => {
                     <Text
                         as="p"
                         intlKey="pages.signup.signup_message"
-                        color="black60"
+                        color="dark80"
                         textAlign="left"
                     />
                 </Flex>
@@ -101,7 +101,7 @@ const SignupPage = () => {
                 </form>
 
                 <Flex align="center" justify="center" gap="spacing2">
-                    <Text as="p" intlKey="pages.signup.existing_account" color="black60" />
+                    <Text as="p" intlKey="pages.signup.existing_account" color="dark80" />
                     <Link to="/shop">
                         <Text as="span" intlKey="pages.signup.login" color="purple100" />
                     </Link>

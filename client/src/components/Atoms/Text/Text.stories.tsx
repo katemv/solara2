@@ -40,22 +40,24 @@ const meta = {
         },
         textTransform: {
             control: "select",
-            options: ["none", "uppercase"],
+            options: ["none", "uppercase", "capitalize"],
         },
         marginBottom: {
             control: "select",
-            options: []
+            options: ["spacing1", "spacing2", "spacing3"],
         },
 
     },
     args: {
         onClick: fn(),
-        color: "black80",
+        color: "dark90",
+        plainText: SampleText,
+        textAlign: "left",
     },
     render: (args) => (
         <Flex gap="spacing6" marginBottom="spacing6">
             <Text
-                color="black80"
+                color="dark80"
                 appearance={args.appearance}
                 plainText={args.appearance} textTransform="capitalize"
                 textAlign="left"
@@ -64,13 +66,10 @@ const meta = {
 
             <Flex direction="column" align="start" gap="spacing2">
                 <Text
-                    color="black80"
-                    appearance={args.appearance}
-                    plainText={SampleText}
-                    textAlign="left"
+                    {...args}
                 />
                 <Text
-                    color="black60"
+                    color="dark80"
                     plainText={`
                         ${args.appearance ? typography[args.appearance]?.fontWeight : "500"} / 
                         ${args.appearance ? typography[args.appearance]?.fontSize : "14"} / 
@@ -89,62 +88,53 @@ type Story = StoryObj<typeof meta>;
 export const Headline1: Story = {
     args: {
         appearance: "headline1",
-        color: "black80",
     },
 };
 
 export const Headline2: Story = {
     args: {
         appearance: "headline2",
-        color: "black80",
     },
 };
 
 export const Headline3: Story = {
     args: {
         appearance: "headline3",
-        color: "black80",
     },
 };
 
 export const Headline4: Story = {
     args: {
         appearance: "headline4",
-        color: "black80",
     },
 };
 
 export const Headline5: Story = {
     args: {
         appearance: "headline5",
-        color: "black80",
     },
 };
 
 export const Headline6: Story = {
     args: {
         appearance: "headline6",
-        color: "black80",
     },
 };
 
 export const Paragraph: Story = {
     args: {
         appearance: "paragraph",
-        color: "black80",
     },
 };
 
 export const Small: Story = {
     args: {
         appearance: "small",
-        color: "black80",
     },
 };
 
 export const Tiny: Story = {
     args: {
         appearance: "tiny",
-        color: "black80",
     },
 };

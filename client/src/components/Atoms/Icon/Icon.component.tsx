@@ -9,7 +9,7 @@ export interface IconProps {
     className?: string;
 }
 
-const Icon: FC<IconProps> = ({ type, className = "", color = "black60" }) => {
+const Icon: FC<IconProps> = ({ type, className = "", color = "dark80" }) => {
     return (
         <StyledIcon
             className={`material-symbols-outlined ${className}`}

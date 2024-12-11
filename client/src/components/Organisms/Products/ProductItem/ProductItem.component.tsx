@@ -36,7 +36,7 @@ const ProductItem: FC<ProductProps> = ({ product, horizontal, onClick }) => {
                     as="p"
                     plainText={product.brand}
                     appearance="headline6"
-                    color="grey60"
+                    color="dark20"
                     textTransform="uppercase"
                     fontWeight={300}
                     textAlign="left"
