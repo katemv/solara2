@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { Container } from "../../components/Organisms/Auth/Container.component";
+import { Container } from "../../components/Pages/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
-import { Card } from "../../components/Organisms/Auth/Card.component";
+import { Card } from "../../components/Pages/Auth/Card.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import Text from "../../components/Atoms/Text/Text.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";

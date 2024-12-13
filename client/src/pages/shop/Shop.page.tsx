@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PageContainer from "../../components/Molecules/PageContainer/PageContainer.component";
-import Product from "../../components/Organisms/Products/ProductItem/ProductItem.component";
+import Product from "../../components/Pages/Products/ProductItem/ProductItem.component";
 import Banner from "../../components/Organisms/Banner/Banner.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
 import Text from "../../components/Atoms/Text/Text.component";
@@ -8,7 +8,7 @@ import Tab from "../../components/Molecules/Tabs/Tab.component";
 import { Categories, IProduct, Nullable } from "../../types";
 import { CATEGORIES } from "../../utils/constants";
 import { fullWidth, Grid } from "./styles";
-import ProductDetailsModal from "../../components/Organisms/Products/ProductDetailsModal/ProductDetailsModal.component";
+import ProductDetailsModal from "../../components/Pages/Products/ProductDetailsModal/ProductDetailsModal.component";
 
 import image1 from "../../assets/images/astro.png";
 import image2 from "../../assets/images/bar.png";

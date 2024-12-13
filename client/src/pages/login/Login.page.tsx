@@ -3,10 +3,10 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { Container } from "../../components/Organisms/Auth/Container.component";
+import { Container } from "../../components/Pages/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
-import { Card } from "../../components/Organisms/Auth/Card.component";
+import { Card } from "../../components/Pages/Auth/Card.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import { setStorageData } from "../../utils/localStorage";
 import Text from "../../components/Atoms/Text/Text.component";

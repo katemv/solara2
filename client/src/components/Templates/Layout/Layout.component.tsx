@@ -1,12 +1,13 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import ROUTES from "../../../providers/navigation/routes";
-import MenuItem from "./MenuItem/MenuItem.component";
 import Button from "../../Atoms/Button/Button.component";
-import { useAuth } from "../../../hooks/useAuth";
 import Logo from "../../Molecules/Logo/Logo.component";
+import MenuItem from "./MenuItem/MenuItem.component";
+import { useAuth } from "../../../hooks/useAuth";
+
 import { Header, HeaderContainer, Menu, Nav } from "./styles";
-import { useEffect, useState } from "react";
 
 const Layout = () => {
     const { isAuthorized } = useAuth();
