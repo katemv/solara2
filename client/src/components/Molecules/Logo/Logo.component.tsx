@@ -1,13 +1,25 @@
 import { FC } from "react";
 
-import Flex, { FlexProps } from "../../Atoms/Flex/Flex.component";
+import { SpacingKeys } from "../../../providers/theme/types/types";
+import Flex from "../../Atoms/Flex/Flex.component";
 import Text from "../../Atoms/Text/Text.component";
 import { LogoImage } from "./styles";
 
-const Logo: FC<FlexProps> = (props) => {
+interface LogoProps {
+    mode?: "dark" | "light";
+    marginBottom?: SpacingKeys;
+}
+
+const Logo: FC<LogoProps> = ({ mode = "light", marginBottom }) => {
     return (
-        <Flex {...props} gap="spacing3" align="start" justify="end">
-            <Text as="h2" intlKey="solara" appearance="logo" textAlign="right" />
+        <Flex marginBottom={marginBottom} gap="spacing3" align="start" justify="end">
+            <Text
+                as="h2"
+                intlKey="solara"
+                color={mode === "dark" ? "dark80" : "white" }
+                appearance="logo"
+                textAlign="right"
+            />
             <LogoImage />
         </Flex>
     );

@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import { useState } from "react";
 import Modal, { ModalProps } from "./Modal.component";
 import Button from "../../Atoms/Button/Button.component";
-import { useState } from "react";
 import Text from "../../Atoms/Text/Text.component";
 
 const meta = {
@@ -16,6 +16,7 @@ const meta = {
     },
     args: {
         visible: false,
+        maxWidth: 500,
     },
 } satisfies Meta<typeof Modal>;
 
@@ -23,23 +24,18 @@ export default meta;
 
 type Story = StoryObj<ModalProps>;
 
-const StoryComponent = (props: ModalProps) => {
+function StoryComponent(props: ModalProps) {
     const [isVisible, setIsVisible] = useState(false);
 
     return (
         <>
             <Button label="Open" onClick={() => setIsVisible(true)} />
             <Modal {...props} visible={isVisible} onClose={() => setIsVisible(false)}>
-                <Text
-                    as="h3"
-                    plainText="Luminary Dust"
-                    appearance="headline4"
-                    textAlign="left"
-                    marginBottom="spacing4"
-                />
+                <Text as="h3" plainText="Luminary Dust" appearance="headline4" textAlign="left" marginBottom="spacing4" textTransform="uppercase" />
                 <Text
                     as="p"
-                    plainText={`Submerge yourself in the radiance of deep space nebulae with LuminaryDust - a 
+                    plainText={`
+                        Submerge yourself in the radiance of deep space nebulae with LuminaryDust - a 
                         cosmic-inspired highlighter. Created with minerals found in the heart of distant galaxies,
                         this unique highlighter acts as a wearable homage to the beauty of the cosmos.
                     `}
@@ -51,8 +47,8 @@ const StoryComponent = (props: ModalProps) => {
             </Modal>
         </>
     );
-};
+}
 
 export const ModalStory: Story = {
-    render: StoryComponent
+    render: StoryComponent,
 };

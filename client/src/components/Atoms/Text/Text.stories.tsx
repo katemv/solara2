@@ -51,14 +51,13 @@ const meta = {
     },
     args: {
         onClick: fn(),
-        color: "dark80",
         plainText: SampleText,
         textAlign: "left",
     },
     render: (args) => (
         <Flex gap="spacing6" marginBottom="spacing6">
             <Text
-                color="dark80"
+                color="dark60"
                 appearance={args.appearance}
                 plainText={args.appearance} textTransform="capitalize"
                 textAlign="left"
@@ -70,7 +69,7 @@ const meta = {
                     {...args}
                 />
                 <Text
-                    color="dark80"
+                    color="dark60"
                     plainText={`
                         ${args.appearance ? typography[args.appearance]?.fontWeight : "500"} / 
                         ${args.appearance ? typography[args.appearance]?.fontSize : "14"} / 
