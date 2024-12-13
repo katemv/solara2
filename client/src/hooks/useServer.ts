@@ -26,7 +26,7 @@ interface IError {
 export function useServer<Req, Res, Err = IError>({
     path,
     onSuccess,
-    onError,
+    onError
 }: IServer<Res>): IRequestReturnType<Req, Res> {
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState([]);
@@ -36,6 +36,7 @@ export function useServer<Req, Res, Err = IError>({
         try {
             setIsLoading(true);
             const response = await axiosInstance.post(path, body);
+
             setIsLoading(false);
 
             if (response.status !== HttpStatusCode.Ok) {
@@ -45,7 +46,7 @@ export function useServer<Req, Res, Err = IError>({
             onSuccess(response.data);
         } catch (err) {
             setIsLoading(false);
-            // todo setErrors([...errors, err]);
+            // Todo: setErrors([...errors, err]);
             onError();
         }
     };
@@ -54,6 +55,6 @@ export function useServer<Req, Res, Err = IError>({
         isLoading,
         errors,
         data,
-        request,
+        request
     };
 }

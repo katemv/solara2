@@ -1,7 +1,7 @@
 import Banner from "../../components/Organisms/Banner/Banner.component";
 import Button from "../../components/Atoms/Button/Button.component";
 import PageContainer from "../../components/Molecules/PageContainer/PageContainer.component";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ROUTES from "../../providers/navigation/routes";
 
 const DashboardPage = () => {

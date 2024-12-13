@@ -11,5 +11,5 @@ export const spacings: DefaultTheme["spacings"] = {
     spacing8: "48px",
     spacing9: "56px",
     spacing10: "72px",
-    spacing11: "80px",
+    spacing11: "80px"
 };

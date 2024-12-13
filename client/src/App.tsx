@@ -1,4 +1,3 @@
-import React from "react";
 import RootProvider from "./providers";
 
 function App() {

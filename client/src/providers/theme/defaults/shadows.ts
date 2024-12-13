@@ -10,5 +10,5 @@ export const shadows: DefaultTheme["shadows"] = {
         0 2px 2px hsl(0deg 0% 0% / 0.085),
         0 4px 4px hsl(0deg 0% 0% / 0.085),
         0 8px 8px hsl(0deg 0% 0% / 0.085),
-        0 16px 16px hsl(0deg 0% 0% / 0.085)`,
+        0 16px 16px hsl(0deg 0% 0% / 0.085)`
 };

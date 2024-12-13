@@ -4,15 +4,13 @@ import { API_URL } from "./constants";
 const axiosInstance = axios.create({
     baseURL: `${API_URL}`,
     timeout: 15000,
-    headers: {
-        "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" }
 });
 
 axiosInstance.interceptors.response.use(
     (config) => ({
         ...config,
-        success: config.status === 200 || config.status === 201,
+        success: config.status === 200 || config.status === 201
     }),
     (error) => {
         // --- Network Errors --- //

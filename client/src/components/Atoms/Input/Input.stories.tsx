@@ -12,24 +12,24 @@ const meta = {
         placeholderIntlKey: { control: "text" },
         type: {
             control: "select",
-            options: ["password", "default"],
+            options: ["password", "default"]
         },
         prefixIconType: {
             control: "select",
-            options: [...Icons, undefined],
+            options: [...Icons, undefined]
         },
         postfixIconType: {
             control: "select",
-            options: [...Icons, undefined],
-        },
+            options: [...Icons, undefined]
+        }
     },
     args: {
         fullWidth: false,
         placeholderIntlKey: "forms.email_placeholder",
         name: "email",
         prefixIconType: "mail",
-        postfixIconType: "check",
-    },
+        postfixIconType: "check"
+    }
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -40,7 +40,8 @@ export const InputStory: Story = {
         const { control } = useForm();
 
         return (
+            // eslint-disable-next-line react/jsx-props-no-spreading
             <Input {...args} control={control} name="email" />
         );
-    },
+    }
 };

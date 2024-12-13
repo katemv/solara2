@@ -28,46 +28,46 @@ const meta = {
                 "paragraph",
                 "small",
                 "tiny",
-                "logo",
-            ],
+                "logo"
+            ]
         },
         color: {
             control: "select",
-            options: Object.keys(colors),
+            options: Object.keys(colors)
         },
         textAlign: {
             control: "select",
-            options: Object.keys(colors),
+            options: Object.keys(colors)
         },
         textTransform: {
             control: "select",
-            options: ["none", "uppercase", "capitalize"],
+            options: ["none", "uppercase", "capitalize"]
         },
         marginBottom: {
             control: "select",
-            options: Object.keys(spacings),
-        },
+            options: Object.keys(spacings)
+        }
 
     },
     args: {
         onClick: fn(),
         plainText: SampleText,
-        textAlign: "left",
+        textAlign: "left"
     },
     render: (args) => (
         <Flex gap="spacing6" marginBottom="spacing6">
             <Text
                 color="dark60"
                 appearance={args.appearance}
-                plainText={args.appearance} textTransform="capitalize"
+                plainText={args.appearance}
+                textTransform="capitalize"
                 textAlign="left"
-                customStyles={{minWidth: "180px"}}
+                customStyles={{ minWidth: "180px" }}
             />
 
             <Flex direction="column" align="start" gap="spacing2">
-                <Text
-                    {...args}
-                />
+                {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+                <Text {...args} />
                 <Text
                     color="dark60"
                     plainText={`
@@ -78,7 +78,7 @@ const meta = {
                 />
             </Flex>
         </Flex>
-    ),
+    )
 } satisfies Meta<typeof Text>;
 
 export default meta;
@@ -87,54 +87,54 @@ type Story = StoryObj<typeof meta>;
 
 export const Headline1: Story = {
     args: {
-        appearance: "headline1",
-    },
+        appearance: "headline1"
+    }
 };
 
 export const Headline2: Story = {
     args: {
-        appearance: "headline2",
-    },
+        appearance: "headline2"
+    }
 };
 
 export const Headline3: Story = {
     args: {
-        appearance: "headline3",
-    },
+        appearance: "headline3"
+    }
 };
 
 export const Headline4: Story = {
     args: {
-        appearance: "headline4",
-    },
+        appearance: "headline4"
+    }
 };
 
 export const Headline5: Story = {
     args: {
-        appearance: "headline5",
-    },
+        appearance: "headline5"
+    }
 };
 
 export const Headline6: Story = {
     args: {
-        appearance: "headline6",
-    },
+        appearance: "headline6"
+    }
 };
 
 export const Paragraph: Story = {
     args: {
-        appearance: "paragraph",
-    },
+        appearance: "paragraph"
+    }
 };
 
 export const Small: Story = {
     args: {
-        appearance: "small",
-    },
+        appearance: "small"
+    }
 };
 
 export const Tiny: Story = {
     args: {
-        appearance: "tiny",
-    },
+        appearance: "tiny"
+    }
 };

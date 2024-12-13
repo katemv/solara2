@@ -18,16 +18,16 @@ export const Backdrop = styled.div<{ visible: boolean }>(
         padding: ${theme.spacings.spacing5};
         z-index: 1000;
 
-        animation: ${visible
-            ? `fadeIn ${animationDuration * 0.7}ms forwards`
-            : `fadeOut ${animationDuration * 0.7}ms forwards`};
+        animation: ${visible ?
+            `fadeIn ${animationDuration * 0.7}ms forwards` :
+            `fadeOut ${animationDuration * 0.7}ms forwards`};
     `
 );
 export const ModalContainer = styled.div<Omit<ModalProps, "onClose">>(
     ({ theme, visible, minHeight, maxWidth, maxHeight }) => css`
-        animation: ${visible
-            ? `slideDown ${animationDuration}ms forwards`
-            : `slideUp ${animationDuration}ms forwards`};
+        animation: ${visible ?
+            `slideDown ${animationDuration}ms forwards` :
+            `slideUp ${animationDuration}ms forwards`};
 
         min-height: ${minHeight === "auto" ? minHeight : `${minHeight}px`};
         min-width: 200px;

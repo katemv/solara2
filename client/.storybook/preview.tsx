@@ -3,24 +3,22 @@ import ThemeProvider from "../src/providers/theme/ThemeProvider";
 import IntlProvider from "../src/providers/intlProvider";
 
 const preview: Preview = {
-    tags: ['autodocs'],
+    tags: ["autodocs"],
     parameters: {
         controls: {
             matchers: {
                 color: /(background|color)$/i,
-                date: /Date$/i,
-            },
+                date: /Date$/i
+            }
         },
-        docs: {
-            toc: true,
-        },
+        docs: { toc: true },
         layout: "centered",
         backgrounds: {
             values: [
-                { name: 'Dark', value: '#16161E' },
+                { name: "Dark", value: "#16161E" }
             ],
-            default: 'Dark',
-        },
+            default: "Dark"
+        }
     },
 
     decorators: [
@@ -30,8 +28,8 @@ const preview: Preview = {
                     <Story />
                 </ThemeProvider>
             </IntlProvider>
-        ),
-    ],
+        )
+    ]
 };
 
 export default preview;

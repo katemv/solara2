@@ -6,5 +6,5 @@ export const CATEGORIES = [
     Categories.COSMETICS,
     Categories.SPACE_EXPLORATION,
     Categories.TECH,
-    Categories.FOOD_AND_DRINK,
+    Categories.FOOD_AND_DRINK
 ];

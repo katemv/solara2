@@ -17,7 +17,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const loginSchema = yup.object().shape({
     email: yup.string().required(),
-    password: yup.string().required(),
+    password: yup.string().required()
 }).required();
 
 interface LoginRequest {
@@ -34,7 +34,7 @@ const LoginPage = () => {
     const { setUser, setIsAuthorized } = useAuth();
     const navigate = useNavigate();
     const { control, handleSubmit } = useForm<LoginRequest>({
-        resolver: yupResolver(loginSchema),
+        resolver: yupResolver(loginSchema)
     });
 
     const logout = () => {
@@ -51,14 +51,14 @@ const LoginPage = () => {
             setStorageData("token", token);
             setUser({
                 id: userId,
-                token: token,
+                token: token
             });
             setIsAuthorized(true);
             navigate("/shop", { replace: true });
         },
         onError: () => {
             logout();
-        },
+        }
     });
 
     return (

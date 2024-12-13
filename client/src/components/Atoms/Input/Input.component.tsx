@@ -20,7 +20,7 @@ function Input <T extends FieldValues>({
     type,
     name,
     prefixIconType,
-    postfixIconType,
+    postfixIconType
 }: InputProps & UseControllerProps<T>) {
     const [visibility, setVisibility] = useState<boolean>(false);
     const { formatMessage } = useIntl();
@@ -30,7 +30,7 @@ function Input <T extends FieldValues>({
         formState: { touchedFields, dirtyFields }
     } = useController({
         name,
-        control,
+        control
     });
 
     const getInputType = () => {
@@ -64,7 +64,7 @@ function Input <T extends FieldValues>({
                     onClick={() => setVisibility(!visibility)}
                     error={hasError}
                 >
-                    <Icon type={visibility ? "visibility_off" : "visibility"}  />
+                    <Icon type={visibility ? "visibility_off" : "visibility"} />
                 </PasswordButton>
             )}
             {type !== "password" && postfixIconType && <PostfixIcon type={postfixIconType} error={hasError} />}

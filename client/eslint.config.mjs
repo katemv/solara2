@@ -11,17 +11,19 @@ export default [
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,
-    pluginReact.configs.flat['jsx-runtime'],
+    pluginReact.configs.flat["jsx-runtime"],
     {
-        plugins: {
-            '@stylistic/js': stylisticJs
-        },
+        plugins: { "@stylistic/js": stylisticJs },
         rules: {
             "@stylistic/js/indent": ["error", 4],
             "@stylistic/js/quotes": ["error", "double"],
             "@stylistic/js/semi": ["error", "always"],
             "@stylistic/js/array-bracket-spacing": ["error", "never"],
-            "@stylistic/js/max-len": ["error", { "code": 120, "tabWidth": 4 }],
+            "@stylistic/js/max-len": ["error", {
+                "code": 120,
+                "tabWidth": 4,
+                "ignoreUrls": true
+            }],
             "@stylistic/js/arrow-parens": ["error", "always"],
             "@stylistic/js/arrow-spacing": "error",
             "@stylistic/js/block-spacing": "error",
@@ -35,20 +37,18 @@ export default [
             "@stylistic/js/key-spacing": ["error", { "beforeColon": false, "afterColon": true }],
             "@stylistic/js/keyword-spacing": ["error", { "before": true, "after": true }],
             "@stylistic/js/max-statements-per-line": ["error", { "max": 1 }],
-            "@stylistic/js/multiline-comment-style": ["error", "starred-block"],
             "@stylistic/js/no-mixed-operators": "error",
             "@stylistic/js/no-multi-spaces": "error",
             "@stylistic/js/no-multiple-empty-lines": "error",
             "@stylistic/js/no-trailing-spaces": "error",
-            "@stylistic/js/object-curly-newline": ["error", { "multiline": true }],
             "@stylistic/js/object-curly-spacing": ["error", "always"],
             "@stylistic/js/object-property-newline": ["error", { "allowAllPropertiesOnSameLine": true }],
             "@stylistic/js/operator-linebreak": ["error", "after"],
             "@stylistic/js/padded-blocks": ["error", "never"],
             "@stylistic/js/padding-line-between-statements": [
                 "error",
-                { blankLine: "always", prev: ["const", "let", "var"], next: "*"},
-                { blankLine: "any",    prev: ["const", "let", "var"], next: ["const", "let", "var"]}
+                { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
+                { blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"] }
             ],
             "@stylistic/js/space-in-parens": ["error", "never"],
             "@stylistic/js/space-infix-ops": "error",
@@ -69,7 +69,7 @@ export default [
             "react/jsx-closing-bracket-location": ["error", "tag-aligned"],
             "react/jsx-one-expression-per-line": ["error", { allow: "non-jsx" }],
             "react/jsx-props-no-spreading": ["error", {
-                "explicitSpread": "ignore",
+                "explicitSpread": "ignore"
             }],
             "react/jsx-tag-spacing": ["error", {
                 "closingSlash": "never",
@@ -84,7 +84,7 @@ export default [
                 "arrow": "parens-new-line",
                 "condition": "parens-new-line",
                 "logical": "parens-new-line",
-                "prop": "parens-new-line",
+                "prop": "parens-new-line"
             }],
             "react/no-array-index-key": "error",
             "react/self-closing-comp": "error"

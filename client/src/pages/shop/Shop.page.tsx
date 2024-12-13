@@ -4,18 +4,40 @@ import Product from "../../components/Organisms/Products/ProductItem/ProductItem
 import Banner from "../../components/Organisms/Banner/Banner.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
 import Text from "../../components/Atoms/Text/Text.component";
-import Tab from "../../components/Molecules/Tab/Tab.component";
+import Tab from "../../components/Molecules/Tabs/Tab.component";
 import { Categories, IProduct, Nullable } from "../../types";
 import { CATEGORIES } from "../../utils/constants";
 import { fullWidth, Grid } from "./styles";
 import ProductDetailsModal from "../../components/Organisms/Products/ProductDetailsModal/ProductDetailsModal.component";
+
+import image1 from "../../assets/images/astro.png";
+import image2 from "../../assets/images/bar.png";
+import image3 from "../../assets/images/abstr_asto.png";
+import image4 from "../../assets/images/flower_asto_2.png";
+import image5 from "../../assets/images/planet.png";
 
 const mock: IProduct = {
     id: "1",
     name: "Test Product",
     brand: "Luna",
     price: 8000,
+    image: ""
 };
+
+const list: IProduct[] = [
+    // @ts-expect-error: temporary mock
+    { id: "1", ...mock, image: image1 },
+    // @ts-expect-error: temporary mock
+    { id: "2", ...mock, image: image2 },
+    // @ts-expect-error: temporary mock
+    { id: "3", ...mock, image: image3 },
+    // @ts-expect-error: temporary mock
+    { id: "4", ...mock, image: image4 },
+    // @ts-expect-error: temporary mock
+    { id: "5", ...mock, image: image5 },
+    // @ts-expect-error: temporary mock
+    { id: "6", ...mock, image: image1 }
+];
 
 const ShopPage = () => {
     const [currentCategory, setCurrentCategory] = useState<Categories>(Categories.ALL_PRODUCTS);
@@ -33,12 +55,12 @@ const ShopPage = () => {
                         textAlign="left"
                         customStyles={fullWidth}
                     />
-                    {new Array(3).fill(0).map((_, index) => (
+                    {list.map((product) => (
                         <Product
-                            key={index}
-                            product={mock}
+                            key={product.id}
+                            product={product}
                             horizontal
-                            onClick={() => setCurrentProduct(mock)}
+                            onClick={() => setCurrentProduct(product)}
                         />
                     ))}
                     <Text
@@ -80,11 +102,11 @@ const ShopPage = () => {
                         customStyles={{ ...fullWidth, width: "80%" }}
                         marginBottom="spacing4"
                     />
-                    {new Array(10).fill(0).map((_, index) => (
+                    {list.map((product) => (
                         <Product
-                            key={index}
-                            product={mock}
-                            onClick={() => setCurrentProduct(mock)}
+                            key={product.id}
+                            product={product}
+                            onClick={() => setCurrentProduct(product)}
                         />
                     ))}
                 </Grid>

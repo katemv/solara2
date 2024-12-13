@@ -7,11 +7,11 @@ const config: StorybookConfig = {
         "@storybook/addon-onboarding",
         "@storybook/addon-essentials",
         "@chromatic-com/storybook",
-        "@storybook/addon-interactions",
+        "@storybook/addon-interactions"
     ],
     framework: {
         name: "@storybook/react-webpack5",
-        options: {},
+        options: {}
     },
     staticDirs: ["../public"],
     previewHead: (head) => `
@@ -20,6 +20,7 @@ const config: StorybookConfig = {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         />
-    `,
+    `
 };
+
 export default config;

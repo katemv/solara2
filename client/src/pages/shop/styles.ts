@@ -1,7 +1,7 @@
 import { css, styled } from "styled-components";
 
 export const fullWidth = {
-    gridColumn: "1 / -1",
+    gridColumn: "1 / -1"
 };
 
 export const Grid = styled.div(

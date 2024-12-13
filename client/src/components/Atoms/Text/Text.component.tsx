@@ -33,7 +33,7 @@ const Text: FC<TextProps> = ({
     textAlign = "center",
     textTransform = "none",
     marginBottom = 0,
-    customStyles = {},
+    customStyles = {}
 }) => {
     const { formatMessage } = useIntl();
 

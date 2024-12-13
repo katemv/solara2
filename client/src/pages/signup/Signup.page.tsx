@@ -10,8 +10,8 @@ import Logo from "../../components/Molecules/Logo/Logo.component";
 import { SIGNUP_ROUTE, LOGIN_ROUTE } from "../../api/constants";
 import { useServer } from "../../hooks/useServer";
 
-import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 export interface SignupRequest {
@@ -26,13 +26,13 @@ export interface SignupResponse {
 
 const signupSchema = yup.object().shape({
     email: yup.string().required(),
-    password: yup.string().required(),
+    password: yup.string().required()
 }).required();
 
 const SignupPage = () => {
     const navigate = useNavigate();
     const { control } = useForm<SignupRequest>({
-        resolver: yupResolver(signupSchema),
+        resolver: yupResolver(signupSchema)
     });
 
     const { request: signupRequest, isLoading } = useServer<SignupRequest, SignupResponse>({
@@ -42,7 +42,7 @@ const SignupPage = () => {
         },
         onError: () => {
             // todo handle errors
-        },
+        }
     });
 
     return (

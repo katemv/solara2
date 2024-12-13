@@ -10,33 +10,33 @@ const meta = {
     argTypes: {
         justify: {
             control: "select",
-            options: ["start", "end", "center", "space-between", "space-around"],
+            options: ["start", "end", "center", "space-between", "space-around"]
         },
         align: {
             control: "select",
-            options: ["start", "end", "center", "space-between", "space-around"],
+            options: ["start", "end", "center", "space-between", "space-around"]
         },
         direction: {
             control: "select",
-            options: ["row", "column"],
+            options: ["row", "column"]
         },
         $wrap: {
-            control: "boolean",
+            control: "boolean"
         },
         gap: {
             control: "select",
-            options: Object.keys(spacings),
+            options: Object.keys(spacings)
         },
         marginBottom: {
             control: "select",
-            options: Object.keys(spacings),
+            options: Object.keys(spacings)
         },
         fullWidth: {
-            control: "boolean",
+            control: "boolean"
         },
         fullHeight: {
-            control: "boolean",
-        },
+            control: "boolean"
+        }
     },
     args: {
         align: "center",
@@ -57,6 +57,7 @@ type Story = StoryObj<typeof meta>;
 export const FlexStory: Story = {
     render: (args) => (
         <div style={{ height: 300, minWidth: 700 }}>
+            {/* eslint-disable-next-line react/jsx-props-no-spreading */}
             <Flex {...args}>
                 <Flex style={{ height: "100px", width: "100px", backgroundColor: colors.purple100 }} />
                 <Flex style={{ height: "100px", width: "100px", backgroundColor: colors.purple80 }} />

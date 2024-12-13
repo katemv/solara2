@@ -29,5 +29,5 @@ export const colors: DefaultTheme["colors"] = {
     white: "#FFFFFF",
     backgroundGradient:
         "linear-gradient(to right top, #3f16d6, #7442e0, #9a69eb, #bb90f5, #d9b7ff)",
-    backdrop: "rgba(0,0,0,0.75)",
+    backdrop: "rgba(0,0,0,0.75)"
 };

@@ -13,12 +13,12 @@ const meta = {
         loadingLabel: { control: "text" },
         appearance: {
             control: "inline-radio",
-            options: ["default", "secondary"],
+            options: ["default", "secondary"]
         },
         type: {
             control: "select",
-            options: ["submit", "button"],
-        },
+            options: ["submit", "button"]
+        }
     },
     args: {
         onClick: fn(),
@@ -28,7 +28,7 @@ const meta = {
         loadingLabel: "Work in progress..",
         appearance: "primary",
         type: "button"
-    },
+    }
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -36,6 +36,6 @@ type Story = StoryObj<typeof meta>;
 
 export const ButtonStory: Story = {
     args: {
-        label: "pages.login.signup",
-    },
+        label: "pages.login.signup"
+    }
 };

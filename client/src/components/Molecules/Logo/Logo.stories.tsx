@@ -11,12 +11,12 @@ const meta = {
     argTypes: {
         mode: {
             control: "select",
-            options: ["light", "dark"],
+            options: ["light", "dark"]
         },
         marginBottom: {
             control: "select",
-            options: Object.keys(spacings),
-        },
+            options: Object.keys(spacings)
+        }
 
     },
     decorators: (Story) => (

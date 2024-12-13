@@ -5,7 +5,7 @@ import {
     useState,
     Dispatch,
     SetStateAction,
-    useEffect,
+    useEffect
 } from "react";
 
 import { getStorageData, setStorageData } from "../../utils/localStorage";
@@ -25,10 +25,8 @@ interface IAuthContext {
 export const AuthContext = createContext<IAuthContext>({
     user: null,
     isAuthorized: false,
-    // eslint-disable-next-line
     setUser: () => {},
-    // eslint-disable-next-line
-    setIsAuthorized: () => {},
+    setIsAuthorized: () => {}
 });
 
 const AuthProvider: FC<Props> = ({ children }) => {
@@ -46,7 +44,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
             setIsAuthorized(true);
             setUser({
                 token,
-                id: "", // todo update
+                id: "" // todo update
             });
         }
     }, []);

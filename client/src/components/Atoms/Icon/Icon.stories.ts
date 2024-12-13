@@ -10,13 +10,13 @@ const meta = {
     argTypes: {
         type: {
             control: "select",
-            options: Icons,
+            options: Icons
         },
         color: {
             control: "select",
             options: Object.keys(colors)
         }
-    },
+    }
 } satisfies Meta<typeof Icon>;
 
 export default meta;
@@ -27,5 +27,5 @@ export const IconStory: Story = {
     args: {
         type: "cancel",
         color: "purple80"
-    },
+    }
 };

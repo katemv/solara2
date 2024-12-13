@@ -16,7 +16,7 @@ const Modal: FC<ModalProps> = ({
     visible,
     maxHeight,
     minHeight = 200,
-    maxWidth,
+    maxWidth
 }) => {
     const ref = createRef<HTMLDivElement>();
     const [renderModal, setRenderModal] = useState(visible);
@@ -65,22 +65,22 @@ const Modal: FC<ModalProps> = ({
         };
     }, [visible, handleClickOutside]);
 
-    return renderModal
-        ? createPortal(
-              <Backdrop visible={visible}>
-                  <ModalContainer
-                      ref={ref}
-                      visible={visible}
-                      maxHeight={maxHeight}
-                      maxWidth={maxWidth}
-                      minHeight={minHeight}
-                  >
-                      {children}
-                  </ModalContainer>
-              </Backdrop>,
-              document.body
-          )
-        : null;
+    return renderModal ?
+        createPortal(
+            <Backdrop visible={visible}>
+                <ModalContainer
+                    ref={ref}
+                    visible={visible}
+                    maxHeight={maxHeight}
+                    maxWidth={maxWidth}
+                    minHeight={minHeight}
+                >
+                    {children}
+                </ModalContainer>
+            </Backdrop>,
+            document.body
+        ) :
+        null;
 };
 
 export default Modal;

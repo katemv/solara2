@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import React from "react";
 
 import Layout from "../../components/Organisms/Layout/Layout.component";
 import AddProductPage from "../../pages/add-product/AddProduct.page";
@@ -23,10 +22,10 @@ const RootPage = () => (
             <Route path={ROUTES.ORDERS} element={<OrdersPage />} />
             <Route path={ROUTES.CART} element={<CartPage />} />
             <Route path={ROUTES.PROFILE} element={<ProfilePage />} />
-            {/*<Route element={<PrivateOutlet />}>*/}
-                <Route path={ROUTES.ADMIN} element={<DashboardPage />} />
-                <Route path={ROUTES.ADD_PRODUCT} element={<AddProductPage />} />
-            {/*</Route>*/}
+            {/* <Route element={<PrivateOutlet />}> */}
+            <Route path={ROUTES.ADMIN} element={<DashboardPage />} />
+            <Route path={ROUTES.ADD_PRODUCT} element={<AddProductPage />} />
+            {/* </Route> */}
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.SHOP} replace />} />
     </Routes>

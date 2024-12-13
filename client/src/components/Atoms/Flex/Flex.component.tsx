@@ -23,7 +23,7 @@ const Flex = styled.div<FlexProps>`
         marginBottom,
         fullWidth,
         fullHeight,
-        theme,
+        theme
     }) => css`
         display: flex;
         justify-content: ${justify};

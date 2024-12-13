@@ -14,7 +14,7 @@ interface TabsProps {
 }
 
 const Tabs: FC<TabsProps> = ({ tabs }) => {
-    const [activeIndex, setActiveIndex] = useState( 0);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
         <Flex direction="column">

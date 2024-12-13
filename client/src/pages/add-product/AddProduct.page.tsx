@@ -7,7 +7,7 @@ import Banner from "../../components/Organisms/Banner/Banner.component";
 import Input from "../../components/Atoms/Input/Input.component";
 
 const schema = yup.object().shape({
-    title: yup.string().required(),
+    title: yup.string().required()
 }).required();
 
 interface AddProductSchema {
@@ -16,19 +16,20 @@ interface AddProductSchema {
 
 const AddProductPage = () => {
     const { control, handleSubmit } = useForm<AddProductSchema>({
-        resolver: yupResolver(schema),
+        resolver: yupResolver(schema)
     });
+
     return (
         <>
             <Banner headingIntlKey="Dashboard" subheadingIntlKey="sub" />
             <PageContainer>
-                {/*image upload*/}
-                <form onSubmit={handleSubmit(d => console.log(d))}>
+                {/* image upload */}
+                <form onSubmit={handleSubmit((d) => console.log(d))}>
                     <Input control={control} name="title" placeholderIntlKey="forms.title" />
-                    {/*<Input value={"title"} onChange={() => {}}/>*/}
-                    {/*<Input value={"description"} onChange={() => {}}/>*/}
-                    {/*<Input value={"stock"} onChange={() => {}}/>*/}
-                    {/*<Input value={"price"} onChange={() => {}}/>*/}
+                    {/* <Input value={"title"} onChange={() => {}}/> */}
+                    {/* <Input value={"description"} onChange={() => {}}/> */}
+                    {/* <Input value={"stock"} onChange={() => {}}/> */}
+                    {/* <Input value={"price"} onChange={() => {}}/> */}
                 </form>
             </PageContainer>
         </>

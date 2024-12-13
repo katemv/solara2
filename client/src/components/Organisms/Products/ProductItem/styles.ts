@@ -5,9 +5,9 @@ export const StyledProduct = styled(Flex)<{ $horizontal?: boolean }>(
     ({ theme, $horizontal }) => css`
         background: ${theme.colors.dark90};
         padding: ${theme.spacings.spacing3};
-        padding-bottom: ${$horizontal //eslint-disable-next-line
-            ? theme.spacings.spacing3 //eslint-disable-next-line
-            : theme.spacings.spacing4};
+        padding-bottom: ${$horizontal ?
+            theme.spacings.spacing3 :
+            theme.spacings.spacing4};
         border-radius: 10px;
         width: 300px;
         flex-direction: ${$horizontal ? "row" : "column"};
