@@ -15,7 +15,8 @@
         "isolatedModules": true,
         "noEmit": true,
         "jsx": "react-jsx",
-        "typeRoots": ["node_modules/yup"]
+        "typeRoots": ["node_modules/yup", "node_modules/@types"],
+        "types": ["@types/jest", "jest", "@testing-library/jest-dom"]
     },
-    "include": ["src"]
+    "include": ["src/**/*", "globals.d.ts"],
 }

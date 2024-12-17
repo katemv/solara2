@@ -7,7 +7,7 @@ import image1 from "../../../../assets/images/abstr_asto.png";
 import Button from "../../../Atoms/Button/Button.component";
 
 const meta = {
-    title: "Pages/ProductDetailsModal",
+    title: "Pages/Product/Product Details Modal",
     component: ProductDetailsModal
 } satisfies Meta<typeof ProductDetailsModal>;
 
@@ -34,7 +34,7 @@ function ProductDetailsModalComponent () {
             />
         </>
     );
-};
+}
 
 export const ProductDetailsModalStory: Story = {
     render: ProductDetailsModalComponent
