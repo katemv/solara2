@@ -43,7 +43,7 @@ jobs:
           yarn set version stable
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: yarn install
 
       - name: Build Project
         run: yarn build
