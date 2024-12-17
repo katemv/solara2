@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": "mvkatt.dev",
+  "homepage": "https://katemv.github.io/solara",
   "version": "4.5.3",
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "@types/yup": "^0.32.0",
     "axios": "^1.6.7",
     "flat": "^6.0.1",
+    "gh-pages": "^6.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.51.0",
@@ -33,7 +34,9 @@
     "test": "react-scripts test",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "lint": "yarn eslint ."
+    "lint": "yarn eslint .",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
