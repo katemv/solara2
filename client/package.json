@@ -1,7 +1,7 @@
 {
   "name": "client",
   "homepage": "mvkatt.dev",
-  "version": "0.1.0",
+  "version": "1.22.22",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
