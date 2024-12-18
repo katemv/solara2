@@ -6,7 +6,7 @@ import { fn } from "@storybook/test";
 
 
 const meta = {
-    title: "Pages/ProductItem",
+    title: "Pages/Product/Product Item",
     component: ProductItem
 } satisfies Meta<typeof ProductItem>;
 
