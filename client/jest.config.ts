@@ -2,16 +2,16 @@ import type { Config } from "jest";
 
 const config: Config = {
     preset: "ts-jest",
-    moduleFileExtensions: ["tsx", "ts", "js", "json", "node"],
+    testEnvironment: "jsdom",
+    setupFilesAfterEnv: ["./setupTests.ts"],
     moduleNameMapper: {
         "\\.(css|less)$": "<rootDir>/jest-config/mocks/styleMock.js"
     },
-    setupFilesAfterEnv: ["./setupTests.ts"],
+    moduleFileExtensions: ["tsx", "ts", "js", "json", "node"],
     transform: {
         "^.+.tsx?$": ["ts-jest", {}]
     },
-    transformIgnorePatterns: ["/node_modules/", "^.+\\.module\\.(css|sass|scss)$"],
-    testEnvironment: "jsdom"
+    transformIgnorePatterns: ["/node_modules/", "^.+\\.module\\.(css|sass|scss)$"]
 };
 
 export default config;
