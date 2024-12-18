@@ -14,7 +14,7 @@ describe("Button Component", () => {
                 />
             );
 
-            const buttonElement = screen.getByText("Continue");
+            const buttonElement = screen.getByText("Continue1");
 
             expect(buttonElement).toBeInTheDocument();
         });
