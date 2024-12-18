@@ -1,10 +1,10 @@
-name: Client Unit Testing
+name: Unit Testing
 
 on: pull_request
 
 jobs:
   run-jest-tests:
-    name: Jest Tests
+    name: Client Unit Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout under $GITHUB_WORKSPACE
