@@ -18,10 +18,13 @@ import image5 from "../../assets/images/planet.png";
 
 const mock: IProduct = {
     id: "1",
-    name: "Test Product",
+    name: "CosMoss Explorer",
     brand: "Luna",
     price: 8000,
-    image: ""
+    image: "",
+    description: `
+        Embark on a journey through the uncharted realms of the cosmos with the CosmoMoss Explorer!
+        Perfect for space enthusiasts and dreamers alike.`
 };
 
 const list: IProduct[] = [

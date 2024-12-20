@@ -19,6 +19,7 @@ export const colors: DefaultTheme["colors"] = {
     warning: "#FFBE21",
     success: "#2ED573",
     dark100: "#16161E",
+    dark95: "#1c1c26",
     dark90: "#272733",
     dark80: "#45454B",
     dark60: "#737378",
