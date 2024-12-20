@@ -7,7 +7,8 @@ import ProductDetailsModal, { ProductDetailsModalProps } from "./ProductDetailsM
 
 const meta = {
     title: "Pages/Product/Product Details Modal",
-    component: ProductDetailsModal
+    component: ProductDetailsModal,
+    tags: ["!autodocs"]
 } satisfies Meta<typeof ProductDetailsModal>;
 
 export default meta;
