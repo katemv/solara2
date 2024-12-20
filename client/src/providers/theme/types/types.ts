@@ -21,6 +21,7 @@ export type ColorsKeys =
     | "purple10"
     | "purple5"
     | "dark100"
+    | "dark95"
     | "dark90"
     | "dark80"
     | "dark60"
@@ -68,6 +69,13 @@ export type TypographyKeys =
     | "logo";
 
 export type IconKeys = "cancel"
+    | "book"
+    | "comment"
+    | "local_shipping"
+    | "arrow_forward_ios"
+    | "undo"
+    | "star"
+    | "kid_star"
     | "check"
     | "lock"
     | "mail"
