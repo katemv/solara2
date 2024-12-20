@@ -15,11 +15,10 @@ interface MenuItemProps extends FlexProps {
 
 const MenuItem: FC<MenuItemProps> = ({ intlKey, onClick, iconKey, ...rest }) => (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <Container fullWidth justify="space-between" align="center" {...rest}>
+    <Container fullWidth justify="space-between" align="center" onClick={onClick} {...rest}>
         <Flex gap="spacing3">
             <Icon type={iconKey} color="dark40" />
             <Text
-                onClick={onClick}
                 intlKey={intlKey}
                 appearance="paragraph"
                 fontWeight={400}

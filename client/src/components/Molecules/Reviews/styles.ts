@@ -5,6 +5,7 @@ export const Container = styled(Flex)(({ theme }) => `
     background: ${theme.colors.dark95};
     border-radius: 10px;
     padding: ${theme.spacings.spacing5};
+    min-width: 350px;
 `);
 
 export const ProgressContainer = styled.div(({ theme }) => css`
