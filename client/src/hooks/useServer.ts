@@ -18,18 +18,19 @@ interface IRequestReturnType<Req, Res> {
     request: (body: Req) => Promise<void>;
 }
 
-interface IError {
-    message: string;
-    status: number;
-}
+// interface IError {
+//     message: string;
+//     status: number;
+// }
 
-export function useServer<Req, Res, Err = IError>({
+// export function useServer<Req, Res, Err = IError>({
+export function useServer<Req, Res>({
     path,
     onSuccess,
     onError
 }: IServer<Res>): IRequestReturnType<Req, Res> {
     const [isLoading, setIsLoading] = useState(false);
-    const [errors, setErrors] = useState([]);
+    // const [errors, setErrors] = useState([]);
     const [data, setData] = useState<Nullable<Res>>(null);
 
     const request = async (body: Req) => {
@@ -46,14 +47,15 @@ export function useServer<Req, Res, Err = IError>({
             onSuccess(response.data);
         } catch (err) {
             setIsLoading(false);
-            // Todo: setErrors([...errors, err]);
+            console.error(err);
+            // setErrors([...errors, err]);
             onError();
         }
     };
 
     return {
         isLoading,
-        errors,
+        errors: [],
         data,
         request
     };
