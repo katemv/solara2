@@ -5,7 +5,7 @@ import { ButtonProps } from "../Button/Button.component";
 import { SpinIcon } from "../Button/styles";
 import Text from "../Text/Text.component";
 
-import { LeftContent, RightContent, StyledButton } from "./styles";
+import { LeftContent, LoadingContainer, RightContent, StyledButton } from "./styles";
 
 export interface DoubleButtonProps extends Omit<ButtonProps, "appearance"> {
     intlKey?: string;
@@ -19,33 +19,42 @@ const DoubleButton: FC<DoubleButtonProps> = ({
     disabled,
     loading,
     leftContent,
-    loadingLabel = "messages.loading",
     onClick,
+    loadingLabel = "messages.loading",
     type = "button"
 }) => {
     return (
         <StyledButton
             fullWidth={fullWidth}
             disabled={disabled || loading}
-            loading={loading}
             onClick={onClick}
             type={type}
         >
             {loading ? (
-                <SpinIcon type="progress_activity" />
+                <LoadingContainer align="center" justify="center" gap="spacing4">
+                    <SpinIcon type="progress_activity" />
+                    <Text
+                        as="span"
+                        intlKey={loadingLabel}
+                        fontWeight={700}
+                        textTransform="capitalize"
+                    />
+                </LoadingContainer>
             ) : (
-                <LeftContent direction="column" align="start">
-                    {leftContent}
-                </LeftContent>
+                <>
+                    <LeftContent direction="column" align="start">
+                        {leftContent}
+                    </LeftContent>
+                    <RightContent align="center" disabled={disabled}>
+                        <Text
+                            as="span"
+                            intlKey={label}
+                            fontWeight={700}
+                            textTransform="capitalize"
+                        />
+                    </RightContent>
+                </>
             )}
-            <RightContent align="center">
-                <Text
-                    as="span"
-                    intlKey={loading ? loadingLabel : label}
-                    fontWeight={700}
-                    textTransform="capitalize"
-                />
-            </RightContent>
         </StyledButton>
     );
 };

@@ -15,6 +15,11 @@ type Story = StoryObj<typeof meta>;
 export const BuyButtonStories: Story = {
     args: {
         price: 100,
-        onClick: fn()
+        onClick: fn(),
+        loading: false,
+        fullWidth: false,
+        disabled: false,
+        loadingLabel: "Work in progress...",
+        type: "button"
     }
 };

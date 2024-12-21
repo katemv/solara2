@@ -36,7 +36,7 @@ export const productMock: IProduct = {
     name: "CosMoss Explorer",
     brand: "Luna",
     price: 8000,
-    image: "",
+    image: image1,
     description: `
         Embark on a journey through the uncharted realms of the cosmos with the CosmoMoss Explorer!
         Perfect for space enthusiasts and dreamers alike.`
