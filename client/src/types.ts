@@ -11,6 +11,7 @@ export interface IProduct {
     brand: string;
     price: number;
     image: string;
+    description: string;
 }
 
 export enum Categories {

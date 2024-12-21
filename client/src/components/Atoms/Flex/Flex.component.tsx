@@ -4,7 +4,7 @@ import { SpacingKeys } from "../../../providers/theme/types/types";
 
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
     justify?: "start" | "end" | "center" | "space-between" | "space-around";
-    align?: "start" | "end" | "center" | "space-between" | "space-around";
+    align?: "start" | "end" | "center" | "space-between" | "space-around" | "baseline";
     direction?: "row" | "column";
     $wrap?: boolean;
     gap?: SpacingKeys;

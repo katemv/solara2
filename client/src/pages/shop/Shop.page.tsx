@@ -10,34 +10,8 @@ import { CATEGORIES } from "../../utils/constants";
 import { fullWidth, Grid } from "./styles";
 import ProductDetailsModal from "../../components/Pages/Products/ProductDetailsModal/ProductDetailsModal.component";
 
-import image1 from "../../assets/images/astro.png";
-import image2 from "../../assets/images/bar.png";
-import image3 from "../../assets/images/abstr_asto.png";
-import image4 from "../../assets/images/flower_asto_2.png";
-import image5 from "../../assets/images/planet.png";
+import { productListMock } from "../../utils/mocks";
 
-const mock: IProduct = {
-    id: "1",
-    name: "Test Product",
-    brand: "Luna",
-    price: 8000,
-    image: ""
-};
-
-const list: IProduct[] = [
-    // @ts-expect-error: temporary mock
-    { id: "1", ...mock, image: image1 },
-    // @ts-expect-error: temporary mock
-    { id: "2", ...mock, image: image2 },
-    // @ts-expect-error: temporary mock
-    { id: "3", ...mock, image: image3 },
-    // @ts-expect-error: temporary mock
-    { id: "4", ...mock, image: image4 },
-    // @ts-expect-error: temporary mock
-    { id: "5", ...mock, image: image5 },
-    // @ts-expect-error: temporary mock
-    { id: "6", ...mock, image: image1 }
-];
 
 const ShopPage = () => {
     const [currentCategory, setCurrentCategory] = useState<Categories>(Categories.ALL_PRODUCTS);
@@ -55,7 +29,7 @@ const ShopPage = () => {
                         textAlign="left"
                         customStyles={fullWidth}
                     />
-                    {list.map((product) => (
+                    {productListMock.map((product) => (
                         <Product
                             key={product.id}
                             product={product}
@@ -102,7 +76,7 @@ const ShopPage = () => {
                         customStyles={{ ...fullWidth, width: "80%" }}
                         marginBottom="spacing4"
                     />
-                    {list.map((product) => (
+                    {productListMock.map((product) => (
                         <Product
                             key={product.id}
                             product={product}

@@ -1,41 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { useState } from "react";
+import { fn } from "@storybook/test";
 
-import { ProductProps } from "../ProductItem/ProductItem.component";
-import ProductDetailsModal from "./ProductDetailsModal.component";
-import image1 from "../../../../assets/images/abstr_asto.png";
-import Button from "../../../Atoms/Button/Button.component";
+import ProductDetailsModal, { ProductDetailsModalProps } from "./ProductDetailsModal.component";
+import { productMock } from "../../../../utils/mocks";
 
 const meta = {
     title: "Pages/Product/Product Details Modal",
-    component: ProductDetailsModal
+    component: ProductDetailsModal,
+    tags: ["!autodocs"]
 } satisfies Meta<typeof ProductDetailsModal>;
 
 export default meta;
 
-type Story = StoryObj<ProductProps>;
-
-function ProductDetailsModalComponent () {
-    const [visible, setVisible] = useState<boolean>(false);
-
-    return (
-        <>
-            <Button label="Open modal" onClick={() => setVisible(true)} />
-            <ProductDetailsModal
-                product={{
-                    name: "Test product",
-                    brand: "Luna",
-                    id: "1",
-                    price: 800,
-                    image: image1
-                }}
-                visible={visible}
-                onClose={() => setVisible(false)}
-            />
-        </>
-    );
-}
+type Story = StoryObj<ProductDetailsModalProps>;
 
 export const ProductDetailsModalStory: Story = {
-    render: ProductDetailsModalComponent
+    args: {
+        product: productMock,
+        visible: true,
+        onClose: fn()
+    }
 };

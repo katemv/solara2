@@ -1,11 +1,18 @@
 import { css, styled } from "styled-components";
 import { ColorsKeys } from "../../../providers/theme/types/types";
 
-export const StyledIcon = styled.span<{ color: ColorsKeys }>(({ theme, color }) => css`
+interface StyledIconProps {
+    color: ColorsKeys;
+    filled: boolean;
+    size: number;
+}
+
+export const StyledIcon = styled.span<StyledIconProps>(({ theme, color, filled, size }) => css`
     font-variation-settings:
-        "FILL" 0,
+        "FILL" ${filled ? 1 : 0},
         "wght" 400,
         "GRAD" 0,
-        "opsz" 24;
-      color: ${theme?.colors?.[color] || "black"};
+        "opsz" ${size};
+    color: ${theme?.colors?.[color] || "black"};
+    font-size: ${size}px;
 `);

@@ -1,6 +1,7 @@
 import { createRef, FC, ReactNode, useCallback, useEffect, useState } from "react";
-import { animationDuration, Backdrop, ModalContainer } from "./styles";
 import { createPortal } from "react-dom";
+
+import { animationDuration, Backdrop, FixedButtonContainer, ModalContainer, ScrollContainer } from "./styles";
 
 export interface ModalProps {
     visible: boolean;
@@ -9,6 +10,7 @@ export interface ModalProps {
     minHeight?: number | "auto";
     onClose: () => void;
     children?: ReactNode;
+    fixedButton?: ReactNode;
 }
 const Modal: FC<ModalProps> = ({
     onClose,
@@ -16,13 +18,14 @@ const Modal: FC<ModalProps> = ({
     visible,
     maxHeight,
     minHeight = 200,
-    maxWidth
+    maxWidth,
+    fixedButton
 }) => {
     const ref = createRef<HTMLDivElement>();
     const [renderModal, setRenderModal] = useState(visible);
 
     useEffect(() => {
-        let timer: any;
+        let timer: ReturnType<typeof setTimeout>;
 
         if (visible) {
             setRenderModal(true);
@@ -37,11 +40,12 @@ const Modal: FC<ModalProps> = ({
     }, [visible]);
 
     const handleClickOutside = useCallback(
-        (event: MouseEvent) => {
-            if (!ref) {
+        (event: MouseEvent): void => {
+            if (!ref?.current) {
                 return;
             }
-            const isClickedOutsideModal = !(ref.current as any).contains(event.target);
+
+            const isClickedOutsideModal = !(ref.current).contains(event.target as Node);
 
             if (isClickedOutsideModal) {
                 onClose();
@@ -75,7 +79,14 @@ const Modal: FC<ModalProps> = ({
                     maxWidth={maxWidth}
                     minHeight={minHeight}
                 >
-                    {children}
+                    <ScrollContainer>
+                        {children}
+                    </ScrollContainer>
+                    {fixedButton && (
+                        <FixedButtonContainer>
+                            {fixedButton}
+                        </FixedButtonContainer>
+                    )}
                 </ModalContainer>
             </Backdrop>,
             document.body

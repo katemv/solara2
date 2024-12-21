@@ -26,8 +26,8 @@ function Input <T extends FieldValues>({
     const { formatMessage } = useIntl();
     const {
         field: { onChange, onBlur, value, ref },
-        fieldState: { invalid, isTouched, isDirty },
-        formState: { touchedFields, dirtyFields }
+        fieldState: { invalid, isTouched, isDirty }
+        // formState: { touchedFields, dirtyFields }
     } = useController({
         name,
         control

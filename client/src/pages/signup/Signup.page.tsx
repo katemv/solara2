@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Container } from "../../components/Pages/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
@@ -7,8 +7,6 @@ import { Card } from "../../components/Pages/Auth/Card.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import Text from "../../components/Atoms/Text/Text.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";
-import { SIGNUP_ROUTE, LOGIN_ROUTE } from "../../api/constants";
-import { useServer } from "../../hooks/useServer";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,20 +28,19 @@ const signupSchema = yup.object().shape({
 }).required();
 
 const SignupPage = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { control } = useForm<SignupRequest>({
         resolver: yupResolver(signupSchema)
     });
 
-    const { request: signupRequest, isLoading } = useServer<SignupRequest, SignupResponse>({
-        path: SIGNUP_ROUTE,
-        onSuccess: () => {
-            navigate(LOGIN_ROUTE, { replace: true });
-        },
-        onError: () => {
-            // todo handle errors
-        }
-    });
+    // const { request: signupRequest, isLoading } = useServer<SignupRequest, SignupResponse>({
+    //     path: SIGNUP_ROUTE,
+    //     onSuccess: () => {
+    //         navigate(LOGIN_ROUTE, { replace: true });
+    //     },
+    //     onError: () => {
+    //     }
+    // });
 
     return (
         <Container align="center" justify="center">
@@ -94,7 +91,7 @@ const SignupPage = () => {
                     </Flex>
                     <Button
                         label="messages.continue"
-                        loading={isLoading}
+                        // loading={isLoading}
                         type="submit"
                         fullWidth
                     />

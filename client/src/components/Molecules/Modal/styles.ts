@@ -37,6 +37,22 @@ export const ModalContainer = styled.div<Omit<ModalProps, "onClose">>(
         background: ${theme.colors.dark100};
         box-shadow: ${theme.shadows.elevation2};
         border-radius: 20px;
-        padding: ${theme.spacings.spacing5};
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
     `
 );
+
+export const ScrollContainer = styled.div(({ theme }) => css`
+    overflow-x: auto;
+    padding: ${theme.spacings.spacing5};
+    height: 100%;
+    width: 100%;
+`);
+
+export const FixedButtonContainer = styled.div(({ theme }) => css`
+    padding: 0 ${theme.spacings.spacing5} ${theme.spacings.spacing4};
+    position: relative;
+    top: -${theme.spacings.spacing2};
+`);

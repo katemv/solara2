@@ -15,17 +15,20 @@ export interface TextProps extends BaseTextProps {
 
 export interface TextStyleProps {
     appearance: TypographyKeys;
-    color: ColorsKeys;
-    textAlign: "left" | "right" | "center";
+    color?: ColorsKeys;
+    textAlign: "left" | "right" | "center" | "justify";
     fontWeight: number;
     textTransform: "uppercase" | "none" | "capitalize";
     marginBottom: SpacingKeys | 0;
     style: CSSProperties;
+    textWrap?: "balance" | "pretty";
+    values: Record<string, string | number>;
 }
 
 const Text: FC<TextProps> = ({
     as = "p",
     intlKey,
+    values,
     plainText = "",
     fontWeight = 0,
     appearance = "paragraph",
@@ -33,6 +36,7 @@ const Text: FC<TextProps> = ({
     textAlign = "center",
     textTransform = "none",
     marginBottom = 0,
+    textWrap = "balance",
     customStyles = {}
 }) => {
     const { formatMessage } = useIntl();
@@ -47,8 +51,9 @@ const Text: FC<TextProps> = ({
             $textTransform={textTransform}
             $marginBottom={marginBottom}
             $textAlign={textAlign}
+            $textWrap={textWrap}
         >
-            {intlKey ? formatMessage({ id: intlKey }) : plainText}
+            {intlKey ? formatMessage({ id: intlKey }, values) : plainText}
         </StyledText>
     );
 };
