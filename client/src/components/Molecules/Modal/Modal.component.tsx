@@ -40,11 +40,12 @@ const Modal: FC<ModalProps> = ({
     }, [visible]);
 
     const handleClickOutside = useCallback(
-        (event: MouseEvent) => {
-            if (!ref) {
+        (event: MouseEvent): void => {
+            if (!ref?.current) {
                 return;
             }
-            const isClickedOutsideModal = !(ref.current as any).contains(event.target);
+
+            const isClickedOutsideModal = !(ref.current).contains(event.target as Node);
 
             if (isClickedOutsideModal) {
                 onClose();
