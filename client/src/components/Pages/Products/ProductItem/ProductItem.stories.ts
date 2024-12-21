@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { fn } from "@storybook/test";
+
+import { productMock } from "../../../../utils/mocks";
 
 import ProductItem from "./ProductItem.component";
-import image1 from "../../../../assets/images/abstr_asto.png";
-import { fn } from "@storybook/test";
 
 
 const meta = {
@@ -16,13 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const ProductItemStory: Story = {
     args: {
-        product: {
-            name: "Test product",
-            brand: "Luna",
-            id: "1",
-            price: 800,
-            image: image1
-        },
+        product: productMock,
         onClick: fn(),
         horizontal: false
     }

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Reviews from "./Reviews.component";
 
 const meta = {
-    title: "Molecules/Reviews",
+    title: "Organisms/Reviews",
     component: Reviews,
     args: {
         rating: 4.6

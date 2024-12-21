@@ -69,6 +69,8 @@ export type TypographyKeys =
     | "logo";
 
 export type IconKeys = "cancel"
+    | "arrow_back"
+    | "bookmark"
     | "book"
     | "comment"
     | "local_shipping"

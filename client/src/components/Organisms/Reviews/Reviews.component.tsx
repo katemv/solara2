@@ -11,6 +11,7 @@ interface ReviewsProps extends FlexProps {
 }
 
 const ratings = [1, 2, 3, 4, 5];
+const ratingsReversed = [5, 4, 3, 2, 1];
 const reviews: Record<number, number> = {
     1: 0,
     2: 5,
@@ -57,7 +58,7 @@ const Reviews: FC<ReviewsProps> = ({ rating, ...rest }) => {
                 </Flex>
             </Flex>
             <Flex direction="column" justify="space-between" fullWidth>
-                {ratings.reverse().map((element) => (
+                {ratingsReversed.map((element) => (
                     <Flex key={element} align="baseline" gap="spacing2" fullWidth>
                         <Text
                             color="dark80"

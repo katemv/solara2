@@ -6,7 +6,8 @@ export const Container = styled(Flex)(({ theme }) => css`
     padding: ${theme.spacings.spacing4} 0;
     border-top: 1px solid ${theme.colors.dark95};
     cursor: pointer;
-    
+    transition: color 0.3s ease-in-out;
+
     &:last-child {
         border-bottom: 1px solid ${theme.colors.dark95};
     }

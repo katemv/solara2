@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { TextStyleProps } from "./Text.component";
 import { ColorsKeys, SpacingKeys } from "../../../providers/theme/types/types";
 
-type StyledTextProps = Omit<TextStyleProps, "textAlign" | "textTransform" | "marginBottom" | "values"> & {
+type StyledTextProps = Pick<TextStyleProps, "appearance" | "fontWeight"> & {
     $textAlign?: "left" | "right" | "center" | "justify";
     $textTransform?: "uppercase" | "none" | "capitalize";
     $marginBottom?: SpacingKeys | 0;

@@ -39,6 +39,8 @@ export const ModalContainer = styled.div<Omit<ModalProps, "onClose">>(
         border-radius: 20px;
         display: flex;
         flex-direction: column;
+        position: relative;
+        overflow: hidden;
     `
 );
 

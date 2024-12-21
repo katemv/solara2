@@ -22,7 +22,8 @@ export default [
             "@stylistic/js/max-len": ["error", {
                 "code": 120,
                 "tabWidth": 4,
-                "ignoreUrls": true
+                "ignoreUrls": true,
+                "ignoreTemplateLiterals": true,
             }],
             "@stylistic/js/arrow-parens": ["error", "always"],
             "@stylistic/js/arrow-spacing": "error",
