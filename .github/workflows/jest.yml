@@ -27,3 +27,7 @@ jobs:
       - name: Run Jest Tests
         working-directory: ./client
         run: yarn test
+        
+      - name: Code Coverage Report
+        uses: romeovs/lcov-reporter-action@v0.4.0
+            
