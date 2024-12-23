@@ -78,5 +78,11 @@
     "ts-node": "^10.9.2",
     "typescript-eslint": "^8.18.0",
     "webpack": "^5.97.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts"
+    ]
   }
 }
