@@ -87,7 +87,7 @@ const ShopPage = () => {
             </PageContainer>
 
             <ProductDetailsModal
-                visible={!!currentProduct}
+                $visible={!!currentProduct}
                 product={currentProduct}
                 onClose={() => {
                     setCurrentProduct(null);

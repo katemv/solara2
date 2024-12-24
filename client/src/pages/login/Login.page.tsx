@@ -95,15 +95,15 @@ const LoginPage = () => {
                                 control={control}
                                 placeholderIntlKey="forms.email_placeholder"
                                 name="email"
-                                prefixIconType="mail"
+                                $prefixIconType="mail"
                             />
                             <Input
                                 control={control}
                                 placeholderIntlKey="forms.password_placeholder"
                                 name="password"
                                 type="password"
-                                prefixIconType="lock"
-                                postfixIconType="visibility_off"
+                                $prefixIconType="lock"
+                                $suffixIconType="visibility_off"
                             />
                         </Flex>
                         <Link to="/shop">
@@ -112,7 +112,7 @@ const LoginPage = () => {
                     </Flex>
                     <Button
                         label="pages.login.login"
-                        loading={isLoading}
+                        $loading={isLoading}
                         type="submit"
                         $fullWidth
                     />

@@ -12,7 +12,7 @@ const meta = {
         onClick: fn(),
         $fullWidth: false,
         disabled: false,
-        loading: false,
+        $loading: false,
         loadingLabel: "Work in progress..",
         type: "button",
         leftContent: (

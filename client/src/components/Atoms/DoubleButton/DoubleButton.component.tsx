@@ -17,7 +17,7 @@ const DoubleButton: FC<DoubleButtonProps> = ({
     label,
     $fullWidth,
     disabled,
-    loading,
+    $loading,
     leftContent,
     onClick,
     loadingLabel = "messages.loading",
@@ -26,11 +26,11 @@ const DoubleButton: FC<DoubleButtonProps> = ({
     return (
         <StyledButton
             $fullWidth={$fullWidth}
-            disabled={disabled || loading}
+            disabled={disabled || $loading}
             onClick={onClick}
             type={type}
         >
-            {loading ? (
+            {$loading ? (
                 <LoadingContainer
                     data-testid="loading-container"
                     $align="center"

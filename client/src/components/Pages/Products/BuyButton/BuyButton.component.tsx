@@ -6,7 +6,7 @@ import { convertPrice } from "../../../../utils/convertPrice";
 import Flex from "../../../Atoms/Flex/Flex.component";
 import Text from "../../../Atoms/Text/Text.component";
 
-interface BuyButtonProps extends Pick<ButtonProps, "loading" | "loadingLabel" | "disabled" | "$fullWidth" | "type"> {
+interface BuyButtonProps extends Pick<ButtonProps, "$loading" | "loadingLabel" | "disabled" | "$fullWidth" | "type"> {
     price: number;
     onClick: () => void;
 }
@@ -14,7 +14,7 @@ interface BuyButtonProps extends Pick<ButtonProps, "loading" | "loadingLabel" | 
 const BuyButton: FC<BuyButtonProps> = ({
     price,
     onClick,
-    loading,
+    $loading,
     loadingLabel = "messages.loading",
     disabled,
     $fullWidth = true,
@@ -24,7 +24,7 @@ const BuyButton: FC<BuyButtonProps> = ({
         $fullWidth={$fullWidth}
         label="messages.buy_now"
         onClick={onClick}
-        loading={loading}
+        $loading={$loading}
         loadingLabel={loadingLabel}
         disabled={disabled}
         type={type}

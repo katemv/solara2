@@ -9,7 +9,7 @@ const meta = {
     argTypes: {
         $fullWidth: { control: "boolean" },
         disabled: { control: "boolean" },
-        loading: { control: "boolean" },
+        $loading: { control: "boolean" },
         loadingLabel: { control: "text" },
         $appearance: {
             control: "inline-radio",
@@ -24,7 +24,7 @@ const meta = {
         onClick: fn(),
         $fullWidth: false,
         disabled: false,
-        loading: false,
+        $loading: false,
         loadingLabel: "Work in progress..",
         $appearance: "primary",
         type: "button"

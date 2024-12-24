@@ -16,7 +16,7 @@ export const BuyButtonStories: Story = {
     args: {
         price: 100,
         onClick: fn(),
-        loading: false,
+        $loading: false,
         $fullWidth: false,
         disabled: false,
         loadingLabel: "Work in progress...",

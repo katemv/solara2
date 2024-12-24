@@ -19,7 +19,7 @@ export interface ProductDetailsModalProps extends ModalProps {
     product: Nullable<IProduct>;
 }
 
-const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, product }) => {
+const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ $visible, onClose, product }) => {
     const [drawerState, setDrawerState] = useState<Nullable<DrawerState>>(null);
     const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
@@ -30,9 +30,9 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
 
     return (
         <Modal
-            visible={visible}
+            $visible={$visible}
             onClose={onClose}
-            maxWidth={450}
+            $maxWidth={450}
             fixedButton={product && (
                 <BuyButton
                     price={product.price}
@@ -68,7 +68,7 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                         <Flex $marginBottom="spacing6" $justify="space-between">
                             <Label intlKey="pages.shop.available" />
                             <Flex $gap="spacing1" $align="center">
-                                <Icon type="star" filled color="warning" size={17} />
+                                <Icon type="star" $filled color="warning" size={17} />
                                 <Text plainText="4.6" />
                                 <Text plainText="(120 Reviews)" fontWeight={700} color="dark60" />
                             </Flex>

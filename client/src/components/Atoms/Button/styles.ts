@@ -4,7 +4,7 @@ import Icon from "../Icon/Icon.component";
 import { ButtonStyleProps } from "./Button.component";
 
 export const StyledButton = styled.button<ButtonStyleProps>(
-    ({ theme, $fullWidth, disabled, loading, $appearance }) => css`
+    ({ theme, $fullWidth, disabled, $loading, $appearance }) => css`
         height: 50px;
         background-color: ${theme.colors.purple80};
         width: ${$fullWidth ? "100%" : "auto"};
@@ -25,7 +25,7 @@ export const StyledButton = styled.button<ButtonStyleProps>(
             cursor: pointer;
         }
 
-        ${loading && `
+        ${$loading && `
             background: ${theme.colors.purple80};
 
             &:hover, &:active {

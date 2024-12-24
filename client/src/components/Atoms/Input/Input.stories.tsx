@@ -14,11 +14,11 @@ const meta = {
             control: "select",
             options: ["password", "default"]
         },
-        prefixIconType: {
+        $prefixIconType: {
             control: "select",
             options: [...Icons, undefined]
         },
-        postfixIconType: {
+        $suffixIconType: {
             control: "select",
             options: [...Icons, undefined]
         }
@@ -27,8 +27,8 @@ const meta = {
         $fullWidth: false,
         placeholderIntlKey: "forms.email_placeholder",
         name: "email",
-        prefixIconType: "mail",
-        postfixIconType: "check"
+        $prefixIconType: "mail",
+        $suffixIconType: "check"
     }
 } satisfies Meta<typeof Input>;
 

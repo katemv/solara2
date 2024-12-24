@@ -52,7 +52,7 @@ const Reviews: FC<ReviewsProps> = ({ rating, ...rest }) => {
                             key={element}
                             type="star"
                             color={element <= Math.floor(rating) ? "warning" : "dark60"}
-                            filled
+                            $filled
                         />
                     ))}
                 </Flex>
@@ -68,7 +68,7 @@ const Reviews: FC<ReviewsProps> = ({ rating, ...rest }) => {
                             customStyles={{ width: "65px" }}
                         />
                         <ProgressContainer>
-                            <ProgressBar percent={reviews[element] / totalReviews * 100} />
+                            <ProgressBar $percent={reviews[element] / totalReviews * 100} />
                         </ProgressContainer>
                     </Flex>
                 ))}
