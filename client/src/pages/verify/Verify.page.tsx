@@ -7,14 +7,14 @@ import Text from "../../components/Atoms/Text/Text.component";
 
 const VerifyPage = () => {
     return (
-        <Container align="center" justify="center">
-            <Card direction="column" gap="spacing3" justify="space-between">
-                <Logo marginBottom="spacing6" />
-                <Flex direction="column" gap="spacing3" marginBottom="spacing6">
+        <Container $align="center" $justify="center">
+            <Card direction="column" $gap="spacing3" $justify="space-between">
+                <Logo $marginBottom="spacing6" />
+                <Flex direction="column" $gap="spacing3" $marginBottom="spacing6">
                     <Text
                         as="h1"
                         intlKey="pages.verify.verification_code"
-                        appearance="headline3"
+                        $appearance="headline3"
                         textAlign="left"
                     />
                     <Text
@@ -24,9 +24,9 @@ const VerifyPage = () => {
                         textAlign="left"
                     />
                 </Flex>
-                <Flex gap="spacing3">
-                    <Button label="messages.resend" fullWidth appearance="secondary" />
-                    <Button label="messages.confirm" fullWidth />
+                <Flex $gap="spacing3">
+                    <Button label="messages.resend" $fullWidth $appearance="secondary" />
+                    <Button label="messages.confirm" $fullWidth />
                 </Flex>
             </Card>
         </Container>

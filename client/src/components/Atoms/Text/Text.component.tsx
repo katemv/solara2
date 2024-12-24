@@ -14,12 +14,12 @@ export interface TextProps extends BaseTextProps {
 }
 
 export interface TextStyleProps {
-    appearance: TypographyKeys;
+    $appearance: TypographyKeys;
     color?: ColorsKeys;
     textAlign: "left" | "right" | "center" | "justify";
     fontWeight: number;
     textTransform: "uppercase" | "none" | "capitalize";
-    marginBottom: SpacingKeys | 0;
+    $marginBottom: SpacingKeys | 0;
     style: CSSProperties;
     textWrap?: "balance" | "pretty";
     values: Record<string, string | number>;
@@ -31,11 +31,11 @@ const Text: FC<TextProps> = ({
     values,
     plainText = "",
     fontWeight = 0,
-    appearance = "paragraph",
+    $appearance = "paragraph",
     color = "white",
     textAlign = "center",
     textTransform = "none",
-    marginBottom = 0,
+    $marginBottom = 0,
     textWrap = "balance",
     customStyles = {}
 }) => {
@@ -44,12 +44,12 @@ const Text: FC<TextProps> = ({
     return (
         <StyledText
             as={as}
-            appearance={appearance}
+            $appearance={$appearance}
             color={color}
             fontWeight={fontWeight}
             style={customStyles}
             $textTransform={textTransform}
-            $marginBottom={marginBottom}
+            $marginBottom={$marginBottom}
             $textAlign={textAlign}
             $textWrap={textWrap}
         >

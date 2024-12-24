@@ -10,8 +10,8 @@ interface TabProps {
 
 const Tab: FC<TabProps> = ({ isActive, onClick, label }) => {
     return (
-        <StyledTab align="center" $isActive={isActive} onClick={() => onClick(label)}>
-            <Text as="p" intlKey={label} appearance="headline6" />
+        <StyledTab $align="center" $isActive={isActive} onClick={() => onClick(label)}>
+            <Text as="p" intlKey={label} $appearance="headline6" />
         </StyledTab>
     );
 };
