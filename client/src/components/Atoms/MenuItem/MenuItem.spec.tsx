@@ -1,4 +1,5 @@
-import { screen, fireEvent } from "@testing-library/react";
+import { screen } from "@testing-library/react";
+import {userEvent} from "@storybook/test";
 
 import { renderWithProviders } from "../../../utils/renderWithProviders";
 import { MenuItemProps } from "./MenuItem.component";
@@ -10,6 +11,8 @@ describe("MenuItem Component", () => {
         iconKey: "check",
         onClick: jest.fn()
     };
+
+    const user = userEvent.setup();
 
     beforeEach(() => {
         jest.clearAllMocks();
@@ -26,11 +29,12 @@ describe("MenuItem Component", () => {
         expect(defaultIcon).toBeInTheDocument();
     });
 
-    it("handles click events", () => {
+    it("handles click events", async () => {
         renderWithProviders(<MenuItem {...DEFAULT_PROPS} />);
         const container = screen.getByTestId("menu-item");
 
-        fireEvent.click(container!);
+        await user.click(container);
+
         expect(DEFAULT_PROPS.onClick).toHaveBeenCalledTimes(1);
     });
 

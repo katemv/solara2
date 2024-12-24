@@ -6,7 +6,7 @@ import { convertPrice } from "../../../../utils/convertPrice";
 import Flex from "../../../Atoms/Flex/Flex.component";
 import Text from "../../../Atoms/Text/Text.component";
 
-interface BuyButtonProps extends Pick<ButtonProps, "$loading" | "loadingLabel" | "disabled" | "$fullWidth" | "type"> {
+interface BuyButtonProps extends Pick<ButtonProps, "loading" | "loadingLabel" | "disabled" | "fullWidth" | "type"> {
     price: number;
     onClick: () => void;
 }
@@ -14,17 +14,17 @@ interface BuyButtonProps extends Pick<ButtonProps, "$loading" | "loadingLabel" |
 const BuyButton: FC<BuyButtonProps> = ({
     price,
     onClick,
-    $loading,
+    loading,
     loadingLabel = "messages.loading",
     disabled,
-    $fullWidth = true,
+    fullWidth = true,
     type = "button"
 }) => (
     <DoubleButton
-        $fullWidth={$fullWidth}
+        fullWidth={fullWidth}
         label="messages.buy_now"
         onClick={onClick}
-        $loading={$loading}
+        loading={loading}
         loadingLabel={loadingLabel}
         disabled={disabled}
         type={type}
@@ -33,14 +33,12 @@ const BuyButton: FC<BuyButtonProps> = ({
                 <Text
                     as="span"
                     plainText={convertPrice(price)}
-                    textAlign="left"
                     fontWeight={600}
                 />
                 <Text
                     as="span"
                     intlKey="pages.shop.unit_price"
-                    textAlign="left"
-                    $appearance="small"
+                    appearance="small"
                     color="dark10"
                 />
             </Flex>

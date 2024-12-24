@@ -38,9 +38,8 @@ function StoryComponent({ $maxWidth, $maxHeight, $minHeight }: ModalProps) {
                 <Text
                     as="h3"
                     plainText="Luminary Dust"
-                    $appearance="headline4"
-                    textAlign="left"
-                    $marginBottom="spacing4"
+                    appearance="headline4"
+                    marginBottom="spacing4"
                     textTransform="uppercase"
                 />
                 <Text
@@ -50,8 +49,7 @@ function StoryComponent({ $maxWidth, $maxHeight, $minHeight }: ModalProps) {
                         cosmic-inspired highlighter. Created with minerals found in the heart of distant galaxies,
                         this unique highlighter acts as a wearable homage to the beauty of the cosmos.
                     `}
-                    $appearance="paragraph"
-                    textAlign="left"
+                    appearance="paragraph"
                     fontWeight={300}
                     color="dark20"
                 />

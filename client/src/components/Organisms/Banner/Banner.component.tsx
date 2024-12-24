@@ -11,15 +11,15 @@ interface BannerProps {
 
 const Banner: FC<BannerProps> = ({ headingIntlKey, subheadingIntlKey }) => {
     return (
-        <Container $justify="center" $align="center" direction="column">
+        <Container justify="center" align="center" direction="column">
             <Flex>
                 <StyledBanner color="pink" />
                 <StyledBanner color="blue" />
             </Flex>
             <BannerOverlayWrap>
-                <BannerOverlay $justify="center" $align="start" direction="column" $gap="spacing5">
-                    <Text as="h1" intlKey={headingIntlKey} $appearance="headline1" textAlign="left" />
-                    <Text as="p" intlKey={subheadingIntlKey} $appearance="paragraph" textAlign="left" />
+                <BannerOverlay justify="center" align="start" direction="column" gap="spacing5">
+                    <Text as="h1" intlKey={headingIntlKey} appearance="headline1" />
+                    <Text as="p" intlKey={subheadingIntlKey} appearance="paragraph" />
                 </BannerOverlay>
             </BannerOverlayWrap>
         </Container>

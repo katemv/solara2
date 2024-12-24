@@ -43,7 +43,7 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ $visible, onClose, 
             {product && (
                 <>
                     <Flex direction="column">
-                        <Flex $justify="space-between" $marginBottom="spacing4">
+                        <Flex justify="space-between" marginBottom="spacing4">
                             <IconButton iconType="arrow_back" onClick={onClose} />
                             <IconButton iconType="bookmark" onClick={onClose} />
                         </Flex>
@@ -51,23 +51,21 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ $visible, onClose, 
                         <Text
                             as="p"
                             plainText={product.brand}
-                            $appearance="headline6"
+                            appearance="headline6"
                             color="dark60"
                             textTransform="uppercase"
                             fontWeight={700}
-                            textAlign="left"
-                            $marginBottom="spacing1"
+                            marginBottom="spacing1"
                         />
                         <Text
                             as="h3"
                             plainText={product.name}
-                            $appearance="headline2"
-                            textAlign="left"
-                            $marginBottom="spacing4"
+                            appearance="headline2"
+                            marginBottom="spacing4"
                         />
-                        <Flex $marginBottom="spacing6" $justify="space-between">
+                        <Flex marginBottom="spacing6" justify="space-between">
                             <Label intlKey="pages.shop.available" />
-                            <Flex $gap="spacing1" $align="center">
+                            <Flex gap="spacing1" align="center">
                                 <Icon type="star" $filled color="warning" size={17} />
                                 <Text plainText="4.6" />
                                 <Text plainText="(120 Reviews)" fontWeight={700} color="dark60" />
@@ -76,19 +74,17 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ $visible, onClose, 
                         <Text
                             as="h3"
                             intlKey="pages.shop.product_info"
-                            $appearance="headline5"
-                            textAlign="left"
-                            $marginBottom="spacing3"
+                            appearance="headline5"
+                            marginBottom="spacing3"
                             color="dark10"
                         />
                         <Text
                             as="p"
                             plainText={product.description}
-                            $appearance="paragraph"
+                            appearance="paragraph"
                             fontWeight={400}
                             color="dark60"
-                            $marginBottom="spacing5"
-                            textAlign="left"
+                            marginBottom="spacing5"
                         />
                         <div>
                             <MenuItem
@@ -104,11 +100,11 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ $visible, onClose, 
                             <MenuItem
                                 iconKey="undo"
                                 intlKey="pages.shop.returns"
-                                $marginBottom="spacing5"
+                                marginBottom="spacing5"
                                 onClick={() => handleDrawerStateChange(DrawerState.Returns)}
                             />
                         </div>
-                        <Reviews rating={4.6} $marginBottom="spacing5" />
+                        <Reviews rating={4.6} marginBottom="spacing5" />
                         <MenuItem
                             iconKey="comment"
                             intlKey="pages.shop.reviews"

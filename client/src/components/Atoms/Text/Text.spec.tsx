@@ -37,7 +37,7 @@ describe("Text Component", () => {
         renderWithProviders(
             <Text
                 { ...DEFAULT_PROPS }
-                customStyles={{
+                style={{
                     fontWeight: 700,
                     textAlign: "left",
                     textTransform: "uppercase"

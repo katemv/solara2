@@ -3,43 +3,41 @@ import { FC, HTMLAttributes } from "react";
 import Text from "../Text/Text.component";
 import { SpinIcon, StyledButton } from "./styles";
 
-export interface ButtonProps extends ButtonStyleProps {
+export interface ButtonProps {
     label: string;
-}
-
-export interface ButtonStyleProps extends HTMLAttributes<HTMLButtonElement> {
-    $fullWidth?: boolean;
+    fullWidth?: boolean;
     disabled?: boolean;
-    $loading?: boolean;
+    loading?: boolean;
     loadingLabel?: string;
-    $appearance?: "primary" | "secondary";
+    appearance?: "primary" | "secondary";
     type?: "button" | "submit";
     testId?: string;
+    onClick?: () => void;
 }
 
 const Button: FC<ButtonProps> = ({
     label,
-    $fullWidth,
     disabled,
-    $loading,
+    fullWidth = false,
+    loading = false,
     loadingLabel = "messages.loading",
-    $appearance = "primary",
+    appearance = "primary",
     onClick,
     type = "button",
     testId = "button"
 }) => {
     return (
         <StyledButton
-            $fullWidth={$fullWidth}
-            disabled={disabled || $loading}
-            $loading={$loading}
-            $appearance={$appearance}
+            $fullWidth={fullWidth}
+            $loading={loading}
+            $appearance={appearance}
+            disabled={disabled || loading}
             onClick={onClick}
             type={type}
             data-testid={testId}
         >
-            {$loading && <SpinIcon testId="spinner" type="progress_activity" />}
-            <Text as="span" intlKey={$loading ? loadingLabel : label} fontWeight={600} />
+            {loading && <SpinIcon testId="spinner" type="progress_activity" />}
+            <Text as="span" intlKey={loading ? loadingLabel : label} fontWeight={600} />
         </StyledButton>
     );
 };

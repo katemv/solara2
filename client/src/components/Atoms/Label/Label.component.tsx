@@ -12,7 +12,7 @@ interface LabelProps {
 
 const Label: FC<LabelProps> = ({ intlKey, color = "success" }) => (
     <Container color={color}>
-        <Text intlKey={intlKey} $appearance="small" />
+        <Text intlKey={intlKey} appearance="small" />
     </Container>
 );
 

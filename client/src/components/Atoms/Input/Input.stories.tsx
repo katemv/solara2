@@ -8,27 +8,27 @@ const meta = {
     title: "Atoms/Input",
     component: Input,
     argTypes: {
-        $fullWidth: { control: "boolean" },
+        fullWidth: { control: "boolean" },
         placeholderIntlKey: { control: "text" },
         type: {
             control: "select",
             options: ["password", "default"]
         },
-        $prefixIconType: {
+        prefixIconType: {
             control: "select",
             options: [...Icons, undefined]
         },
-        $suffixIconType: {
+        suffixIconType: {
             control: "select",
             options: [...Icons, undefined]
         }
     },
     args: {
-        $fullWidth: false,
+        fullWidth: false,
         placeholderIntlKey: "forms.email_placeholder",
         name: "email",
-        $prefixIconType: "mail",
-        $suffixIconType: "check"
+        prefixIconType: "mail",
+        suffixIconType: "check"
     }
 } satisfies Meta<typeof Input>;
 

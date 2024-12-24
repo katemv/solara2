@@ -1,7 +1,12 @@
 import styled, { css } from "styled-components";
 
 import Icon from "../Icon/Icon.component";
-import { ButtonStyleProps } from "./Button.component";
+
+interface ButtonStyleProps {
+    $fullWidth: boolean;
+    $loading: boolean;
+    $appearance: "primary" | "secondary";
+}
 
 export const StyledButton = styled.button<ButtonStyleProps>(
     ({ theme, $fullWidth, disabled, $loading, $appearance }) => css`

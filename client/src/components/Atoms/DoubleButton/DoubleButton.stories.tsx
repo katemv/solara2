@@ -10,16 +10,15 @@ const meta = {
     component: DoubleButton,
     args: {
         onClick: fn(),
-        $fullWidth: false,
+        fullWidth: false,
         disabled: false,
-        $loading: false,
+        loading: false,
         loadingLabel: "Work in progress..",
         type: "button",
         leftContent: (
             <Text
                 as="span"
                 plainText="This is additional content"
-                textAlign="left"
                 fontWeight={600}
             />
         ),

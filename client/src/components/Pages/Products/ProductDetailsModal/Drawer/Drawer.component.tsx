@@ -25,21 +25,20 @@ interface DrawerProps {
 
 const Drawer: FC<DrawerProps> = ({ isOpen, onClose, drawerState }) => (
     <Container transform={isOpen ? "0" : "100"} direction="column">
-        <Flex $marginBottom="spacing5" $justify="space-between" $align="center">
+        <Flex marginBottom="spacing5" justify="space-between" align="center">
             <IconButton
                 iconType="arrow_back"
                 onClick={onClose}
             />
             <Text
                 intlKey={drawerState ? `pages.shop.${drawerState}` : "pages.shop.product_details"}
-                $appearance="headline4"
-                textAlign="left"
+                appearance="headline4"
                 textTransform="capitalize"
             />
             <div style={{ width: 30 }} />
         </Flex>
 
-        <Flex direction="column" $gap="spacing2" style={{ overflowX: "auto" }}>
+        <Flex direction="column" gap="spacing2" style={{ overflowX: "auto" }}>
             {(drawerState === DrawerState.Details ||
                 drawerState === DrawerState.Shipping ||
                 drawerState === DrawerState.Returns) && (

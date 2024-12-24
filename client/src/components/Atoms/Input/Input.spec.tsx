@@ -1,4 +1,4 @@
-import { screen, fireEvent, act } from "@testing-library/react";
+import { screen, act } from "@testing-library/react";
 import { userEvent } from "@storybook/test";
 import { useForm } from "react-hook-form";
 
@@ -26,6 +26,8 @@ describe("Input Component", () => {
         placeholderIntlKey: "forms.email_placeholder"
     };
 
+    const user = userEvent.setup();
+
     it("renders text input with placeholder", () => {
         renderWithProviders(<TestComponent { ...DEFAULT_PROPS } />);
         const input = screen.getByPlaceholderText("Email address");
@@ -33,27 +35,27 @@ describe("Input Component", () => {
         expect(input).toBeInTheDocument();
     });
 
-    it("toggles password visibility", () => {
+    it("toggles password visibility", async () => {
         renderWithProviders(<TestComponent { ...DEFAULT_PROPS } type="password" />);
 
         const input = screen.getByPlaceholderText("Email address");
         const toggleButton = screen.getByText("visibility");
 
         expect(input).toHaveAttribute("type", "password");
-        fireEvent.click(toggleButton);
+        await user.click(toggleButton);
         expect(toggleButton).toHaveTextContent("visibility_off");
         expect(input).toHaveAttribute("type", "text");
     });
 
     it("renders with prefix icon", () => {
-        renderWithProviders(<TestComponent { ...DEFAULT_PROPS } $prefixIconType="star" />);
+        renderWithProviders(<TestComponent { ...DEFAULT_PROPS } prefixIconType="star" />);
         const prefixIcon = screen.getByText("star");
 
         expect(prefixIcon).toBeInTheDocument();
     });
 
     it("renders with suffix icon", () => {
-        renderWithProviders(<TestComponent { ...DEFAULT_PROPS } $suffixIconType="cancel" />);
+        renderWithProviders(<TestComponent { ...DEFAULT_PROPS } suffixIconType="cancel" />);
         const suffixIcon = screen.getByText("cancel");
 
         expect(suffixIcon).toBeInTheDocument();

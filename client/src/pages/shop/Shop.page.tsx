@@ -25,9 +25,8 @@ const ShopPage = () => {
                     <Text
                         as="h2"
                         intlKey="pages.shop.popular_products"
-                        $appearance="headline3"
-                        textAlign="left"
-                        customStyles={fullWidth}
+                        appearance="headline3"
+                        style={fullWidth}
                     />
                     {productListMock.map((product) => (
                         <Product
@@ -40,11 +39,10 @@ const ShopPage = () => {
                     <Text
                         as="h2"
                         intlKey="pages.shop.categories"
-                        $appearance="headline3"
-                        textAlign="left"
-                        customStyles={fullWidth}
+                        appearance="headline3"
+                        style={fullWidth}
                     />
-                    <Flex $gap="spacing2" $marginBottom="spacing4" $wrap data-full-width>
+                    <Flex gap="spacing2" marginBottom="spacing4" wrap data-full-width>
                         <Tab
                             isActive={currentCategory === Categories.ALL_PRODUCTS}
                             onClick={() => setCurrentCategory(Categories.ALL_PRODUCTS)}
@@ -62,19 +60,17 @@ const ShopPage = () => {
                     <Text
                         as="h2"
                         intlKey={currentCategory}
-                        $appearance="headline2"
-                        textAlign="left"
-                        customStyles={fullWidth}
+                        appearance="headline2"
+                        style={fullWidth}
                     />
                     <Text
                         as="p"
                         intlKey={`${currentCategory}_description`}
-                        $appearance="paragraph"
-                        textAlign="left"
+                        appearance="paragraph"
                         fontWeight={300}
                         color="dark20"
-                        customStyles={{ ...fullWidth, width: "80%" }}
-                        $marginBottom="spacing4"
+                        style={{ ...fullWidth, width: "80%" }}
+                        marginBottom="spacing4"
                     />
                     {productListMock.map((product) => (
                         <Product

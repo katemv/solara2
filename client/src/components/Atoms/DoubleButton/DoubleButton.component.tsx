@@ -7,7 +7,7 @@ import Text from "../Text/Text.component";
 
 import { LeftContent, LoadingContainer, RightContent, StyledButton } from "./styles";
 
-export interface DoubleButtonProps extends Omit<ButtonProps, "$appearance"> {
+export interface DoubleButtonProps extends Omit<ButtonProps, "appearance"> {
     intlKey?: string;
     color?: ColorsKeys;
     leftContent: ReactElement;
@@ -16,29 +16,29 @@ export interface DoubleButtonProps extends Omit<ButtonProps, "$appearance"> {
 
 const DoubleButton: FC<DoubleButtonProps> = ({
     label,
-    $fullWidth,
-    disabled,
-    $loading,
     leftContent,
     onClick,
+    fullWidth = false,
+    disabled = false,
+    loading = false,
     loadingLabel = "messages.loading",
     type = "button",
     testId = "double-button"
 }) => {
     return (
         <StyledButton
-            $fullWidth={$fullWidth}
-            disabled={disabled || $loading}
+            $fullWidth={fullWidth}
+            disabled={disabled || loading}
             onClick={onClick}
             type={type}
             data-testid={testId}
         >
-            {$loading ? (
+            {loading ? (
                 <LoadingContainer
                     data-testid="loading-container"
-                    $align="center"
-                    $justify="center"
-                    $gap="spacing4"
+                    align="center"
+                    justify="center"
+                    gap="spacing4"
                 >
                     <SpinIcon type="progress_activity" testId="spinner" />
                     <Text
@@ -52,13 +52,13 @@ const DoubleButton: FC<DoubleButtonProps> = ({
                 <>
                     <LeftContent
                         direction="column"
-                        $align="start"
+                        align="start"
                         data-testid="left-content"
                     >
                         {leftContent}
                     </LeftContent>
                     <RightContent
-                        $align="center"
+                        align="center"
                         disabled={disabled}
                         data-testid="right-content"
                     >

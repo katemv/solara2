@@ -1,5 +1,5 @@
 import { screen, fireEvent } from "@testing-library/react";
-import { fn } from "@storybook/test";
+import { fn, userEvent } from "@storybook/test";
 
 import { renderWithProviders } from "../../../utils/renderWithProviders";
 import Button from "./Button.component";
@@ -10,6 +10,8 @@ describe("Button Component", () => {
         leftContent: <div>Left Content</div>,
         onClick: fn()
     };
+
+    const user = userEvent.setup();
 
     afterEach(() => {
         jest.clearAllMocks();
@@ -26,17 +28,17 @@ describe("Button Component", () => {
     });
 
     describe("Interactions", () => {
-        it("calls onClick handler when clicked", () => {
+        it("calls onClick handler when clicked", async () => {
             renderWithProviders(
                 <Button {...DEFAULT_PROPS} />
             );
 
-            fireEvent.click(screen.getByTestId("button"));
+            await user.click(screen.getByTestId("button"));
 
             expect(DEFAULT_PROPS.onClick).toHaveBeenCalledTimes(1);
         });
 
-        it("disables button when disabled prop is true", () => {
+        it("disables button when disabled prop is true", async () => {
             renderWithProviders(
                 <Button
                     {...DEFAULT_PROPS}
@@ -46,7 +48,7 @@ describe("Button Component", () => {
 
             const buttonElement = screen.getByTestId("button");
 
-            fireEvent.click(buttonElement);
+            await user.click(buttonElement);
 
             expect(buttonElement).toBeDisabled();
         });
@@ -57,13 +59,12 @@ describe("Button Component", () => {
             renderWithProviders(
                 <Button
                     {...DEFAULT_PROPS}
-                    $loading
+                    loading
                 />
             );
 
             expect(screen.getByText("Loading...")).toBeInTheDocument();
             expect(screen.getByTestId("spinner")).toBeInTheDocument();
-
             expect(screen.getByTestId("button")).toBeDisabled();
         });
     });

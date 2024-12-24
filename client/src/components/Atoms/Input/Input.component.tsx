@@ -6,21 +6,21 @@ import { Container, PasswordButton, PostfixIcon, PrefixIcon, StyledInput } from 
 import Icon, { IconProps } from "../Icon/Icon.component";
 
 export interface InputProps {
-    $fullWidth?: boolean;
+    fullWidth?: boolean;
     placeholderIntlKey?: string;
     type?: string;
-    $prefixIconType?: IconProps["type"];
-    $suffixIconType?: IconProps["type"];
+    prefixIconType?: IconProps["type"];
+    suffixIconType?: IconProps["type"];
 }
 
 function Input <T extends FieldValues>({
-    $fullWidth,
+    fullWidth,
     placeholderIntlKey,
     control,
     type,
     name,
-    $prefixIconType,
-    $suffixIconType
+    prefixIconType,
+    suffixIconType
 }: InputProps & UseControllerProps<T>) {
     const [visibility, setVisibility] = useState<boolean>(false);
     const { formatMessage } = useIntl();
@@ -44,12 +44,12 @@ function Input <T extends FieldValues>({
     const hasError = (isTouched || isDirty) && invalid;
 
     return (
-        <Container $fullWidth={$fullWidth} $align="center" direction="row">
-            {$prefixIconType && <PrefixIcon type={$prefixIconType} $error={hasError} />}
+        <Container fullWidth={fullWidth} align="center" direction="row">
+            {prefixIconType && <PrefixIcon type={prefixIconType} $error={hasError} />}
             <StyledInput
                 type={getInputType()}
-                $prefixIconType={$prefixIconType}
-                $suffixIconType={$suffixIconType}
+                $prefixIconType={prefixIconType}
+                $suffixIconType={suffixIconType}
                 placeholder={placeholderIntlKey && formatMessage({ id: placeholderIntlKey })}
                 onChange={onChange}
                 onBlur={onBlur}
@@ -67,7 +67,7 @@ function Input <T extends FieldValues>({
                     <Icon type={visibility ? "visibility_off" : "visibility"} />
                 </PasswordButton>
             )}
-            {type !== "password" && $suffixIconType && <PostfixIcon type={$suffixIconType} $error={hasError} />}
+            {type !== "password" && suffixIconType && <PostfixIcon type={suffixIconType} $error={hasError} />}
         </Container>
     );
 }

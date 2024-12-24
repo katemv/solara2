@@ -8,7 +8,7 @@ const meta = {
     args: {
         intlKey: "pages.shop.product_details",
         iconKey: "book",
-        $fullWidth: true
+        fullWidth: true
     },
     decorators: (Story) => (
         <div style={{ width: "300px" }}>

@@ -1,13 +1,16 @@
-import { screen, fireEvent } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 
 import { renderWithProviders } from "../../../utils/renderWithProviders";
 import IconButton, { IconButtonProps } from "./IconButton.component";
+import { userEvent } from "@storybook/test";
 
 describe("IconButton Component", () => {
     const DEFAULT_PROPS: IconButtonProps = {
         iconType: "book",
         onClick: jest.fn()
     };
+
+    const user = userEvent.setup();
 
     beforeEach(() => {
         jest.clearAllMocks();
@@ -22,10 +25,10 @@ describe("IconButton Component", () => {
         expect(icon).toHaveClass("material-symbols-outlined");
     });
 
-    it("handles click events", () => {
+    it("handles click events", async () => {
         renderWithProviders(<IconButton {...DEFAULT_PROPS} />);
 
-        fireEvent.click(screen.getByTestId("icon-button"));
+        await user.click(screen.getByTestId("icon-button"));
         expect(DEFAULT_PROPS.onClick).toHaveBeenCalledTimes(1);
     });
 });

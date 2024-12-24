@@ -23,10 +23,10 @@ const Layout = () => {
         <>
             <Header>
                 <HeaderContainer
-                    $fullWidth
-                    $fullHeight
-                    $justify="space-between"
-                    $align="center"
+                    fullWidth
+                    fullHeight
+                    justify="space-between"
+                    align="center"
                 >
                     <Logo />
                     <Nav>
@@ -36,7 +36,7 @@ const Layout = () => {
                                     <Button
                                         label="components.nav.back_to_shop"
                                         onClick={() => navigate(ROUTES.SHOP)}
-                                        $appearance="secondary"
+                                        appearance="secondary"
                                     />
                                 ) : (
                                     <>
@@ -65,7 +65,7 @@ const Layout = () => {
                                         <Button
                                             label="components.nav.admin"
                                             onClick={() => navigate(ROUTES.ADMIN)}
-                                            $appearance="secondary"
+                                            appearance="secondary"
                                         />
                                     </>
                                 )}
@@ -74,7 +74,7 @@ const Layout = () => {
                             <Button
                                 label="components.nav.login"
                                 onClick={() => navigate(ROUTES.LOGIN)}
-                                $appearance="secondary"
+                                appearance="secondary"
                             />
                         )}
                     </Nav>

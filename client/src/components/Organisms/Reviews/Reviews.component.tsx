@@ -24,29 +24,28 @@ const totalReviews = Object.values(reviews).reduce((value, acc) => acc + value, 
 const Reviews: FC<ReviewsProps> = ({ rating, ...rest }) => {
     return (
         // eslint-disable-next-line react/jsx-props-no-spreading
-        <Container $gap="spacing6" {...rest}>
-            <Flex direction="column" $align="start">
-                <Flex $align="end" $gap="spacing1" $marginBottom="spacing1">
-                    <Text plainText={String(rating)} $appearance="headline1" />
+        <Container gap="spacing6" {...rest}>
+            <Flex direction="column" align="start">
+                <Flex align="end" gap="spacing1" marginBottom="spacing1">
+                    <Text plainText={String(rating)} appearance="headline1" />
                     <Text
                         plainText="/5"
-                        $appearance="headline5"
+                        appearance="headline5"
                         fontWeight={500}
-                        customStyles={{ lineHeight: 1.7 }}
+                        style={{ lineHeight: 1.7 }}
                         color="dark20"
                     />
                 </Flex>
                 <Text
-                    $appearance="headline6"
+                    appearance="headline6"
                     intlKey="pages.shop.based_on_reviews"
                     color="dark60"
                     fontWeight={500}
-                    $marginBottom="spacing3"
-                    textAlign="left"
+                    marginBottom="spacing3"
                     values={{ reviewCount: totalReviews }}
-                    customStyles={{ minWidth: "130px" }}
+                    style={{ minWidth: "130px" }}
                 />
-                <Flex $gap="spacing1">
+                <Flex gap="spacing1">
                     {ratings.map((element) => (
                         <Icon
                             key={element}
@@ -57,15 +56,15 @@ const Reviews: FC<ReviewsProps> = ({ rating, ...rest }) => {
                     ))}
                 </Flex>
             </Flex>
-            <Flex direction="column" $justify="space-between" $fullWidth>
+            <Flex direction="column" justify="space-between" fullWidth>
                 {ratingsReversed.map((element) => (
-                    <Flex key={element} $align="baseline" $gap="spacing2" $fullWidth>
+                    <Flex key={element} align="baseline" gap="spacing2" fullWidth>
                         <Text
                             color="dark80"
-                            $appearance="headline6"
+                            appearance="headline6"
                             intlKey="pages.shop.star_count"
                             values={{ starCount: element }}
-                            customStyles={{ width: "65px" }}
+                            style={{ width: "65px" }}
                         />
                         <ProgressContainer>
                             <ProgressBar $percent={reviews[element] / totalReviews * 100} />
