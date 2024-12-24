@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from "react";
+import { FC } from "react";
 
 import Text from "../Text/Text.component";
 import { SpinIcon, StyledButton } from "./styles";

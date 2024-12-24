@@ -1,4 +1,4 @@
-import { screen, fireEvent } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import { fn, userEvent } from "@storybook/test";
 
 import { renderWithProviders } from "../../../utils/renderWithProviders";

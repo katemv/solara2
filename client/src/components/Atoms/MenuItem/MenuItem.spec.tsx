@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import {userEvent} from "@storybook/test";
+import { userEvent } from "@storybook/test";
 
 import { renderWithProviders } from "../../../utils/renderWithProviders";
 import { MenuItemProps } from "./MenuItem.component";
