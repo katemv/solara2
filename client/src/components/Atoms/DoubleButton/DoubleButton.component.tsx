@@ -11,6 +11,7 @@ export interface DoubleButtonProps extends Omit<ButtonProps, "$appearance"> {
     intlKey?: string;
     color?: ColorsKeys;
     leftContent: ReactElement;
+    testId?: string;
 }
 
 const DoubleButton: FC<DoubleButtonProps> = ({
@@ -21,7 +22,8 @@ const DoubleButton: FC<DoubleButtonProps> = ({
     leftContent,
     onClick,
     loadingLabel = "messages.loading",
-    type = "button"
+    type = "button",
+    testId = "double-button"
 }) => {
     return (
         <StyledButton
@@ -29,6 +31,7 @@ const DoubleButton: FC<DoubleButtonProps> = ({
             disabled={disabled || $loading}
             onClick={onClick}
             type={type}
+            data-testid={testId}
         >
             {$loading ? (
                 <LoadingContainer

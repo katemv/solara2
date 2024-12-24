@@ -18,7 +18,8 @@ const Icon: FC<IconProps> = ({
     color = "dark80",
     $filled = false,
     size = 24,
-    testId = "icon" }) => {
+    testId = "icon"
+}) => {
     return (
         <StyledIcon
             data-testid={testId}

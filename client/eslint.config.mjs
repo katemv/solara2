@@ -91,12 +91,12 @@ export default [
             }],
             "react/no-array-index-key": "error",
             "react/self-closing-comp": "error"
-        },
+        }
     },
     {
         files: ["**/*.spec.tsx"],
         rules: {
-            "react/jsx-props-no-spreading": "off",
+            "react/jsx-props-no-spreading": "off"
         }
     }
 ];

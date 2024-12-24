@@ -14,6 +14,7 @@ export interface ButtonStyleProps extends HTMLAttributes<HTMLButtonElement> {
     loadingLabel?: string;
     $appearance?: "primary" | "secondary";
     type?: "button" | "submit";
+    testId?: string;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -24,7 +25,8 @@ const Button: FC<ButtonProps> = ({
     loadingLabel = "messages.loading",
     $appearance = "primary",
     onClick,
-    type = "button"
+    type = "button",
+    testId = "button"
 }) => {
     return (
         <StyledButton
@@ -34,8 +36,9 @@ const Button: FC<ButtonProps> = ({
             $appearance={$appearance}
             onClick={onClick}
             type={type}
+            data-testid={testId}
         >
-            {$loading && <SpinIcon type="progress_activity" />}
+            {$loading && <SpinIcon testId="spinner" type="progress_activity" />}
             <Text as="span" intlKey={$loading ? loadingLabel : label} fontWeight={600} />
         </StyledButton>
     );

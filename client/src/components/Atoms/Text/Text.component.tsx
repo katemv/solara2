@@ -15,13 +15,13 @@ export interface TextProps extends BaseTextProps {
 
 export interface TextStyleProps {
     $appearance: TypographyKeys;
-    color?: ColorsKeys;
+    color: ColorsKeys;
     textAlign: "left" | "right" | "center" | "justify";
     fontWeight: number;
     textTransform: "uppercase" | "none" | "capitalize";
     $marginBottom: SpacingKeys | 0;
     style: CSSProperties;
-    textWrap?: "balance" | "pretty";
+    textWrap: "balance" | "pretty";
     values: Record<string, string | number>;
 }
 
@@ -30,7 +30,7 @@ const Text: FC<TextProps> = ({
     intlKey,
     values,
     plainText = "",
-    fontWeight = 0,
+    fontWeight = 500,
     $appearance = "paragraph",
     color = "white",
     textAlign = "center",

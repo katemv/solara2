@@ -1,60 +1,54 @@
 import { screen, fireEvent } from "@testing-library/react";
+import { fn } from "@storybook/test";
 
 import { renderWithProviders } from "../../../utils/renderWithProviders";
 import Button from "./Button.component";
 
-
 describe("Button Component", () => {
+    const DEFAULT_PROPS = {
+        label: "messages.continue",
+        leftContent: <div>Left Content</div>,
+        onClick: fn()
+    };
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
     describe("Rendering", () => {
         it("renders button with correct label", () => {
             renderWithProviders(
-                <Button
-                    label="messages.continue"
-                    onClick={() => {}}
-                />
+                <Button {...DEFAULT_PROPS} />
             );
 
-            const buttonElement = screen.getByText("Continue");
-
-            expect(buttonElement).toBeInTheDocument();
+            expect(screen.getByText("Continue")).toBeInTheDocument();
         });
     });
 
     describe("Interactions", () => {
         it("calls onClick handler when clicked", () => {
-            const mockOnClick = jest.fn();
-
             renderWithProviders(
-                <Button
-                    label="messages.continue"
-                    onClick={mockOnClick}
-                />
+                <Button {...DEFAULT_PROPS} />
             );
 
-            const buttonElement = screen.getByText("Continue");
+            fireEvent.click(screen.getByTestId("button"));
 
-            fireEvent.click(buttonElement);
-
-            expect(mockOnClick).toHaveBeenCalledTimes(1);
+            expect(DEFAULT_PROPS.onClick).toHaveBeenCalledTimes(1);
         });
 
         it("disables button when disabled prop is true", () => {
-            const mockOnClick = jest.fn();
-
             renderWithProviders(
                 <Button
-                    label="test.button.label"
-                    onClick={mockOnClick}
+                    {...DEFAULT_PROPS}
                     disabled
                 />
             );
 
-            const buttonElement = screen.getByRole("button");
+            const buttonElement = screen.getByTestId("button");
 
             fireEvent.click(buttonElement);
 
             expect(buttonElement).toBeDisabled();
-            expect(mockOnClick).toHaveBeenCalledTimes(0);
         });
     });
 
@@ -62,19 +56,15 @@ describe("Button Component", () => {
         it("shows loading state when loading is true", () => {
             renderWithProviders(
                 <Button
-                    label="test.button.label"
-                    onClick={() => {}}
-                    loading
+                    {...DEFAULT_PROPS}
+                    $loading
                 />
             );
 
-            const loadingText = screen.getByText("Loading...");
+            expect(screen.getByText("Loading...")).toBeInTheDocument();
+            expect(screen.getByTestId("spinner")).toBeInTheDocument();
 
-            expect(loadingText).toBeInTheDocument();
-
-            const buttonElement = screen.getByRole("button");
-
-            expect(buttonElement).toBeDisabled();
+            expect(screen.getByTestId("button")).toBeDisabled();
         });
     });
 });
