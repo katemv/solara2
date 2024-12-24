@@ -17,7 +17,7 @@ export const BuyButtonStories: Story = {
         price: 100,
         onClick: fn(),
         loading: false,
-        fullWidth: false,
+        $fullWidth: false,
         disabled: false,
         loadingLabel: "Work in progress...",
         type: "button"

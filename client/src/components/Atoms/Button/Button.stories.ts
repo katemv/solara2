@@ -7,11 +7,11 @@ const meta = {
     title: "Atoms/Button",
     component: Button,
     argTypes: {
-        fullWidth: { control: "boolean" },
+        $fullWidth: { control: "boolean" },
         disabled: { control: "boolean" },
         loading: { control: "boolean" },
         loadingLabel: { control: "text" },
-        appearance: {
+        $appearance: {
             control: "inline-radio",
             options: ["default", "secondary"]
         },
@@ -22,11 +22,11 @@ const meta = {
     },
     args: {
         onClick: fn(),
-        fullWidth: false,
+        $fullWidth: false,
         disabled: false,
         loading: false,
         loadingLabel: "Work in progress..",
-        appearance: "primary",
+        $appearance: "primary",
         type: "button"
     }
 } satisfies Meta<typeof Button>;

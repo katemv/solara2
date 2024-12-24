@@ -8,7 +8,7 @@ const meta = {
     title: "Atoms/Input",
     component: Input,
     argTypes: {
-        fullWidth: { control: "boolean" },
+        $fullWidth: { control: "boolean" },
         placeholderIntlKey: { control: "text" },
         type: {
             control: "select",
@@ -24,7 +24,7 @@ const meta = {
         }
     },
     args: {
-        fullWidth: false,
+        $fullWidth: false,
         placeholderIntlKey: "forms.email_placeholder",
         name: "email",
         prefixIconType: "mail",

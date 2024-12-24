@@ -7,7 +7,7 @@ import Text from "../Text/Text.component";
 
 import { LeftContent, LoadingContainer, RightContent, StyledButton } from "./styles";
 
-export interface DoubleButtonProps extends Omit<ButtonProps, "appearance"> {
+export interface DoubleButtonProps extends Omit<ButtonProps, "$appearance"> {
     intlKey?: string;
     color?: ColorsKeys;
     leftContent: ReactElement;
@@ -15,7 +15,7 @@ export interface DoubleButtonProps extends Omit<ButtonProps, "appearance"> {
 
 const DoubleButton: FC<DoubleButtonProps> = ({
     label,
-    fullWidth,
+    $fullWidth,
     disabled,
     loading,
     leftContent,
@@ -25,14 +25,19 @@ const DoubleButton: FC<DoubleButtonProps> = ({
 }) => {
     return (
         <StyledButton
-            fullWidth={fullWidth}
+            $fullWidth={$fullWidth}
             disabled={disabled || loading}
             onClick={onClick}
             type={type}
         >
             {loading ? (
-                <LoadingContainer align="center" justify="center" gap="spacing4">
-                    <SpinIcon type="progress_activity" />
+                <LoadingContainer
+                    data-testid="loading-container"
+                    $align="center"
+                    $justify="center"
+                    $gap="spacing4"
+                >
+                    <SpinIcon type="progress_activity" testId="spinner" />
                     <Text
                         as="span"
                         intlKey={loadingLabel}
@@ -42,10 +47,18 @@ const DoubleButton: FC<DoubleButtonProps> = ({
                 </LoadingContainer>
             ) : (
                 <>
-                    <LeftContent direction="column" align="start">
+                    <LeftContent
+                        direction="column"
+                        $align="start"
+                        data-testid="left-content"
+                    >
                         {leftContent}
                     </LeftContent>
-                    <RightContent align="center" disabled={disabled}>
+                    <RightContent
+                        $align="center"
+                        disabled={disabled}
+                        data-testid="right-content"
+                    >
                         <Text
                             as="span"
                             intlKey={label}

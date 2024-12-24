@@ -10,7 +10,7 @@ const meta = {
     component: DoubleButton,
     args: {
         onClick: fn(),
-        fullWidth: false,
+        $fullWidth: false,
         disabled: false,
         loading: false,
         loadingLabel: "Work in progress..",

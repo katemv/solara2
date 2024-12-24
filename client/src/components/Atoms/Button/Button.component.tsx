@@ -8,30 +8,30 @@ export interface ButtonProps extends ButtonStyleProps {
 }
 
 export interface ButtonStyleProps extends HTMLAttributes<HTMLButtonElement> {
-    fullWidth?: boolean;
+    $fullWidth?: boolean;
     disabled?: boolean;
     loading?: boolean;
     loadingLabel?: string;
-    appearance?: "primary" | "secondary";
+    $appearance?: "primary" | "secondary";
     type?: "button" | "submit";
 }
 
 const Button: FC<ButtonProps> = ({
     label,
-    fullWidth,
+    $fullWidth,
     disabled,
     loading,
     loadingLabel = "messages.loading",
-    appearance = "primary",
+    $appearance = "primary",
     onClick,
     type = "button"
 }) => {
     return (
         <StyledButton
-            fullWidth={fullWidth}
+            $fullWidth={$fullWidth}
             disabled={disabled || loading}
             loading={loading}
-            appearance={appearance}
+            $appearance={$appearance}
             onClick={onClick}
             type={type}
         >

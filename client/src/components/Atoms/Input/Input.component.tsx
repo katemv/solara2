@@ -6,7 +6,7 @@ import { Container, PasswordButton, PostfixIcon, PrefixIcon, StyledInput } from 
 import Icon, { IconProps } from "../Icon/Icon.component";
 
 export interface InputProps {
-    fullWidth?: boolean;
+    $fullWidth?: boolean;
     placeholderIntlKey?: string;
     type?: string;
     prefixIconType?: IconProps["type"];
@@ -14,7 +14,7 @@ export interface InputProps {
 }
 
 function Input <T extends FieldValues>({
-    fullWidth,
+    $fullWidth,
     placeholderIntlKey,
     control,
     type,
@@ -44,7 +44,7 @@ function Input <T extends FieldValues>({
     const hasError = (isTouched || isDirty) && invalid;
 
     return (
-        <Container fullWidth={fullWidth} align="center" direction="row">
+        <Container $fullWidth={$fullWidth} $align="center" direction="row">
             {prefixIconType && <PrefixIcon type={prefixIconType} error={hasError} />}
             <StyledInput
                 type={getInputType()}

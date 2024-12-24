@@ -8,11 +8,11 @@ const meta = {
     title: "Atoms/Flex",
     component: Flex,
     argTypes: {
-        justify: {
+        $justify: {
             control: "select",
             options: ["start", "end", "center", "space-between", "space-around"]
         },
-        align: {
+        $align: {
             control: "select",
             options: ["start", "end", "center", "space-between", "space-around"]
         },
@@ -23,30 +23,30 @@ const meta = {
         $wrap: {
             control: "boolean"
         },
-        gap: {
+        $gap: {
             control: "select",
             options: Object.keys(spacings)
         },
-        marginBottom: {
+        $marginBottom: {
             control: "select",
             options: Object.keys(spacings)
         },
-        fullWidth: {
+        $fullWidth: {
             control: "boolean"
         },
-        fullHeight: {
+        $fullHeight: {
             control: "boolean"
         }
     },
     args: {
-        align: "center",
-        justify: "center",
-        fullHeight: true,
-        fullWidth: true,
-        gap: "spacing2",
+        $align: "center",
+        $justify: "center",
+        $fullHeight: true,
+        $fullWidth: true,
+        $gap: "spacing2",
         direction: "row",
         $wrap: false,
-        marginBottom: "spacing1"
+        $marginBottom: "spacing1"
     }
 } satisfies Meta<typeof Flex>;
 
