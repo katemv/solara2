@@ -14,7 +14,7 @@ interface StyledProps {
 
 export const StyledText = styled.div<StyledProps>(
     ({ theme, $appearance, color, $textAlign, $fontWeight, $textTransform, $marginBottom, $textWrap }) => css`
-        font-size: ${theme.typography[$appearance]?.fontSize ?? ""};
+        font-size: ${theme.typography[$appearance]?.fontSize};
         font-variation-settings: "wght" ${theme.typography[$appearance].fontWeight};
         line-height: ${theme.typography[$appearance].lineHeight};
         color: ${theme?.colors?.[color] || "black"};

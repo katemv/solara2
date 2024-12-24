@@ -34,14 +34,14 @@ const meta = {
         fullWidth: {
             control: "boolean"
         },
-        $fullHeight: {
+        fullHeight: {
             control: "boolean"
         }
     },
     args: {
         align: "center",
         justify: "center",
-        $fullHeight: true,
+        fullHeight: true,
         fullWidth: true,
         gap: "spacing2",
         direction: "row",

@@ -24,7 +24,7 @@ const Text: FC<TextProps> = ({
     intlKey,
     values,
     plainText = "",
-    fontWeight = 500,
+    fontWeight = 0,
     appearance = "paragraph",
     color = "white",
     textAlign = "left",
