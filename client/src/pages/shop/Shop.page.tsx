@@ -25,7 +25,7 @@ const ShopPage = () => {
                     <Text
                         as="h2"
                         intlKey="pages.shop.popular_products"
-                        appearance="headline3"
+                        $appearance="headline3"
                         textAlign="left"
                         customStyles={fullWidth}
                     />
@@ -40,11 +40,11 @@ const ShopPage = () => {
                     <Text
                         as="h2"
                         intlKey="pages.shop.categories"
-                        appearance="headline3"
+                        $appearance="headline3"
                         textAlign="left"
                         customStyles={fullWidth}
                     />
-                    <Flex gap="spacing2" marginBottom="spacing4" $wrap data-full-width>
+                    <Flex $gap="spacing2" $marginBottom="spacing4" $wrap data-full-width>
                         <Tab
                             isActive={currentCategory === Categories.ALL_PRODUCTS}
                             onClick={() => setCurrentCategory(Categories.ALL_PRODUCTS)}
@@ -62,19 +62,19 @@ const ShopPage = () => {
                     <Text
                         as="h2"
                         intlKey={currentCategory}
-                        appearance="headline2"
+                        $appearance="headline2"
                         textAlign="left"
                         customStyles={fullWidth}
                     />
                     <Text
                         as="p"
                         intlKey={`${currentCategory}_description`}
-                        appearance="paragraph"
+                        $appearance="paragraph"
                         textAlign="left"
                         fontWeight={300}
                         color="dark20"
                         customStyles={{ ...fullWidth, width: "80%" }}
-                        marginBottom="spacing4"
+                        $marginBottom="spacing4"
                     />
                     {productListMock.map((product) => (
                         <Product

@@ -13,7 +13,7 @@ const meta = {
             control: "select",
             options: ["light", "dark"]
         },
-        marginBottom: {
+        $marginBottom: {
             control: "select",
             options: Object.keys(spacings)
         }

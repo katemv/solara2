@@ -43,21 +43,21 @@ const SignupPage = () => {
     // });
 
     return (
-        <Container align="center" justify="center">
-            <Card direction="column" gap="spacing3">
-                <Logo marginBottom="spacing6" />
+        <Container $align="center" $justify="center">
+            <Card direction="column" $gap="spacing3">
+                <Logo $marginBottom="spacing6" />
 
                 <Flex
                     direction="column"
-                    gap="spacing3"
-                    align="start"
-                    justify="start"
-                    marginBottom="spacing5"
+                    $gap="spacing3"
+                    $align="start"
+                    $justify="start"
+                    $marginBottom="spacing5"
                 >
                     <Text
                         as="h1"
                         intlKey="pages.signup.signup"
-                        appearance="headline2"
+                        $appearance="headline2"
                         textAlign="left"
                     />
                     <Text
@@ -74,8 +74,8 @@ const SignupPage = () => {
                         // signupRequest(form)
                     }}
                 >
-                    <Flex direction="column" gap="spacing3" marginBottom="spacing9">
-                        <Flex direction="column" gap="spacing3" marginBottom="spacing4">
+                    <Flex direction="column" $gap="spacing3" $marginBottom="spacing9">
+                        <Flex direction="column" $gap="spacing3" $marginBottom="spacing4">
                             <Input
                                 placeholderIntlKey="forms.email_placeholder"
                                 control={control}
@@ -93,11 +93,11 @@ const SignupPage = () => {
                         label="messages.continue"
                         // loading={isLoading}
                         type="submit"
-                        fullWidth
+                        $fullWidth
                     />
                 </form>
 
-                <Flex align="center" justify="center" gap="spacing2">
+                <Flex $align="center" $justify="center" $gap="spacing2">
                     <Text as="p" intlKey="pages.signup.existing_account" color="dark80" />
                     <Link to="/shop">
                         <Text as="span" intlKey="pages.signup.login" color="purple100" />

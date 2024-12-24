@@ -19,21 +19,21 @@ const ProductItem: FC<ProductProps> = ({ product, horizontal, onClick }) => {
             <ImageContainer $horizontal={horizontal}>
                 <Image src={product.image} alt={product.name} />
             </ImageContainer>
-            <Flex direction="column" gap="spacing1" justify="space-around">
+            <Flex direction="column" $gap="spacing1" $justify="space-around">
                 <Text
                     as="p"
                     plainText={product.brand}
-                    appearance="headline6"
+                    $appearance="headline6"
                     color="dark20"
                     textTransform="uppercase"
                     fontWeight={300}
                     textAlign="left"
                 />
-                <Text as="h6" plainText={product.name} appearance="headline4" textAlign="left" />
+                <Text as="h6" plainText={product.name} $appearance="headline4" textAlign="left" />
                 <Text
                     as="h6"
                     plainText={convertPrice(product.price)}
-                    appearance="headline4"
+                    $appearance="headline4"
                     textAlign="left"
                     color="blue80"
                 />

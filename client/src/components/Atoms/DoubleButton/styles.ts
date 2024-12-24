@@ -3,11 +3,11 @@ import { css, styled } from "styled-components";
 import { DoubleButtonProps } from "./DoubleButton.component";
 import Flex from "../Flex/Flex.component";
 
-export const StyledButton = styled.button<Pick<DoubleButtonProps, "fullWidth">>(
-    ({ theme, fullWidth, disabled }) => css`
+export const StyledButton = styled.button<Pick<DoubleButtonProps, "$fullWidth">>(
+    ({ theme, $fullWidth, disabled }) => css`
         height: 70px;
         background-color: ${theme.colors.purple80};
-        width: ${fullWidth ? "100%" : "auto"};
+        width: ${$fullWidth ? "100%" : "auto"};
         border-radius: 10px;
         display: flex;
         align-items: center;

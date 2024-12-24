@@ -7,17 +7,17 @@ import { LogoImage } from "./styles";
 
 interface LogoProps {
     mode?: "dark" | "light";
-    marginBottom?: SpacingKeys;
+    $marginBottom?: SpacingKeys;
 }
 
-const Logo: FC<LogoProps> = ({ mode = "light", marginBottom }) => {
+const Logo: FC<LogoProps> = ({ mode = "light", $marginBottom }) => {
     return (
-        <Flex marginBottom={marginBottom} gap="spacing3" align="start" justify="end">
+        <Flex $marginBottom={$marginBottom} $gap="spacing3" $align="start" $justify="end">
             <Text
                 as="h2"
                 intlKey="solara"
                 color={mode === "dark" ? "dark80" : "white" }
-                appearance="logo"
+                $appearance="logo"
                 textAlign="right"
             />
             <LogoImage />
