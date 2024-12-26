@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { fn, userEvent } from "@storybook/test";
 
-import { renderWithProviders } from "../../../utils/renderWithProviders";
+import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
 import Button from "./Button.component";
 
 describe("Button Component", () => {

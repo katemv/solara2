@@ -1,22 +1,21 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { screen } from "@testing-library/react";
+import { Route } from "react-router-dom";
 import { ReactElement } from "react";
 
 import { resetAuthState, updateAuthState } from "../../../utils/test-setup/authSetup";
-import { renderWithProviders } from "../../../utils/renderWithProviders";
+import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
+import MockRouter from "../../../utils/test-setup/routerSetup";
 import ROUTES from "../../../providers/navigation/routes";
 import Layout from "./Layout.component";
 
-export const MockRouter = ({ element } : { element?: ReactElement}) => (
-    <Router>
-        <Routes>
-            <Route path="/" element={<Layout />}>
-                {element && <Route path="test-element" element={element} />}
-                <Route path={ROUTES.SHOP} element={<div>Test element</div>} />
-                <Route path={ROUTES.ADMIN} element={<div>Admin element</div>} />
-            </Route>
-        </Routes>
-    </Router>
+export const LayoutTestComponent = ({ element } : { element?: ReactElement}) => (
+    <MockRouter>
+        <Route path="/" element={<Layout />}>
+            {element && <Route path="test-element" element={element} />}
+            <Route path={ROUTES.SHOP} element={<div>Test element</div>} />
+            <Route path={ROUTES.ADMIN} element={<div>Admin element</div>} />
+        </Route>
+    </MockRouter>
 );
 
 describe("Layout Component", () => {
@@ -29,13 +28,13 @@ describe("Layout Component", () => {
     });
 
     it("renders logo and outlet", () => {
-        renderWithProviders(<MockRouter />);
+        renderWithProviders(<LayoutTestComponent />);
         expect(screen.getByText("Test element")).toBeInTheDocument();
         expect(screen.getByTestId("logo")).toBeInTheDocument();
     });
 
     it("shows login button when not authorized", () => {
-        renderWithProviders(<MockRouter />);
+        renderWithProviders(<LayoutTestComponent />);
 
         const loginButton = screen.getByRole("button", { name: "Log in" });
 
@@ -51,7 +50,7 @@ describe("Layout Component", () => {
             }
         });
 
-        renderWithProviders(<MockRouter />);
+        renderWithProviders(<LayoutTestComponent />);
 
         expect(screen.getByText("Shop")).toBeInTheDocument();
         expect(screen.getByText("Cart")).toBeInTheDocument();
@@ -70,7 +69,7 @@ describe("Layout Component", () => {
 
         window.location.assign("/admin");
 
-        renderWithProviders(<MockRouter />);
+        renderWithProviders(<LayoutTestComponent />);
 
         expect(window.location.pathname).toBe("/admin");
         expect(screen.getByText("Back to shop")).toBeInTheDocument();

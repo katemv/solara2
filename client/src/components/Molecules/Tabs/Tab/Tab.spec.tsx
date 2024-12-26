@@ -1,7 +1,7 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { afterEach } from "@jest/globals";
 
-import { renderWithProviders } from "../../../../utils/renderWithProviders";
+import { renderWithProviders } from "../../../../utils/test-setup/renderWithProviders";
 
 import Tab, { TabProps } from "./Tab.component";
 

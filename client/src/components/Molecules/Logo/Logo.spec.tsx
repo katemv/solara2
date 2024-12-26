@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { renderWithProviders } from "../../../utils/renderWithProviders";
+import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
 import Logo from "./Logo.component";
 
 describe("Logo Component", () => {
