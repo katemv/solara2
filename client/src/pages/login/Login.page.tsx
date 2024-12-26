@@ -3,9 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 
-import { Container } from "../../components/Pages/Auth/Container.component";
+import AuthLayout from "../../components/Templates/AuthLayout/AuthLayout.component";
 import Button from "../../components/Atoms/Button/Button.component";
-import { Card } from "../../components/Pages/Auth/Card.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import Text from "../../components/Atoms/Text/Text.component";
@@ -36,68 +35,66 @@ const LoginPage = () => {
     };
 
     return (
-        <Container align="center" justify="center">
-            <Card direction="column" gap="spacing3">
-                <Logo marginBottom="spacing6" />
-                <Flex
-                    direction="column"
-                    gap="spacing3"
-                    align="start"
-                    justify="start"
-                    marginBottom="spacing5"
-                >
-                    <Text
-                        as="h1"
-                        intlKey="pages.login.welcome_back"
-                        appearance="headline2"
-                    />
-                    <Text
-                        as="p"
-                        intlKey="pages.login.login_message"
-                        color="dark80"
-                    />
-                </Flex>
+        <AuthLayout>
+            <Logo marginBottom="spacing6" />
+            <Flex
+                direction="column"
+                gap="spacing3"
+                align="start"
+                justify="start"
+                marginBottom="spacing5"
+            >
+                <Text
+                    as="h1"
+                    intlKey="pages.login.welcome_back"
+                    appearance="headline2"
+                />
+                <Text
+                    as="p"
+                    intlKey="pages.login.login_message"
+                    color="dark80"
+                />
+            </Flex>
 
-                <form
-                    onSubmit={handleSubmit((result) => console.log(result))}
-                >
-                    <Flex direction="column" gap="spacing3" marginBottom="spacing9">
-                        <Flex direction="column" gap="spacing3" marginBottom="spacing4">
-                            <Input
-                                control={control}
-                                placeholderIntlKey="forms.email_placeholder"
-                                name="email"
-                                prefixIconType="mail"
-                            />
-                            <Input
-                                control={control}
-                                placeholderIntlKey="forms.password_placeholder"
-                                name="password"
-                                type="password"
-                                prefixIconType="lock"
-                                suffixIconType="visibility_off"
-                            />
-                        </Flex>
-                        <Link to="/shop">
-                            <Text as="span" intlKey="pages.login.forgot_password" color="purple100" />
-                        </Link>
+            <form
+                onSubmit={handleSubmit((result) => console.log(result))}
+            >
+                <Flex direction="column" gap="spacing3" marginBottom="spacing9">
+                    <Flex direction="column" gap="spacing3" marginBottom="spacing4">
+                        <Input
+                            control={control}
+                            placeholderIntlKey="forms.email_placeholder"
+                            name="email"
+                            prefixIconType="mail"
+                        />
+                        <Input
+                            control={control}
+                            placeholderIntlKey="forms.password_placeholder"
+                            name="password"
+                            type="password"
+                            prefixIconType="lock"
+                            suffixIconType="visibility_off"
+                        />
                     </Flex>
-                    <Button
-                        label="pages.login.login"
-                        type="submit"
-                        fullWidth
-                    />
-                </form>
-
-
-                <Flex align="center" justify="center" gap="spacing2">
-                    <Text as="p" intlKey="pages.login.no_account" color="dark80" />
-                    <Link to="/signup">
-                        <Text as="span" intlKey="pages.login.signup" color="purple100" />
+                    <Link to="/shop">
+                        <Text as="span" intlKey="pages.login.forgot_password" color="purple100" />
                     </Link>
                 </Flex>
-            </Card>
-        </Container>
+                <Button
+                    label="pages.login.login"
+                    type="submit"
+                    fullWidth
+                />
+            </form>
+
+
+            <Flex align="center" justify="center" gap="spacing2">
+                <Text as="p" intlKey="pages.login.no_account" color="dark80" />
+                <Link to="/signup">
+                    <Text as="span" intlKey="pages.login.signup" color="purple100" />
+                </Link>
+            </Flex>
+        </AuthLayout>
     );
 };
 

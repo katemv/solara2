@@ -5,7 +5,9 @@ const config: Config = {
     testEnvironment: "jsdom",
     setupFilesAfterEnv: ["./setupTests.ts"],
     moduleNameMapper: {
-        "\\.(css|less)$": "<rootDir>/jest-config/mocks/styleMock.js"
+        "\\.(css|less)$": "<rootDir>/jest-config/mocks/styleMock.js",
+        "^.+\\.svg$": "<rootDir>/jest-config/mocks/svgMock.js",
+        "^.+\\.png$": "<rootDir>/jest-config/mocks/pngMock.js",
     },
     moduleFileExtensions: ["tsx", "ts", "js", "json", "node"],
     transform: {

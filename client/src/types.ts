@@ -12,6 +12,7 @@ export interface IProduct {
     price: number;
     image: string;
     description: string;
+    reviews: Record<number, number>;
 }
 
 export enum Categories {

@@ -39,7 +39,14 @@ export const productMock: IProduct = {
     image: image1,
     description: `
         Embark on a journey through the uncharted realms of the cosmos with the CosmoMoss Explorer!
-        Perfect for space enthusiasts and dreamers alike.`
+        Perfect for space enthusiasts and dreamers alike.`,
+    reviews: {
+        1: 0,
+        2: 5,
+        3: 15,
+        4: 30,
+        5: 75
+    }
 };
 
 export const productListMock: IProduct[] = [

@@ -2,7 +2,7 @@ import { FC } from "react";
 import Text from "../../../Atoms/Text/Text.component";
 import { StyledTab } from "./styles";
 
-interface TabProps {
+export interface TabProps {
     isActive: boolean;
     label: string;
     onClick: (value: string) => void;

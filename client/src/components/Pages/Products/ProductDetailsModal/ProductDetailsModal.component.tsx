@@ -104,7 +104,7 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                                 onClick={() => handleDrawerStateChange(DrawerState.Returns)}
                             />
                         </div>
-                        <Reviews rating={4.6} marginBottom="spacing5" />
+                        <Reviews rating={4.6} marginBottom="spacing5" reviews={product.reviews} />
                         <MenuItem
                             iconKey="comment"
                             intlKey="pages.shop.reviews"

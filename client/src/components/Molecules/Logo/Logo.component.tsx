@@ -8,16 +8,17 @@ import { LogoImage } from "./styles";
 interface LogoProps {
     mode?: "dark" | "light";
     marginBottom?: SpacingKeys;
+    testId?: string;
 }
 
-const Logo: FC<LogoProps> = ({ mode = "light", marginBottom }) => {
+const Logo: FC<LogoProps> = ({ mode = "light", marginBottom, testId = "logo" }) => {
     return (
         <Flex
             marginBottom={marginBottom}
             gap="spacing3"
             align="start"
             justify="end"
-            testId="container"
+            testId={testId}
         >
             <Text
                 as="h2"

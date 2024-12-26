@@ -28,7 +28,7 @@ const Layout = () => {
                     justify="space-between"
                     align="center"
                 >
-                    <Logo />
+                    <Logo data-testid="logo" />
                     <Nav>
                         {isAuthorized ? (
                             <>

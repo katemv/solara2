@@ -3,10 +3,10 @@ import { afterEach } from "@jest/globals";
 
 import { renderWithProviders } from "../../../../utils/renderWithProviders";
 
-import Tab from "./Tab.component";
+import Tab, { TabProps } from "./Tab.component";
 
 describe("Tab Component", () => {
-    const DEFAULT_PROPS = {
+    const DEFAULT_PROPS: TabProps = {
         onClick: jest.fn(),
         label: "solara",
         isActive: false
