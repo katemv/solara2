@@ -1,9 +1,12 @@
 import { css, styled } from "styled-components";
-import { ModalProps } from "./Modal.component";
 
 export const animationDuration = 350;
 
-export const Backdrop = styled.div<Pick<ModalProps, "$visible">>(
+interface BackdropProps {
+    $visible: boolean;
+}
+
+export const Backdrop = styled.div<BackdropProps>(
     ({ theme, $visible }) => css`
         position: fixed;
         top: 0;
@@ -23,7 +26,15 @@ export const Backdrop = styled.div<Pick<ModalProps, "$visible">>(
             `fadeOut ${animationDuration * 0.7}ms forwards`};
     `
 );
-export const ModalContainer = styled.div<Omit<ModalProps, "onClose">>(
+
+interface ModalContainerProps {
+    $visible: boolean;
+    $minHeight: number | "auto";
+    $maxWidth?: number;
+    $maxHeight?: number;
+}
+
+export const ModalContainer = styled.div<ModalContainerProps>(
     ({ theme, $visible, $minHeight, $maxWidth, $maxHeight }) => css`
         animation: ${$visible ?
             `slideDown ${animationDuration}ms forwards` :

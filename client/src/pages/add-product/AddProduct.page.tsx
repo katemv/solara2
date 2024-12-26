@@ -26,10 +26,6 @@ const AddProductPage = () => {
                 {/* image upload */}
                 <form onSubmit={handleSubmit((d) => console.log(d))}>
                     <Input control={control} name="title" placeholderIntlKey="forms.title" />
-                    {/* <Input value={"title"} onChange={() => {}}/> */}
-                    {/* <Input value={"description"} onChange={() => {}}/> */}
-                    {/* <Input value={"stock"} onChange={() => {}}/> */}
-                    {/* <Input value={"price"} onChange={() => {}}/> */}
                 </form>
             </PageContainer>
         </>

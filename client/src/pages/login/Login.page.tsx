@@ -1,19 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import * as yup from "yup";
 
 import { Container } from "../../components/Pages/Auth/Container.component";
 import Button from "../../components/Atoms/Button/Button.component";
-import Flex from "../../components/Atoms/Flex/Flex.component";
 import { Card } from "../../components/Pages/Auth/Card.component";
-import Input from "../../components/Atoms/Input/Input.component";
-import { setStorageData } from "../../utils/localStorage";
-import Text from "../../components/Atoms/Text/Text.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";
-import { useServer } from "../../hooks/useServer";
-import { LOGIN_ROUTE } from "../../api/constants";
-import { useAuth } from "../../hooks/useAuth";
+import Input from "../../components/Atoms/Input/Input.component";
+import Text from "../../components/Atoms/Text/Text.component";
+import Flex from "../../components/Atoms/Flex/Flex.component";
+import { useAuth } from "../../providers/auth/authProvider";
+import { setStorageData } from "../../utils/localStorage";
 
 const loginSchema = yup.object().shape({
     email: yup.string().required(),
@@ -25,14 +23,8 @@ interface LoginRequest {
     password: string;
 }
 
-interface LoginResponse {
-    token: string;
-    userId: string;
-}
-
 const LoginPage = () => {
     const { setUser, setIsAuthorized } = useAuth();
-    const navigate = useNavigate();
     const { control, handleSubmit } = useForm<LoginRequest>({
         resolver: yupResolver(loginSchema)
     });
@@ -42,24 +34,6 @@ const LoginPage = () => {
         setIsAuthorized(false);
         setStorageData("token", null);
     };
-
-    const { request: loginRequest, isLoading } = useServer<LoginRequest, LoginResponse>({
-        path: LOGIN_ROUTE,
-        onSuccess: (data) => {
-            const { token, userId } = data;
-
-            setStorageData("token", token);
-            setUser({
-                id: userId,
-                token: token
-            });
-            setIsAuthorized(true);
-            navigate("/shop", { replace: true });
-        },
-        onError: () => {
-            logout();
-        }
-    });
 
     return (
         <Container align="center" justify="center">
@@ -85,7 +59,7 @@ const LoginPage = () => {
                 </Flex>
 
                 <form
-                    onSubmit={handleSubmit(loginRequest)}
+                    onSubmit={handleSubmit((result) => console.log(result))}
                 >
                     <Flex direction="column" gap="spacing3" marginBottom="spacing9">
                         <Flex direction="column" gap="spacing3" marginBottom="spacing4">
@@ -110,7 +84,6 @@ const LoginPage = () => {
                     </Flex>
                     <Button
                         label="pages.login.login"
-                        loading={isLoading}
                         type="submit"
                         fullWidth
                     />

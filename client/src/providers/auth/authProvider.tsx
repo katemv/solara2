@@ -5,7 +5,8 @@ import {
     useState,
     Dispatch,
     SetStateAction,
-    useEffect
+    useEffect,
+    useContext
 } from "react";
 
 import { getStorageData, setStorageData } from "../../utils/localStorage";
@@ -55,5 +56,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
         </AuthContext.Provider>
     );
 };
+
+export const useAuth = () => useContext(AuthContext);
 
 export default AuthProvider;

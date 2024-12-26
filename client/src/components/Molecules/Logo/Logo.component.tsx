@@ -12,7 +12,13 @@ interface LogoProps {
 
 const Logo: FC<LogoProps> = ({ mode = "light", marginBottom }) => {
     return (
-        <Flex marginBottom={marginBottom} gap="spacing3" align="start" justify="end">
+        <Flex
+            marginBottom={marginBottom}
+            gap="spacing3"
+            align="start"
+            justify="end"
+            testId="container"
+        >
             <Text
                 as="h2"
                 intlKey="solara"

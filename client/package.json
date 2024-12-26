@@ -7,7 +7,6 @@
     "@hookform/resolvers": "^3.3.4",
     "@stylistic/eslint-plugin-js": "^2.12.1",
     "@types/flat": "^5.0.5",
-    "axios": "^1.6.7",
     "flat": "4.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

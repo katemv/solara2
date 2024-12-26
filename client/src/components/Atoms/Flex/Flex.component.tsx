@@ -28,6 +28,7 @@ const Flex: FC<FlexProps> = ({
     children,
     onClick,
     className,
+    style,
     testId = "flex"
 }) => (
     <StyledFlex
@@ -42,6 +43,7 @@ const Flex: FC<FlexProps> = ({
         data-testid={testId}
         className={className}
         onClick={onClick}
+        style={style}
     >
         {children}
     </StyledFlex>

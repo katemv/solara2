@@ -4,7 +4,7 @@ import Product from "../../components/Pages/Products/ProductItem/ProductItem.com
 import Banner from "../../components/Organisms/Banner/Banner.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
 import Text from "../../components/Atoms/Text/Text.component";
-import Tab from "../../components/Molecules/Tabs/Tab.component";
+import Tab from "../../components/Molecules/Tabs/Tab/Tab.component";
 import { Categories, IProduct, Nullable } from "../../types";
 import { CATEGORIES } from "../../utils/constants";
 import { fullWidth, Grid } from "./styles";
@@ -42,7 +42,7 @@ const ShopPage = () => {
                         appearance="headline3"
                         style={fullWidth}
                     />
-                    <Flex gap="spacing2" marginBottom="spacing4" wrap data-full-width>
+                    <Flex gap="spacing2" marginBottom="spacing4" wrap style={fullWidth}>
                         <Tab
                             isActive={currentCategory === Categories.ALL_PRODUCTS}
                             onClick={() => setCurrentCategory(Categories.ALL_PRODUCTS)}
@@ -83,7 +83,7 @@ const ShopPage = () => {
             </PageContainer>
 
             <ProductDetailsModal
-                $visible={!!currentProduct}
+                visible={!!currentProduct}
                 product={currentProduct}
                 onClose={() => {
                     setCurrentProduct(null);

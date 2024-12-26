@@ -19,7 +19,7 @@ export interface ProductDetailsModalProps extends ModalProps {
     product: Nullable<IProduct>;
 }
 
-const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ $visible, onClose, product }) => {
+const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, product }) => {
     const [drawerState, setDrawerState] = useState<Nullable<DrawerState>>(null);
     const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
@@ -30,9 +30,9 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ $visible, onClose, 
 
     return (
         <Modal
-            $visible={$visible}
+            visible={visible}
             onClose={onClose}
-            $maxWidth={450}
+            maxWidth={450}
             fixedButton={product && (
                 <BuyButton
                     price={product.price}

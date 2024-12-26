@@ -1,6 +1,7 @@
-import { FC } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import { FC } from "react";
+
+import { useAuth } from "../auth/authProvider";
 import ROUTES from "./routes";
 
 /**

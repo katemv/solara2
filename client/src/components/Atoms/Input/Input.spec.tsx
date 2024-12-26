@@ -42,7 +42,10 @@ describe("Input Component", () => {
         const toggleButton = screen.getByText("visibility");
 
         expect(input).toHaveAttribute("type", "password");
-        await user.click(toggleButton);
+        await act(async() => {
+            await user.click(toggleButton);
+        });
+
         expect(toggleButton).toHaveTextContent("visibility_off");
         expect(input).toHaveAttribute("type", "text");
     });

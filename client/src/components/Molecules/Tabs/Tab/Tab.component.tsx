@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Text from "../../Atoms/Text/Text.component";
+import Text from "../../../Atoms/Text/Text.component";
 import { StyledTab } from "./styles";
 
 interface TabProps {
