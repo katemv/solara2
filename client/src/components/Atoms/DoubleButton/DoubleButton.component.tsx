@@ -1,4 +1,4 @@
-import { FC, ReactElement } from "react";
+import { FC, ReactNode } from "react";
 
 import { ColorsKeys } from "../../../providers/theme/types/types";
 import { ButtonProps } from "../Button/Button.component";
@@ -10,7 +10,7 @@ import { LeftContent, LoadingContainer, RightContent, StyledButton } from "./sty
 export interface DoubleButtonProps extends Omit<ButtonProps, "appearance"> {
     intlKey?: string;
     color?: ColorsKeys;
-    leftContent: ReactElement;
+    leftContent: ReactNode;
     testId?: string;
 }
 

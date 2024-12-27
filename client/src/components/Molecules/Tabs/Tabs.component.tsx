@@ -1,11 +1,11 @@
-import { FC, ReactElement, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 
 import Flex from "../../Atoms/Flex/Flex.component";
 import Tab from "./Tab/Tab.component";
 
 interface TabConfig {
     label: string;
-    content: ReactElement;
+    content: ReactNode;
 }
 
 interface TabsProps {

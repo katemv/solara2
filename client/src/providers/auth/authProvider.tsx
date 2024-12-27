@@ -1,19 +1,19 @@
 import {
-    ReactElement,
     FC,
     createContext,
     useState,
     Dispatch,
     SetStateAction,
     useEffect,
-    useContext
+    useContext,
+    ReactNode
 } from "react";
 
 import { getStorageData, setStorageData } from "../../utils/localStorage";
 import { Nullable, IUser } from "../../types";
 
 interface Props {
-    children: ReactElement;
+    children: ReactNode;
 }
 
 interface IAuthContext {
