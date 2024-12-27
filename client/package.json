@@ -25,6 +25,7 @@
     "build": "react-scripts build",
     "test": "jest",
     "test:watch": "jest --watch",
+    "coverage": "yarn test --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "yarn eslint ."

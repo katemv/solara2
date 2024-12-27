@@ -12,7 +12,11 @@ export interface IconButtonProps {
 }
 
 const IconButton:FC<IconButtonProps> = ({ iconType, onClick, testId = "icon-button" }) => (
-    <StyledIconButton onClick={onClick} data-testid={testId}>
+    <StyledIconButton
+        onClick={onClick}
+        data-testid={testId}
+        aria-label={iconType}
+    >
         <Icon type={iconType} color="dark10" />
     </StyledIconButton>
 );

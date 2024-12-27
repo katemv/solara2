@@ -42,9 +42,11 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
         >
             {product && (
                 <>
-                    <Flex direction="column">
+                    <Flex direction="column" testId="product-details-container">
                         <Flex justify="space-between" marginBottom="spacing4">
-                            <IconButton iconType="arrow_back" onClick={onClose} />
+                            <IconButton
+                                testId="close-modal"
+                                iconType="arrow_back" onClick={onClose} />
                             <IconButton iconType="bookmark" onClick={onClose} />
                         </Flex>
                         <Image src={image1} alt={product.name} />
@@ -90,21 +92,24 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                             <MenuItem
                                 iconKey="book"
                                 intlKey="pages.shop.product_details"
+                                testId="open-product-details"
                                 onClick={() => handleDrawerStateChange(DrawerState.Details)}
                             />
                             <MenuItem
                                 iconKey="local_shipping"
                                 intlKey="pages.shop.shipping_information"
+                                testId="open-shipping-information"
                                 onClick={() => handleDrawerStateChange(DrawerState.Shipping)}
                             />
                             <MenuItem
                                 iconKey="undo"
                                 intlKey="pages.shop.returns"
                                 marginBottom="spacing5"
+                                testId="open-returns"
                                 onClick={() => handleDrawerStateChange(DrawerState.Returns)}
                             />
                         </div>
-                        <Reviews rating={4.6} marginBottom="spacing5" reviews={product.reviews} />
+                        <Reviews rating={4.5} marginBottom="spacing5" reviews={product.reviews} />
                         <MenuItem
                             iconKey="comment"
                             intlKey="pages.shop.reviews"
@@ -112,6 +117,7 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                         />
                     </Flex>
                     <Drawer
+                        testId="product-details-drawer"
                         isOpen={isDrawerVisible}
                         onClose={() => handleDrawerStateChange(null)}
                         drawerState={drawerState}

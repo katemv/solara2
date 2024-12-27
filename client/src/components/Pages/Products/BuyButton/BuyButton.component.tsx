@@ -6,7 +6,7 @@ import { convertPrice } from "../../../../utils/convertPrice";
 import Flex from "../../../Atoms/Flex/Flex.component";
 import Text from "../../../Atoms/Text/Text.component";
 
-interface BuyButtonProps extends Pick<ButtonProps, "loading" | "loadingLabel" | "disabled" | "fullWidth" | "type"> {
+export interface BuyButtonProps extends Pick<ButtonProps, "loading" | "loadingLabel" | "disabled" | "fullWidth" | "type"> {
     price: number;
     onClick: () => void;
 }

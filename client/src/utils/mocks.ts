@@ -27,7 +27,8 @@ export const productDetailsDrawerText = {
         **3. How to Return an Item:**  
         To return an item to us, please reach out to our Customer Service team via our Contact Us page with details of your order and the reason for returning. Our team will then guide you through the return process. It is important to include your order number on your return parcel to ensure a swift refund.  
         **4. Refunds:**  
-        Refunds are made to the original payment method used for purchase. Once we receive your return and inspect the item's condition, we will process your return. Please allow at least seven (7) days from the receipt of your item to process your return. Refunds may take 1-2 billing cycles to appear on your credit card statement, depending on your credit card company.`
+        Refunds are made to the original payment method used for purchase. Once we receive your return and inspect the item's condition, we will process your return. Please allow at least seven (7) days from the receipt of your item to process your return. Refunds may take 1-2 billing cycles to appear on your credit card statement, depending on your credit card company.`,
+    "reviews": "There are no reviews yet"
 };
 
 

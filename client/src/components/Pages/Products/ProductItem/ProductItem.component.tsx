@@ -7,13 +7,13 @@ import { IProduct } from "../../../../types";
 import { ImageContainer, StyledProduct, Image } from "./styles";
 import Flex from "../../../Atoms/Flex/Flex.component";
 
-export interface ProductProps {
+export interface ProductItemProps {
     product: IProduct;
     horizontal?: boolean;
     onClick: () => void;
 }
 
-const ProductItem: FC<ProductProps> = ({ product, horizontal, onClick }) => {
+const ProductItem: FC<ProductItemProps> = ({ product, horizontal, onClick }) => {
     return (
         <StyledProduct $horizontal={horizontal} onClick={onClick}>
             <ImageContainer $horizontal={horizontal}>

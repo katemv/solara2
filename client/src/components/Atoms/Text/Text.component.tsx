@@ -17,6 +17,7 @@ export interface TextProps {
     fontWeight?: number;
     textTransform?: "uppercase" | "none" | "capitalize";
     textWrap?: "balance" | "pretty";
+    testId?: string;
 }
 
 const Text: FC<TextProps> = ({
@@ -31,7 +32,8 @@ const Text: FC<TextProps> = ({
     textTransform = "none",
     marginBottom = 0,
     textWrap = "balance",
-    style = {}
+    style = {},
+    testId = "text"
 }) => {
     const { formatMessage } = useIntl();
 
@@ -46,6 +48,7 @@ const Text: FC<TextProps> = ({
             $marginBottom={marginBottom}
             $textAlign={textAlign}
             $textWrap={textWrap}
+            data-testid={testId}
         >
             {intlKey ? formatMessage({ id: intlKey }, values) : plainText}
         </StyledText>
