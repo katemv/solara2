@@ -9,8 +9,8 @@ import Logo from "../../components/Molecules/Logo/Logo.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import Text from "../../components/Atoms/Text/Text.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
-import { useAuth } from "../../providers/auth/authProvider";
-import { setStorageData } from "../../utils/localStorage";
+// import { useAuth } from "../../providers/auth/authProvider";
+// import { setStorageData } from "../../utils/localStorage";
 import { StyledForm, StyledLink } from "./styles";
 
 const loginSchema = yup.object().shape({
@@ -24,16 +24,16 @@ interface LoginRequest {
 }
 
 const LoginPage = () => {
-    const { setUser, setIsAuthorized } = useAuth();
+    // const { setUser, setIsAuthorized } = useAuth();
     const { control, handleSubmit } = useForm<LoginRequest>({
         resolver: yupResolver(loginSchema)
     });
 
-    const logout = () => {
-        setUser(null);
-        setIsAuthorized(false);
-        setStorageData("token", null);
-    };
+    // const logout = () => {
+    //     setUser(null);
+    //     setIsAuthorized(false);
+    //     setStorageData("token", null);
+    // };
 
     return (
         <AuthLayout>

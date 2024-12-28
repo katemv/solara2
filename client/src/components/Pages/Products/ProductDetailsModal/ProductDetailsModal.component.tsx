@@ -46,7 +46,9 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                         <Flex justify="space-between" marginBottom="spacing4">
                             <IconButton
                                 testId="close-modal"
-                                iconType="arrow_back" onClick={onClose} />
+                                iconType="arrow_back"
+                                onClick={onClose}
+                            />
                             <IconButton iconType="bookmark" onClick={onClose} />
                         </Flex>
                         <Image src={image1} alt={product.name} />

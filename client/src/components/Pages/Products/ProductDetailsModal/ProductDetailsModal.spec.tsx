@@ -21,7 +21,8 @@ describe("ProductDetailsModal", () => {
 
         expect(screen.getByText("CosMoss Explorer")).toBeInTheDocument();
         expect(screen.getByText("Luna")).toBeInTheDocument();
-        expect(screen.getByText(productMock.description, { trim: false, collapseWhitespace: false })).toBeInTheDocument();
+        expect(screen.getByText(productMock.description, { trim: false, collapseWhitespace: false }))
+            .toBeInTheDocument();
         expect(screen.getByText("$80,00")).toBeInTheDocument();
         expect(screen.getByText("4.5")).toBeInTheDocument();
         expect(screen.getByText("Based on 125 reviews")).toBeInTheDocument();
@@ -51,6 +52,7 @@ describe("ProductDetailsModal", () => {
         const drawer = screen.getByTestId("product-details-drawer");
         const backButton = screen.getByTestId("close-drawer");
         const textContent = screen.getByTestId("markdown");
+
         expect(drawer).toHaveStyle({ transform: "translateX(0%)" });
         expect(textContent).toBeInTheDocument();
 

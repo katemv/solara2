@@ -11,7 +11,7 @@ describe("AuthLayout Component", () => {
 
     afterAll(() => {
         jest.resetAllMocks();
-    })
+    });
 
     it("renders containers correctly", () => {
         renderWithProviders(

@@ -1,18 +1,18 @@
 import { screen } from "@testing-library/react";
 
 import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
-import { setupAuthMock} from "../../../utils/tests/authUtils";
+import { setupAuthMock } from "../../../utils/tests/authUtils";
 import Layout from "./Layout.component";
 
 const childRoutes = [
     {
         path: "/",
-        element: <div>Test element</div>,
+        element: <div>Test element</div>
     },
     {
         path: "/admin",
-        element: <div>Admin element</div>,
-    },
+        element: <div>Admin element</div>
+    }
 ];
 
 describe("Layout Component", () => {

@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { SpacingKeys } from "../../../providers/theme/types/types";
-import Flex, {FlexProps} from "../../Atoms/Flex/Flex.component";
+import Flex, { FlexProps } from "../../Atoms/Flex/Flex.component";
 import Text from "../../Atoms/Text/Text.component";
 import { LogoImage } from "./styles";
 

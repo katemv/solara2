@@ -9,7 +9,7 @@ import Logo from "../../components/Molecules/Logo/Logo.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import Text from "../../components/Atoms/Text/Text.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
-import {StyledForm} from "./styles";
+import { StyledForm } from "./styles";
 
 export interface SignupRequest {
     email: string;

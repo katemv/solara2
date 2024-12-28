@@ -1,9 +1,10 @@
 import { useAuth } from "../../providers/auth/authProvider";
+import { IUser, Nullable } from "../../types";
 
 interface MockAuthHook {
     setUser?: jest.Mock;
     setIsAuthorized?: jest.Mock;
-    user?: any;
+    user?: Nullable<IUser>;
     isAuthorized?: boolean;
 }
 
