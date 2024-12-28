@@ -9,7 +9,7 @@ import MenuItem from "./MenuItem/MenuItem.component";
 
 import { Header, HeaderContainer, Menu, Nav } from "./styles";
 
-const Layout = () => {
+const  Layout = () => {
     const { isAuthorized } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();

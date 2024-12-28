@@ -3,12 +3,13 @@ import type { Config } from "jest";
 const config: Config = {
     preset: "ts-jest",
     testEnvironment: "jsdom",
-    setupFilesAfterEnv: ["./setupTests.ts"],
+    setupFilesAfterEnv: ["./setupTests.tsx"],
+    moduleDirectories: ['node_modules', 'src'],
     moduleNameMapper: {
         "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js",
         "^.+\\.svg$": "<rootDir>/__mocks__/svgMock.js",
         "^.+\\.png$": "<rootDir>/__mocks__/pngMock.js",
-        "^react-markdown$": "<rootDir>/src/utils/test-setup/reactMarkdownMock.tsx",
+        "^react-markdown$": "<rootDir>/src/utils/tests/MockMarkdown.tsx",
     },
     moduleFileExtensions: ["tsx", "ts", "js", "json", "node"],
     transform: {
@@ -18,7 +19,6 @@ const config: Config = {
     "collectCoverageFrom": [
         "src/**/*.{js,jsx,ts,tsx}",
         "!src/**/*.d.ts",
-        "!src/api/constants.ts",
         "!src/**/*.stories.{tsx,ts}"
     ]
 };

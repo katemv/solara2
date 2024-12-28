@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import { renderWithProviders } from "../../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../../utils/tests/renderWithProviders";
 import { productMock } from "../../../../utils/mocks";
 
 import ProductItem, { ProductItemProps } from "./ProductItem.component";

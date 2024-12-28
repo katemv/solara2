@@ -1,8 +1,6 @@
 import { screen } from "@testing-library/react";
-import { Route } from "react-router-dom";
 
-import { renderWithProviders } from "../../../../utils/test-setup/renderWithProviders";
-import MockRouter from "../../../../utils/test-setup/routerSetup";
+import { renderWithProviders } from "../../../../utils/tests/renderWithProviders";
 import MenuItem, { MenuItemProps } from "./MenuItem.component";
 import ROUTES from "../../../../providers/navigation/routes";
 
@@ -14,11 +12,7 @@ describe("MenuItem Component", () => {
     };
 
     it("renders with correct link and text", () => {
-        renderWithProviders(
-            <MockRouter>
-                <Route path="/" element={<MenuItem { ...DEFAULT_PROPS } />} />
-            </MockRouter>
-        );
+        renderWithProviders(<MenuItem { ...DEFAULT_PROPS } />);
 
         const link = screen.getByRole("link");
 

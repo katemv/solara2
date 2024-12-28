@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes } from "react-router-dom";
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
-const MockRouter = ({ children }: { children: ReactElement}) => (
+const MockRouter = ({ children }: { children?: ReactNode }) => (
     <Router
         future={{
             v7_startTransition: true,

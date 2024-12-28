@@ -1,6 +1,6 @@
 import { screen, act, fireEvent } from "@testing-library/react";
 
-import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
 
 import Modal, { ModalProps } from "./Modal.component";
 import { animationDuration } from "./styles";

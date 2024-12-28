@@ -1,4 +1,4 @@
-import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
 import { fireEvent, screen } from "@testing-library/react";
 import Tabs from "./Tabs.component";
 

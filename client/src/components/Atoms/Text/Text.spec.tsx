@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
 import Text, { TextProps } from "./Text.component";
 
 describe("Text Component", () => {

@@ -1,7 +1,7 @@
 import userEvent from "@testing-library/user-event";
 import { screen } from "@testing-library/react";
 
-import { renderWithProviders } from "../../../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../../../utils/tests/renderWithProviders";
 import Drawer, { DrawerProps, DrawerState } from "./Drawer.component";
 import { productDetailsDrawerText } from "../../../../../utils/mocks";
 

@@ -2,7 +2,7 @@ import { screen, act } from "@testing-library/react";
 import { userEvent } from "@storybook/test";
 import { useForm } from "react-hook-form";
 
-import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
 import Input, { InputProps } from "./Input.component";
 
 const TestComponent = (props: InputProps) => {

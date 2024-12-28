@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 
-import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
 import IconButton, { IconButtonProps } from "./IconButton.component";
 import { userEvent } from "@storybook/test";
 

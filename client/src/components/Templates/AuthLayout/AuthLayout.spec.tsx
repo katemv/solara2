@@ -1,17 +1,17 @@
 import { screen } from "@testing-library/react";
 
-import { renderWithProviders } from "../../../utils/test-setup/renderWithProviders";
-import { resetAuthState } from "../../../utils/test-setup/authSetup";
+import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
 import AuthLayout from "./AuthLayout.component";
+import { setupAuthMock } from "../../../utils/tests/authUtils";
 
 describe("AuthLayout Component", () => {
     beforeEach(() => {
-        resetAuthState();
+        setupAuthMock();
     });
 
     afterAll(() => {
-        resetAuthState();
-    });
+        jest.resetAllMocks();
+    })
 
     it("renders containers correctly", () => {
         renderWithProviders(

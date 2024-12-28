@@ -2,7 +2,7 @@ import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import ProductDetailsModal, { ProductDetailsModalProps } from "./ProductDetailsModal.component";
-import { renderWithProviders } from "../../../../utils/test-setup/renderWithProviders";
+import { renderWithProviders } from "../../../../utils/tests/renderWithProviders";
 import { productMock } from "../../../../utils/mocks";
 
 describe("ProductDetailsModal", () => {
