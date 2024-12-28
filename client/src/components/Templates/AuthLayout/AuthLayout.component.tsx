@@ -7,8 +7,18 @@ export interface AuthLayoutProps {
 
 const AuthLayout:FC<AuthLayoutProps> = ({ children }) => {
     return (
-        <Container testId="auth-layout-container">
-            <Card testId="auth-layout-card">
+        <Container
+            testId="auth-layout-container"
+            fullWidth
+            align="center"
+            justify="center"
+        >
+            <Card
+                testId="auth-layout-card"
+                align="start"
+                justify="center"
+                direction="column"
+            >
                 {children}
             </Card>
         </Container>

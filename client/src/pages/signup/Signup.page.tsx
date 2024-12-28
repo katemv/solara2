@@ -9,6 +9,7 @@ import Logo from "../../components/Molecules/Logo/Logo.component";
 import Input from "../../components/Atoms/Input/Input.component";
 import Text from "../../components/Atoms/Text/Text.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
+import {StyledForm} from "./styles";
 
 export interface SignupRequest {
     email: string;
@@ -27,8 +28,7 @@ const SignupPage = () => {
 
     return (
         <AuthLayout>
-            <Logo marginBottom="spacing6" />
-
+            <Logo marginBottom="spacing6" alignSelf="end" />
             <Flex
                 direction="column"
                 gap="spacing3"
@@ -48,7 +48,7 @@ const SignupPage = () => {
                 />
             </Flex>
 
-            <form
+            <StyledForm
                 onSubmit={() => {
                     // signupRequest(form)
                 }}
@@ -73,9 +73,9 @@ const SignupPage = () => {
                     type="submit"
                     fullWidth
                 />
-            </form>
+            </StyledForm>
 
-            <Flex align="center" justify="center" gap="spacing2">
+            <Flex align="center" justify="center" gap="spacing2" fullWidth>
                 <Text as="p" intlKey="pages.signup.existing_account" color="dark80" />
                 <Link to="/shop">
                     <Text as="span" intlKey="pages.signup.login" color="purple100" />

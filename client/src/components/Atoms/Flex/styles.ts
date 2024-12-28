@@ -4,6 +4,7 @@ import { css, styled } from "styled-components";
 export interface StyledProps {
     $justify?: "start" | "end" | "center" | "space-between" | "space-around";
     $align?: "start" | "end" | "center" | "space-between" | "space-around" | "baseline";
+    $alignSelf?: "start" | "end" | "center";
     direction?: "row" | "column";
     $wrap?: boolean;
     $gap?: SpacingKeys;
@@ -16,6 +17,7 @@ export const StyledFlex = styled.div<StyledProps>`
     ${({
         $justify,
         $align,
+        $alignSelf,
         direction,
         $wrap,
         $gap,
@@ -27,6 +29,7 @@ export const StyledFlex = styled.div<StyledProps>`
         display: flex;
         justify-content: ${$justify};
         align-items: ${$align};
+        align-self: ${$alignSelf};
         flex-direction: ${direction};
         flex-wrap: ${$wrap ? "wrap" : "nowrap"};
         margin-bottom: ${$marginBottom ? theme.spacings[$marginBottom] : "0"};

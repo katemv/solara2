@@ -6,6 +6,7 @@ import { StyledFlex } from "./styles";
 export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
     justify?: "start" | "end" | "center" | "space-between" | "space-around";
     align?: "start" | "end" | "center" | "space-between" | "space-around" | "baseline";
+    alignSelf?: "start" | "end" | "center";
     direction?: "row" | "column";
     wrap?: boolean;
     gap?: SpacingKeys;
@@ -19,6 +20,7 @@ export interface FlexProps extends HTMLAttributes<HTMLDivElement> {
 const Flex: FC<FlexProps> = ({
     justify,
     align,
+    alignSelf,
     direction,
     wrap,
     gap,
@@ -34,6 +36,7 @@ const Flex: FC<FlexProps> = ({
     <StyledFlex
         $justify={justify}
         $align={align}
+        $alignSelf={alignSelf}
         direction={direction}
         $wrap={wrap}
         $gap={gap}

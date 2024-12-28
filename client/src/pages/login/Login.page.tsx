@@ -11,6 +11,7 @@ import Text from "../../components/Atoms/Text/Text.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
 import { useAuth } from "../../providers/auth/authProvider";
 import { setStorageData } from "../../utils/localStorage";
+import { StyledForm, StyledLink } from "./styles";
 
 const loginSchema = yup.object().shape({
     email: yup.string().required(),
@@ -36,7 +37,7 @@ const LoginPage = () => {
 
     return (
         <AuthLayout>
-            <Logo marginBottom="spacing6" />
+            <Logo marginBottom="spacing6" alignSelf="end" />
             <Flex
                 direction="column"
                 gap="spacing3"
@@ -56,11 +57,11 @@ const LoginPage = () => {
                 />
             </Flex>
 
-            <form
+            <StyledForm
                 onSubmit={handleSubmit((result) => console.log(result))}
             >
-                <Flex direction="column" gap="spacing3" marginBottom="spacing9">
-                    <Flex direction="column" gap="spacing3" marginBottom="spacing4">
+                <Flex direction="column" gap="spacing2" marginBottom="spacing9">
+                    <Flex direction="column" gap="spacing3">
                         <Input
                             control={control}
                             placeholderIntlKey="forms.email_placeholder"
@@ -76,22 +77,29 @@ const LoginPage = () => {
                             suffixIconType="visibility_off"
                         />
                     </Flex>
-                    <Link to="/shop">
-                        <Text as="span" intlKey="pages.login.forgot_password" color="purple100" />
-                    </Link>
+                    <StyledLink to="/shop">
+                        <Text
+                            as="span"
+                            intlKey="pages.login.forgot_password"
+                            color="purple100"
+                        />
+                    </StyledLink>
                 </Flex>
                 <Button
                     label="pages.login.login"
                     type="submit"
                     fullWidth
                 />
-            </form>
+            </StyledForm>
 
-
-            <Flex align="center" justify="center" gap="spacing2">
+            <Flex align="center" justify="center" gap="spacing2" fullWidth>
                 <Text as="p" intlKey="pages.login.no_account" color="dark80" />
                 <Link to="/signup">
-                    <Text as="span" intlKey="pages.login.signup" color="purple100" />
+                    <Text
+                        as="span"
+                        intlKey="pages.login.signup"
+                        color="purple100"
+                    />
                 </Link>
             </Flex>
         </AuthLayout>
