@@ -42,9 +42,13 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
         >
             {product && (
                 <>
-                    <Flex direction="column">
+                    <Flex direction="column" testId="product-details-container">
                         <Flex justify="space-between" marginBottom="spacing4">
-                            <IconButton iconType="arrow_back" onClick={onClose} />
+                            <IconButton
+                                testId="close-modal"
+                                iconType="arrow_back"
+                                onClick={onClose}
+                            />
                             <IconButton iconType="bookmark" onClick={onClose} />
                         </Flex>
                         <Image src={image1} alt={product.name} />
@@ -55,20 +59,18 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                             color="dark60"
                             textTransform="uppercase"
                             fontWeight={700}
-                            textAlign="left"
                             marginBottom="spacing1"
                         />
                         <Text
                             as="h3"
                             plainText={product.name}
                             appearance="headline2"
-                            textAlign="left"
                             marginBottom="spacing4"
                         />
                         <Flex marginBottom="spacing6" justify="space-between">
                             <Label intlKey="pages.shop.available" />
                             <Flex gap="spacing1" align="center">
-                                <Icon type="star" filled color="warning" size={17} />
+                                <Icon type="star" $filled color="warning" size={17} />
                                 <Text plainText="4.6" />
                                 <Text plainText="(120 Reviews)" fontWeight={700} color="dark60" />
                             </Flex>
@@ -77,7 +79,6 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                             as="h3"
                             intlKey="pages.shop.product_info"
                             appearance="headline5"
-                            textAlign="left"
                             marginBottom="spacing3"
                             color="dark10"
                         />
@@ -88,27 +89,29 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                             fontWeight={400}
                             color="dark60"
                             marginBottom="spacing5"
-                            textAlign="left"
                         />
                         <div>
                             <MenuItem
                                 iconKey="book"
                                 intlKey="pages.shop.product_details"
+                                testId="open-product-details"
                                 onClick={() => handleDrawerStateChange(DrawerState.Details)}
                             />
                             <MenuItem
                                 iconKey="local_shipping"
                                 intlKey="pages.shop.shipping_information"
+                                testId="open-shipping-information"
                                 onClick={() => handleDrawerStateChange(DrawerState.Shipping)}
                             />
                             <MenuItem
                                 iconKey="undo"
                                 intlKey="pages.shop.returns"
                                 marginBottom="spacing5"
+                                testId="open-returns"
                                 onClick={() => handleDrawerStateChange(DrawerState.Returns)}
                             />
                         </div>
-                        <Reviews rating={4.6} marginBottom="spacing5" />
+                        <Reviews rating={4.5} marginBottom="spacing5" reviews={product.reviews} />
                         <MenuItem
                             iconKey="comment"
                             intlKey="pages.shop.reviews"
@@ -116,6 +119,7 @@ const ProductDetailsModal: FC<ProductDetailsModalProps> = ({ visible, onClose, p
                         />
                     </Flex>
                     <Drawer
+                        testId="product-details-drawer"
                         isOpen={isDrawerVisible}
                         onClose={() => handleDrawerStateChange(null)}
                         drawerState={drawerState}

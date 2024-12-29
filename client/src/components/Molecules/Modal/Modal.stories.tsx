@@ -39,7 +39,6 @@ function StoryComponent({ maxWidth, maxHeight, minHeight }: ModalProps) {
                     as="h3"
                     plainText="Luminary Dust"
                     appearance="headline4"
-                    textAlign="left"
                     marginBottom="spacing4"
                     textTransform="uppercase"
                 />
@@ -51,7 +50,6 @@ function StoryComponent({ maxWidth, maxHeight, minHeight }: ModalProps) {
                         this unique highlighter acts as a wearable homage to the beauty of the cosmos.
                     `}
                     appearance="paragraph"
-                    textAlign="left"
                     fontWeight={300}
                     color="dark20"
                 />

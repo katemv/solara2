@@ -71,13 +71,13 @@ const Modal: FC<ModalProps> = ({
 
     return renderModal ?
         createPortal(
-            <Backdrop visible={visible}>
+            <Backdrop $visible={visible}>
                 <ModalContainer
                     ref={ref}
-                    visible={visible}
-                    maxHeight={maxHeight}
-                    maxWidth={maxWidth}
-                    minHeight={minHeight}
+                    $visible={visible}
+                    $maxHeight={maxHeight}
+                    $maxWidth={maxWidth}
+                    $minHeight={minHeight}
                 >
                     <ScrollContainer>
                         {children}

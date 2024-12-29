@@ -4,7 +4,7 @@ import Product from "../../components/Pages/Products/ProductItem/ProductItem.com
 import Banner from "../../components/Organisms/Banner/Banner.component";
 import Flex from "../../components/Atoms/Flex/Flex.component";
 import Text from "../../components/Atoms/Text/Text.component";
-import Tab from "../../components/Molecules/Tabs/Tab.component";
+import Tab from "../../components/Molecules/Tabs/Tab/Tab.component";
 import { Categories, IProduct, Nullable } from "../../types";
 import { CATEGORIES } from "../../utils/constants";
 import { fullWidth, Grid } from "./styles";
@@ -26,8 +26,7 @@ const ShopPage = () => {
                         as="h2"
                         intlKey="pages.shop.popular_products"
                         appearance="headline3"
-                        textAlign="left"
-                        customStyles={fullWidth}
+                        style={fullWidth}
                     />
                     {productListMock.map((product) => (
                         <Product
@@ -41,10 +40,9 @@ const ShopPage = () => {
                         as="h2"
                         intlKey="pages.shop.categories"
                         appearance="headline3"
-                        textAlign="left"
-                        customStyles={fullWidth}
+                        style={fullWidth}
                     />
-                    <Flex gap="spacing2" marginBottom="spacing4" $wrap data-full-width>
+                    <Flex gap="spacing2" marginBottom="spacing4" wrap style={fullWidth}>
                         <Tab
                             isActive={currentCategory === Categories.ALL_PRODUCTS}
                             onClick={() => setCurrentCategory(Categories.ALL_PRODUCTS)}
@@ -63,17 +61,15 @@ const ShopPage = () => {
                         as="h2"
                         intlKey={currentCategory}
                         appearance="headline2"
-                        textAlign="left"
-                        customStyles={fullWidth}
+                        style={fullWidth}
                     />
                     <Text
                         as="p"
                         intlKey={`${currentCategory}_description`}
                         appearance="paragraph"
-                        textAlign="left"
                         fontWeight={300}
                         color="dark20"
-                        customStyles={{ ...fullWidth, width: "80%" }}
+                        style={{ ...fullWidth, width: "80%" }}
                         marginBottom="spacing4"
                     />
                     {productListMock.map((product) => (

@@ -1,11 +1,11 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
+import { useAuth } from "../../../providers/auth/authProvider";
 import ROUTES from "../../../providers/navigation/routes";
 import Button from "../../Atoms/Button/Button.component";
 import Logo from "../../Molecules/Logo/Logo.component";
 import MenuItem from "./MenuItem/MenuItem.component";
-import { useAuth } from "../../../hooks/useAuth";
 
 import { Header, HeaderContainer, Menu, Nav } from "./styles";
 
@@ -22,8 +22,13 @@ const Layout = () => {
     return (
         <>
             <Header>
-                <HeaderContainer fullWidth fullHeight justify="space-between" align="center">
-                    <Logo />
+                <HeaderContainer
+                    fullWidth
+                    fullHeight
+                    justify="space-between"
+                    align="center"
+                >
+                    <Logo data-testid="logo" />
                     <Nav>
                         {isAuthorized ? (
                             <>

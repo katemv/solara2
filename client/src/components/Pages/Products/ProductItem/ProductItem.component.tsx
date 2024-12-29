@@ -7,13 +7,13 @@ import { IProduct } from "../../../../types";
 import { ImageContainer, StyledProduct, Image } from "./styles";
 import Flex from "../../../Atoms/Flex/Flex.component";
 
-export interface ProductProps {
+export interface ProductItemProps {
     product: IProduct;
     horizontal?: boolean;
     onClick: () => void;
 }
 
-const ProductItem: FC<ProductProps> = ({ product, horizontal, onClick }) => {
+const ProductItem: FC<ProductItemProps> = ({ product, horizontal, onClick }) => {
     return (
         <StyledProduct $horizontal={horizontal} onClick={onClick}>
             <ImageContainer $horizontal={horizontal}>
@@ -27,14 +27,12 @@ const ProductItem: FC<ProductProps> = ({ product, horizontal, onClick }) => {
                     color="dark20"
                     textTransform="uppercase"
                     fontWeight={300}
-                    textAlign="left"
                 />
-                <Text as="h6" plainText={product.name} appearance="headline4" textAlign="left" />
+                <Text as="h6" plainText={product.name} appearance="headline4" />
                 <Text
                     as="h6"
                     plainText={convertPrice(product.price)}
                     appearance="headline4"
-                    textAlign="left"
                     color="blue80"
                 />
             </Flex>

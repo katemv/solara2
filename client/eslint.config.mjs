@@ -25,7 +25,8 @@ export default [
                 "code": 120,
                 "tabWidth": 4,
                 "ignoreUrls": true,
-                "ignoreTemplateLiterals": true
+                "ignoreTemplateLiterals": true,
+                "ignoreStrings": true
             }],
             "@stylistic/js/arrow-parens": ["error", "always"],
             "@stylistic/js/arrow-spacing": "error",
@@ -91,6 +92,12 @@ export default [
             }],
             "react/no-array-index-key": "error",
             "react/self-closing-comp": "error"
+        }
+    },
+    {
+        files: ["**/*.spec.tsx"],
+        rules: {
+            "react/jsx-props-no-spreading": "off"
         }
     }
 ];

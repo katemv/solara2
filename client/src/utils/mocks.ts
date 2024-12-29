@@ -27,7 +27,8 @@ export const productDetailsDrawerText = {
         **3. How to Return an Item:**  
         To return an item to us, please reach out to our Customer Service team via our Contact Us page with details of your order and the reason for returning. Our team will then guide you through the return process. It is important to include your order number on your return parcel to ensure a swift refund.  
         **4. Refunds:**  
-        Refunds are made to the original payment method used for purchase. Once we receive your return and inspect the item's condition, we will process your return. Please allow at least seven (7) days from the receipt of your item to process your return. Refunds may take 1-2 billing cycles to appear on your credit card statement, depending on your credit card company.`
+        Refunds are made to the original payment method used for purchase. Once we receive your return and inspect the item's condition, we will process your return. Please allow at least seven (7) days from the receipt of your item to process your return. Refunds may take 1-2 billing cycles to appear on your credit card statement, depending on your credit card company.`,
+    "reviews": "There are no reviews yet"
 };
 
 
@@ -39,20 +40,21 @@ export const productMock: IProduct = {
     image: image1,
     description: `
         Embark on a journey through the uncharted realms of the cosmos with the CosmoMoss Explorer!
-        Perfect for space enthusiasts and dreamers alike.`
+        Perfect for space enthusiasts and dreamers alike.`,
+    reviews: {
+        1: 0,
+        2: 5,
+        3: 15,
+        4: 30,
+        5: 75
+    }
 };
 
 export const productListMock: IProduct[] = [
-    // @ts-expect-error: temporary mock
-    { id: "1", ...productMock, image: image1 },
-    // @ts-expect-error: temporary mock
-    { id: "2", ...productMock, image: image2 },
-    // @ts-expect-error: temporary mock
-    { id: "3", ...productMock, image: image3 },
-    // @ts-expect-error: temporary mock
-    { id: "4", ...productMock, image: image4 },
-    // @ts-expect-error: temporary mock
-    { id: "5", ...productMock, image: image5 },
-    // @ts-expect-error: temporary mock
-    { id: "6", ...productMock, image: image1 }
+    { ...productMock, image: image1, id: "1" },
+    { ...productMock, image: image2, id: "2" },
+    { ...productMock, image: image3, id: "3" },
+    { ...productMock, image: image4, id: "4" },
+    { ...productMock, image: image5, id: "5" },
+    { ...productMock, image: image1, id: "6" }
 ];

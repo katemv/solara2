@@ -5,13 +5,18 @@ import Icon from "../Icon/Icon.component";
 
 import { StyledIconButton } from "./styles";
 
-interface IconButtonProps {
+export interface IconButtonProps {
     iconType: IconKeys;
     onClick?: () => void;
+    testId?: string;
 }
 
-const IconButton:FC<IconButtonProps> = ({ iconType, onClick }) => (
-    <StyledIconButton onClick={onClick}>
+const IconButton:FC<IconButtonProps> = ({ iconType, onClick, testId = "icon-button" }) => (
+    <StyledIconButton
+        onClick={onClick}
+        data-testid={testId}
+        aria-label={iconType}
+    >
         <Icon type={iconType} color="dark10" />
     </StyledIconButton>
 );

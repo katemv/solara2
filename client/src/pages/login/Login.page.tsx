@@ -1,19 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
+import * as yup from "yup";
 
-import { Container } from "../../components/Pages/Auth/Container.component";
+import AuthLayout from "../../components/Templates/AuthLayout/AuthLayout.component";
 import Button from "../../components/Atoms/Button/Button.component";
-import Flex from "../../components/Atoms/Flex/Flex.component";
-import { Card } from "../../components/Pages/Auth/Card.component";
-import Input from "../../components/Atoms/Input/Input.component";
-import { setStorageData } from "../../utils/localStorage";
-import Text from "../../components/Atoms/Text/Text.component";
 import Logo from "../../components/Molecules/Logo/Logo.component";
-import { useServer } from "../../hooks/useServer";
-import { LOGIN_ROUTE } from "../../api/constants";
-import { useAuth } from "../../hooks/useAuth";
+import Input from "../../components/Atoms/Input/Input.component";
+import Text from "../../components/Atoms/Text/Text.component";
+import Flex from "../../components/Atoms/Flex/Flex.component";
+// import { useAuth } from "../../providers/auth/authProvider";
+// import { setStorageData } from "../../utils/localStorage";
+import { StyledForm, StyledLink } from "./styles";
 
 const loginSchema = yup.object().shape({
     email: yup.string().required(),
@@ -25,108 +23,86 @@ interface LoginRequest {
     password: string;
 }
 
-interface LoginResponse {
-    token: string;
-    userId: string;
-}
-
 const LoginPage = () => {
-    const { setUser, setIsAuthorized } = useAuth();
-    const navigate = useNavigate();
+    // const { setUser, setIsAuthorized } = useAuth();
     const { control, handleSubmit } = useForm<LoginRequest>({
         resolver: yupResolver(loginSchema)
     });
 
-    const logout = () => {
-        setUser(null);
-        setIsAuthorized(false);
-        setStorageData("token", null);
-    };
-
-    const { request: loginRequest, isLoading } = useServer<LoginRequest, LoginResponse>({
-        path: LOGIN_ROUTE,
-        onSuccess: (data) => {
-            const { token, userId } = data;
-
-            setStorageData("token", token);
-            setUser({
-                id: userId,
-                token: token
-            });
-            setIsAuthorized(true);
-            navigate("/shop", { replace: true });
-        },
-        onError: () => {
-            logout();
-        }
-    });
+    // const logout = () => {
+    //     setUser(null);
+    //     setIsAuthorized(false);
+    //     setStorageData("token", null);
+    // };
 
     return (
-        <Container align="center" justify="center">
-            <Card direction="column" gap="spacing3">
-                <Logo marginBottom="spacing6" />
-                <Flex
-                    direction="column"
-                    gap="spacing3"
-                    align="start"
-                    justify="start"
-                    marginBottom="spacing5"
-                >
-                    <Text
-                        as="h1"
-                        intlKey="pages.login.welcome_back"
-                        appearance="headline2"
-                        textAlign="left"
-                    />
-                    <Text
-                        as="p"
-                        intlKey="pages.login.login_message"
-                        color="dark80"
-                        textAlign="left"
-                    />
-                </Flex>
+        <AuthLayout>
+            <Logo marginBottom="spacing6" alignSelf="end" />
+            <Flex
+                direction="column"
+                gap="spacing3"
+                align="start"
+                justify="start"
+                marginBottom="spacing5"
+            >
+                <Text
+                    as="h1"
+                    intlKey="pages.login.welcome_back"
+                    appearance="headline2"
+                />
+                <Text
+                    as="p"
+                    intlKey="pages.login.login_message"
+                    color="dark80"
+                />
+            </Flex>
 
-                <form
-                    onSubmit={handleSubmit(loginRequest)}
-                >
-                    <Flex direction="column" gap="spacing3" marginBottom="spacing9">
-                        <Flex direction="column" gap="spacing3" marginBottom="spacing4">
-                            <Input
-                                control={control}
-                                placeholderIntlKey="forms.email_placeholder"
-                                name="email"
-                                prefixIconType="mail"
-                            />
-                            <Input
-                                control={control}
-                                placeholderIntlKey="forms.password_placeholder"
-                                name="password"
-                                type="password"
-                                prefixIconType="lock"
-                                postfixIconType="visibility_off"
-                            />
-                        </Flex>
-                        <Link to="/shop">
-                            <Text as="span" intlKey="pages.login.forgot_password" color="purple100" />
-                        </Link>
+            <StyledForm
+                onSubmit={handleSubmit((result) => console.log(result))}
+            >
+                <Flex direction="column" gap="spacing2" marginBottom="spacing9">
+                    <Flex direction="column" gap="spacing3">
+                        <Input
+                            control={control}
+                            placeholderIntlKey="forms.email_placeholder"
+                            name="email"
+                            prefixIconType="mail"
+                        />
+                        <Input
+                            control={control}
+                            placeholderIntlKey="forms.password_placeholder"
+                            name="password"
+                            type="password"
+                            prefixIconType="lock"
+                            suffixIconType="visibility_off"
+                        />
                     </Flex>
-                    <Button
-                        label="pages.login.login"
-                        loading={isLoading}
-                        type="submit"
-                        fullWidth
-                    />
-                </form>
-
-
-                <Flex align="center" justify="center" gap="spacing2">
-                    <Text as="p" intlKey="pages.login.no_account" color="dark80" />
-                    <Link to="/signup">
-                        <Text as="span" intlKey="pages.login.signup" color="purple100" />
-                    </Link>
+                    <StyledLink to="/shop">
+                        <Text
+                            as="span"
+                            intlKey="pages.login.forgot_password"
+                            color="purple100"
+                        />
+                    </StyledLink>
                 </Flex>
-            </Card>
-        </Container>
+                <Button
+                    label="pages.login.login"
+                    type="submit"
+                    fullWidth
+                />
+            </StyledForm>
+
+            <Flex align="center" justify="center" gap="spacing2" fullWidth>
+                <Text as="p" intlKey="pages.login.no_account" color="dark80" />
+                <Link to="/signup">
+                    <Text
+                        as="span"
+                        intlKey="pages.login.signup"
+                        color="purple100"
+                    />
+                </Link>
+            </Flex>
+        </AuthLayout>
     );
 };
 
