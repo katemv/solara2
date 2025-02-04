@@ -1,19 +1,13 @@
 import { screen } from "@testing-library/react";
 
 import { renderWithProviders } from "../../../utils/tests/renderWithProviders";
+import { productMock } from "../../../utils/mocks";
 
 import Reviews, { ReviewsProps } from "./Reviews.component";
 
 describe("Reviews Component", () => {
     const DEFAULT_PROPS: ReviewsProps = {
-        rating: 4.5,
-        reviews: {
-            1: 0,
-            2: 5,
-            3: 15,
-            4: 30,
-            5: 75
-        }
+        reviews: productMock.reviews
     };
 
     it("renders the rating correctly", () => {
@@ -25,7 +19,7 @@ describe("Reviews Component", () => {
     it("displays total review count", () => {
         renderWithProviders(<Reviews {...DEFAULT_PROPS} />);
 
-        expect(screen.getByText("Based on 125 reviews")).toBeInTheDocument();
+        expect(screen.getByText("Based on 120 reviews")).toBeInTheDocument();
     });
 
     it("displays correct number of filled stars", () => {

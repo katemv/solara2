@@ -6,5 +6,6 @@ export const Image = styled.img(
         height: 362px;
         border-radius: 10px;
         margin-bottom: ${theme.spacings.spacing5};
+        object-fit: cover;
     `
 );

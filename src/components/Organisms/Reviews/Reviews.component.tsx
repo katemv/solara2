@@ -5,24 +5,20 @@ import Text from "../../Atoms/Text/Text.component";
 import Icon from "../../Atoms/Icon/Icon.component";
 
 import { Container, ProgressBar, ProgressContainer } from "./styles";
-import { IProduct } from "../../../types";
+import { Product } from "../../../generated/graphql";
 
 export interface ReviewsProps extends Pick<FlexProps, "marginBottom" | "fullWidth"> {
-    rating: number,
-    reviews: IProduct["reviews"],
+    reviews: Product["reviews"],
 }
 
-const ratings = [1, 2, 3, 4, 5];
-const ratingsReversed = [5, 4, 3, 2, 1];
-
-const Reviews: FC<ReviewsProps> = ({ rating, reviews, marginBottom, fullWidth }) => {
-    const totalReviews = Object.values(reviews).reduce((value, acc) => acc + value, 0);
+const Reviews: FC<ReviewsProps> = ({ reviews, marginBottom, fullWidth }) => {
+    const itemsReversed = [...reviews.scoreDistribution].sort((a, b) => b.score - a.score);
 
     return (
         <Container gap="spacing6" marginBottom={marginBottom} fullWidth={fullWidth}>
             <Flex direction="column" align="start">
                 <Flex align="end" gap="spacing1" marginBottom="spacing1">
-                    <Text plainText={String(rating)} appearance="headline1" />
+                    <Text plainText={String(reviews.rating)} appearance="headline1" />
                     <Text
                         plainText="/5"
                         appearance="headline5"
@@ -37,33 +33,34 @@ const Reviews: FC<ReviewsProps> = ({ rating, reviews, marginBottom, fullWidth })
                     color="dark60"
                     fontWeight={500}
                     marginBottom="spacing3"
-                    values={{ reviewCount: totalReviews }}
+                    values={{ reviewCount: reviews.totalCount }}
                     style={{ minWidth: "130px" }}
                 />
                 <Flex gap="spacing1">
-                    {ratings.map((element) => (
+                    {reviews.scoreDistribution.map((rating) => (
                         <Icon
                             testId="star-icon"
-                            key={element}
+                            key={rating?.score}
                             type="star"
-                            color={element <= Math.floor(rating) ? "warning" : "dark60"}
+                            color={rating.score <= Math.floor(reviews.rating) ? "warning" : "dark60"}
                             $filled
                         />
-                    ))}
+                    )
+                    )}
                 </Flex>
             </Flex>
             <Flex direction="column" justify="space-between" fullWidth>
-                {ratingsReversed.map((element) => (
-                    <Flex key={element} align="baseline" gap="spacing2" fullWidth>
+                {itemsReversed.map((element) => (
+                    <Flex key={element.score} align="baseline" gap="spacing2" fullWidth>
                         <Text
                             color="dark80"
                             appearance="headline6"
                             intlKey="pages.shop.star_count"
-                            values={{ starCount: element }}
+                            values={{ starCount: element.score }}
                             style={{ width: "65px" }}
                         />
                         <ProgressContainer data-testid="progress-bar">
-                            <ProgressBar $percent={reviews[element] / totalReviews * 100} />
+                            <ProgressBar $percent={element.count / reviews.totalCount * 100} />
                         </ProgressContainer>
                     </Flex>
                 ))}

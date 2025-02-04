@@ -30,13 +30,15 @@ export const ImageContainer = styled.div<{ $horizontal?: boolean }>(
         margin-bottom: ${$horizontal ? 0 : theme.spacings.spacing3};
         position: relative;
         overflow: hidden;
+        flex-shrink: 0;
     `
 );
 
 export const Image = styled.img`
     width: 100%;
-    height: auto;
+    height: 100%;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    object-fit: cover;
 `;

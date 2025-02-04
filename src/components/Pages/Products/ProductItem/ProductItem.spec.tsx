@@ -10,7 +10,7 @@ describe("ProductItem", () => {
     const DEFAULT_PROPS: ProductItemProps = {
         product: {
             ...productMock,
-            image: "image-url"
+            imageUrl: "image-url"
         },
         onClick: jest.fn()
     };

@@ -1,9 +1,9 @@
-import { IProduct } from "../types";
 import image1 from "../assets/images/astro.png";
 import image2 from "../assets/images/bar.png";
 import image3 from "../assets/images/abstr_asto.png";
 import image4 from "../assets/images/flower_asto_2.png";
 import image5 from "../assets/images/planet.png";
+import { Category, Product } from "../generated/graphql";
 
 export const productDetailsDrawerText = {
     "product_details": `**The CosMoss Explorer Space Suit** is the pinnacle of bio-mimetic and cosmic design, perfectly 
@@ -32,29 +32,48 @@ export const productDetailsDrawerText = {
 };
 
 
-export const productMock: IProduct = {
+export const productMock: Product = {
     id: "1",
-    name: "CosMoss Explorer",
+    title: "CosMoss Explorer",
     brand: "Luna",
     price: 8000,
-    image: image1,
+    imageUrl: image1,
+    category: Category.Tech,
     description: `
         Embark on a journey through the uncharted realms of the cosmos with the CosmoMoss Explorer!
         Perfect for space enthusiasts and dreamers alike.`,
     reviews: {
-        1: 0,
-        2: 5,
-        3: 15,
-        4: 30,
-        5: 75
-    }
+        totalCount: 120,
+        rating: 4.5,
+        scoreDistribution: [
+            {
+                score: 1,
+                count: 5
+            },
+            {
+                score: 2,
+                count: 5
+            },
+            {
+                score: 3,
+                count: 15
+            },
+            {
+                score: 4,
+                count: 30
+            },
+            {
+                score: 5,
+                count: 75
+            }
+        ] }
 };
 
-export const productListMock: IProduct[] = [
-    { ...productMock, image: image1, id: "1" },
-    { ...productMock, image: image2, id: "2" },
-    { ...productMock, image: image3, id: "3" },
-    { ...productMock, image: image4, id: "4" },
-    { ...productMock, image: image5, id: "5" },
-    { ...productMock, image: image1, id: "6" }
+export const productListMock: Product[] = [
+    { ...productMock, imageUrl: image1, id: "1" },
+    { ...productMock, imageUrl: image2, id: "2" },
+    { ...productMock, imageUrl: image3, id: "3" },
+    { ...productMock, imageUrl: image4, id: "4" },
+    { ...productMock, imageUrl: image5, id: "5" },
+    { ...productMock, imageUrl: image1, id: "6" }
 ];

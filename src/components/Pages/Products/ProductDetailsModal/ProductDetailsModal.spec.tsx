@@ -5,38 +5,47 @@ import ProductDetailsModal, { ProductDetailsModalProps } from "./ProductDetailsM
 import { renderWithProviders } from "../../../../utils/tests/renderWithProviders";
 import { productMock } from "../../../../utils/mocks";
 
+import { defaultMock } from "./mocks";
+
 describe("ProductDetailsModal", () => {
     const DEFAULT_PROPS: ProductDetailsModalProps = {
         visible: true,
         onClose: jest.fn(),
-        product: productMock
+        productId: productMock.id
     };
 
     beforeEach(() => {
         jest.clearAllMocks();
     });
 
-    it("renders product details correctly", () => {
-        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />);
+    it("renders product details correctly", async () => {
+        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />, { mocks: defaultMock });
 
-        expect(screen.getByText("CosMoss Explorer")).toBeInTheDocument();
+        await waitFor(() => {
+            expect(screen.getByText("CosMoss Explorer")).toBeInTheDocument();
+        });
+
         expect(screen.getByText("Luna")).toBeInTheDocument();
         expect(screen.getByText(productMock.description, { trim: false, collapseWhitespace: false }))
             .toBeInTheDocument();
         expect(screen.getByText("$80,00")).toBeInTheDocument();
-        expect(screen.getByText("4.5")).toBeInTheDocument();
-        expect(screen.getByText("Based on 125 reviews")).toBeInTheDocument();
+        expect(screen.getByText("4.6")).toBeInTheDocument();
+        expect(screen.getByText("(120 Reviews)")).toBeInTheDocument();
     });
 
     it("calls onClose when back button is clicked", () => {
-        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />);
+        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />, { mocks: defaultMock });
 
         userEvent.click(screen.getByTestId("close-modal"));
         expect(DEFAULT_PROPS.onClose).toHaveBeenCalledTimes(1);
     });
 
-    it("opens product details drawer", () => {
-        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />);
+    it("opens product details drawer", async () => {
+        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />, { mocks: defaultMock });
+
+        await waitFor(() => {
+            expect(screen.getByTestId("open-product-details")).toBeInTheDocument();
+        });
 
         userEvent.click(screen.getByTestId("open-product-details"));
 
@@ -44,8 +53,12 @@ describe("ProductDetailsModal", () => {
         expect(screen.getByTestId("markdown")).toBeInTheDocument();
     });
 
-    it("opens and closes different drawer states", () => {
-        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />);
+    it("opens and closes different drawer states", async () => {
+        renderWithProviders(<ProductDetailsModal {...DEFAULT_PROPS} />, { mocks: defaultMock });
+
+        await waitFor(() => {
+            expect(screen.getByTestId("open-shipping-information")).toBeInTheDocument();
+        });
 
         userEvent.click(screen.getByTestId("open-shipping-information"));
 
@@ -58,21 +71,9 @@ describe("ProductDetailsModal", () => {
 
         userEvent.click(backButton);
 
-        waitFor(() => {
+        await waitFor(() => {
             expect(drawer).toHaveStyle({ transform: "translateX(100%)" });
-            expect(drawer).toHaveStyle({ transform: "translateX(0%)" });
             expect(textContent).not.toBeInTheDocument();
         });
-    });
-
-    it("renders null when no product is provided", () => {
-        renderWithProviders(
-            <ProductDetailsModal
-                {...DEFAULT_PROPS}
-                product={null}
-            />
-        );
-
-        expect(screen.queryByTestId("product-details-container")).not.toBeInTheDocument();
     });
 });

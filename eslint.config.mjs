@@ -8,14 +8,13 @@ import stylisticJs from "@stylistic/eslint-plugin-js";
 export default [
     { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
     { languageOptions: { globals: globals.browser } },
-    { ignores: ["build/**/*"] },
+    { ignores: ["build/**/*", "src/generated/**/*"] },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
     pluginReact.configs.flat.recommended,
     pluginReact.configs.flat["jsx-runtime"],
     {
         plugins: { "@stylistic/js": stylisticJs },
-
         rules: {
             "@stylistic/js/indent": ["error", 4],
             "@stylistic/js/quotes": ["error", "double"],
